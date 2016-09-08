@@ -152,7 +152,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\FritzBoxAPI\FritzBoxAPI\FritzBoxHttpAPI.csproj">
+    <ProjectReference Include="..\..\..\FritzBoxAPI\FritzBoxHttpAPI\FritzBoxHttpAPI.csproj">
       <Project>{6658add9-a6d5-4a9f-afd6-95c87ba544bd}</Project>
       <Name>FritzBoxHttpAPI</Name>
     </ProjectReference>
