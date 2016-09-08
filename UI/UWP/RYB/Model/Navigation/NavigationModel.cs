@@ -57,14 +57,14 @@ namespace XElement.RedYellowBlue.UI.UWP.Model
 
         private void UpdateGlobalBackButton()
         {
-            var visibility = AppViewBackButtonVisibility.Collapsed;
+            //var visibility = AppViewBackButtonVisibility.Collapsed;
 
-            if ( this._navigationFrame.CanGoBack )
-            {
-                visibility = AppViewBackButtonVisibility.Visible;
-            }
+            //if ( this._navigationFrame.CanGoBack )
+            //{
+            //    visibility = AppViewBackButtonVisibility.Visible;
+            //}
 
-            this._navigationManager.AppViewBackButtonVisibility = visibility;
+            //this._navigationManager.AppViewBackButtonVisibility = visibility;
         }
 
 
