@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
-using XElement.RedYellowBlue.UI.UWP.Modules;
-using XElement.RedYellowBlue.UI.UWP.Modules.Main;
+using XElement.RedYellowBlue.UI.UWP.Model;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -14,33 +13,34 @@ namespace XElement.RedYellowBlue.UI.UWP
         {
             this.InitializeComponent();
 
-            this.NavigateTo( NavigationOptions.Home );
+            this.NavigateTo( NavigationOption.Home );
         }
 
 
         private void HamburgerMenu_ItemClick( object sender, ItemClickEventArgs e )
         {
             if ( e.ClickedItem == this._homeItem )
-                this.NavigateTo( NavigationOptions.Home );
+                this.NavigateTo( NavigationOption.Home );
             else if ( e.ClickedItem == this._settingsItem )
-                this.NavigateTo( NavigationOptions.Settings );
+                this.NavigateTo( NavigationOption.Settings );
             else /*if ( e.ClickedItem == this._aboutItem )*/
-                this.NavigateTo( NavigationOptions.About );
+                this.NavigateTo( NavigationOption.About );
         }
 
 
-        private void NavigateTo( NavigationOptions navOptions )
+        private void NavigateTo( NavigationOption navOption )
         {
-            Type navigateTo = null;
+            var mainVM = this.DataContext as MainViewModel;
+            if ( mainVM != null )
+            {
+                if ( !mainVM.NavigationModel.IsInitialized )
+                {
+                    var navManager = SystemNavigationManager.GetForCurrentView();
+                    mainVM.NavigationModel.Initialize( this._navigationFrame, navManager );
+                }
 
-            if ( navOptions == NavigationOptions.Home )
-                navigateTo = typeof( HomePage );
-            else if ( navOptions == NavigationOptions.Settings )
-                navigateTo = typeof( SettingsPage );
-            else /*if ( navOptions == NavigationOptions.About )*/
-                navigateTo = null; // TODO
-
-            this._navigationFrame.Navigate( navigateTo );
+                mainVM.NavigationModel.NavigateTo( navOption );
+            }
         }
     }
 #endregion

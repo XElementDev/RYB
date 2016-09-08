@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Navigation\NavigationModel.cs" />
     <Compile Include="Modules\Main\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -102,6 +103,7 @@
     <Compile Include="Modules\Home\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Navigation\NavigationOptionEnum.cs" />
     <Compile Include="Modules\Settings\Model.cs" />
     <Compile Include="Modules\Settings\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
