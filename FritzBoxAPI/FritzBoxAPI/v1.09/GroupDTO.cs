@@ -1,4 +1,4 @@
-﻿namespace XElement.RedYellowBlue.FritzBoxApi.v109
+﻿namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
 {
 #region not unit-tested
     internal class GroupDTO : DeviceDTO

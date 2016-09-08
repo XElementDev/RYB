@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace XElement.RedYellowBlue.FritzBoxApi.v109
+namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
 {
 #region not unit-tested
     [XmlRoot( "devicelist" )]

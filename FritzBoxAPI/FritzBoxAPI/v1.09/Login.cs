@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace XElement.RedYellowBlue.FritzBoxAPI.v109
+namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
 {
 #region not unit-tested
     public class Login
