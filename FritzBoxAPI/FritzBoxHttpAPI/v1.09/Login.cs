@@ -7,6 +7,9 @@ using System.Xml.Serialization;
 
 namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
 {
+    //  --> Based on: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/AVM_Technical_Note_-_Session_ID.pdf
+    //      taken from: https://avm.de/service/schnittstellen/
+    //      Last visited: 2016-09-08
 #region not unit-tested
     public class Login
     {
