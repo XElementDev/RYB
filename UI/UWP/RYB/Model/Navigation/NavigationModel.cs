@@ -22,7 +22,10 @@ namespace XElement.RedYellowBlue.UI.UWP.Model
         }
 
 
-        public bool IsInitialized { get { return this._navigationFrame != null; } }
+        public bool IsInitialized
+        {
+            get { return this._navigationFrame != null && this._navigationManager != null; }
+        }
 
 
         public void NavigateTo( NavigationOption navOption )
@@ -52,12 +55,6 @@ namespace XElement.RedYellowBlue.UI.UWP.Model
         }
 
 
-        [OnImportsSatisfied]
-        internal void OnImportsSatisfied()
-        {
-        }
-
-
         private void UpdateGlobalBackButton()
         {
             var visibility = AppViewBackButtonVisibility.Collapsed;
@@ -72,6 +69,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model
 
 
         private Frame _navigationFrame;
+
         private SystemNavigationManager _navigationManager;
     }
 #endregion
