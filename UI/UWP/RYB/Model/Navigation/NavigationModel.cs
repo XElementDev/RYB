@@ -37,7 +37,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model
             else if ( navOption == NavigationOption.Settings )
                 navigateTo = typeof( SettingsPage );
             else /*if ( navOption == NavigationOptions.About )*/
-                navigateTo = null; // TODO
+                navigateTo = typeof( AboutPage );
 
             this._navigationFrame.Navigate( navigateTo );
             this.UpdateGlobalBackButton();
