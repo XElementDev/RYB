@@ -1,5 +1,5 @@
 ﻿using System.Composition;
-using System.Windows.Input;
+using XElement.RedYellowBlue.UI.UWP.Model;
 
 namespace XElement.RedYellowBlue.UI.UWP
 {
@@ -7,27 +7,18 @@ namespace XElement.RedYellowBlue.UI.UWP
     [Export]
     internal class MainViewModel
     {
-        public MainViewModel()
+        [ImportingConstructor]
+        public MainViewModel( NavigationModel navigationModel )
         {
-            //new DelegateCommand()
-            //new RoutedCommand()
-            //new RoutedUICommand()
-            this.NavigationCommand = null; // TODO
+            this.NavigationModel = navigationModel;
         }
-
-
-        public string Blubb { get; private set; }
 
 
         //[Import]
         //private Config Config { get; set; }
 
 
-        public ICommand NavigationCommand { get; private set; }
-
-        private void NavigationCommand_Execute( object obj )
-        {
-        }
+        public NavigationModel NavigationModel { get; private set; }
 
 
         [OnImportsSatisfied]
@@ -36,7 +27,6 @@ namespace XElement.RedYellowBlue.UI.UWP
             //var login = new Login( this.Config.Uri, this.Config.Username );
             //login.Do( this.Config.Password );
             //var sid = login.Sid;
-            this.Blubb = "blubb.waogiherioguahegrhiarguraugigiauaurenvar0gmf,";// + "\t sid:" + sid;
         }
     }
 #endregion
