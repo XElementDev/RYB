@@ -1,0 +1,69 @@
+﻿<Page x:Class="RYB.MainPage" 
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      mc:Ignorable="d" 
+
+      xmlns:uwpToolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate x:Key="HamburgerItemTemplate" x:DataType="uwpToolkit:HamburgerMenuGlyphItem">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <FontIcon 
+                          Grid.Column="0" 
+                          Glyph="{Binding Path=Glyph}" 
+                          Style="{StaticResource HamburgerMenuItemGlyphStyle}" 
+                    />
+
+                    <TextBlock 
+                           Grid.Column="1" 
+                           Text="{Binding Path=Label}" 
+                         Style="{StaticResource HamburgerMenuItemLabelStyle}"
+                    />
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Page.Resources>
+
+
+    <uwpToolkit:HamburgerMenu 
+                              ItemTemplate="{StaticResource HamburgerItemTemplate}" 
+                              OptionsItemTemplate="{StaticResource HamburgerItemTemplate}" 
+                              OptionsItemClick="HamburgerMenu_OptionsItemClick">
+
+        <uwpToolkit:HamburgerMenu.ItemsSource>
+            <uwpToolkit:HamburgerMenuItemCollection>
+                <uwpToolkit:HamburgerMenuGlyphItem 
+                                                   Glyph="&#xE10F;" 
+                                                   Label="&lt;Home&gt;" 
+                />
+            </uwpToolkit:HamburgerMenuItemCollection>
+        </uwpToolkit:HamburgerMenu.ItemsSource>
+
+        <uwpToolkit:HamburgerMenu.OptionsItemsSource>
+            <uwpToolkit:HamburgerMenuItemCollection>
+                <uwpToolkit:HamburgerMenuGlyphItem 
+                                                   Glyph="&#xE713;" 
+                                                   Label="&lt;Settings&gt;" 
+                />
+                <uwpToolkit:HamburgerMenuGlyphItem 
+                                                   Glyph="&#xE783;" 
+                                                   Label="&lt;About&gt;" 
+                />
+            </uwpToolkit:HamburgerMenuItemCollection>
+        </uwpToolkit:HamburgerMenu.OptionsItemsSource>
+
+        <Frame x:Name="_navigationFrame" />
+    </uwpToolkit:HamburgerMenu>
+</Page>
