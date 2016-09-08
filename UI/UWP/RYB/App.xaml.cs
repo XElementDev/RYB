@@ -7,9 +7,8 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using XElement.RedYellowBlue.UI.UWP;
 
-namespace RYB
+namespace XElement.RedYellowBlue.UI.UWP
 {
 #region not unit-tested
     /// <summary>
