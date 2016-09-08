@@ -1,7 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+
+                    xmlns:uwpToolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
     <x:Double x:Key="_navPaneSize">48</x:Double>
+
+
+    <Style TargetType="uwpToolkit:HamburgerMenu">
+        <Setter Property="PaneBackground" Value="{StaticResource AppBarBackground}" />
+    </Style>
 
 
     <Style x:Key="HamburgerMenuItemGlyphStyle" TargetType="FontIcon">

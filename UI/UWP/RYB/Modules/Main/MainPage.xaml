@@ -39,12 +39,13 @@
 
     <uwpToolkit:HamburgerMenu 
                               ItemTemplate="{StaticResource HamburgerItemTemplate}" 
+                              ItemClick="HamburgerMenu_ItemClick" 
                               OptionsItemTemplate="{StaticResource HamburgerItemTemplate}" 
-                              OptionsItemClick="HamburgerMenu_OptionsItemClick">
+                              OptionsItemClick="HamburgerMenu_ItemClick">
 
         <uwpToolkit:HamburgerMenu.ItemsSource>
             <uwpToolkit:HamburgerMenuItemCollection>
-                <uwpToolkit:HamburgerMenuGlyphItem 
+                <uwpToolkit:HamburgerMenuGlyphItem x:Name="_homeItem" 
                                                    Glyph="&#xE10F;" 
                                                    Label="&lt;Home&gt;" 
                 />
@@ -53,11 +54,11 @@
 
         <uwpToolkit:HamburgerMenu.OptionsItemsSource>
             <uwpToolkit:HamburgerMenuItemCollection>
-                <uwpToolkit:HamburgerMenuGlyphItem 
+                <uwpToolkit:HamburgerMenuGlyphItem x:Name="_settingsItem" 
                                                    Glyph="&#xE713;" 
                                                    Label="&lt;Settings&gt;" 
                 />
-                <uwpToolkit:HamburgerMenuGlyphItem 
+                <uwpToolkit:HamburgerMenuGlyphItem x:Name="_aboutItem" 
                                                    Glyph="&#xE783;" 
                                                    Label="&lt;About&gt;" 
                 />
