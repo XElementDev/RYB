@@ -12,22 +12,24 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
     {
         public Login( string fritzBoxUrl, string username )
         {
-            this._uriBuilder = new UriBuilder( fritzBoxUrl );
-            this._uriBuilder.Path = SESSION_INFO_PAGE;
+            var uriBuilder = new UriBuilder( fritzBoxUrl );
+            uriBuilder.Path = SESSION_INFO_PAGE;
+            this._baseUri = uriBuilder.Uri;
+
             this._username = username;
         }
 
 
         public void Do( string password )
         {
-            var sessionInfo = this.GetSessionInfo();
+            var sessionInfo = this.GetSessionInfo( this._baseUri );
             if ( sessionInfo.Sid == Login.DEFAULT_SID )
             {
                 var hash = this.GenerateHash( sessionInfo.Challenge, password );
                 var response = this.GenerateResponseQueryAttribute( sessionInfo.Challenge, hash );
-                this._uriBuilder.Query = this.GenerateQuery( response );
-                var request = WebRequest.CreateHttp( this._uriBuilder.Uri );
-                this.Sid = this.GetSessionInfo().Sid;
+                var query = this.GenerateQuery( response );
+                var loginUri = new UriBuilder( this._baseUri ) { Query = query }.Uri;
+                this.Sid = this.GetSessionInfo( loginUri ).Sid;
             }
         }
 
@@ -35,10 +37,10 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
         private string GenerateHash( string challenge, string password )
         {
             var toHash = $"{challenge}-{password}";
-            var bytesToHash = Encoding.UTF8.GetBytes( toHash );
+            var bytesToHash = Encoding.Unicode.GetBytes( toHash );
             var hashedBytes = MD5.Create().ComputeHash( bytesToHash );
             var stringBuilder = new StringBuilder();
-            hashedBytes.Select( b => stringBuilder.Append( b.ToString( "x2" ) ) );
+            hashedBytes.Select( b => stringBuilder.Append( b.ToString( "x2" ) ) ).ToList();
             var hash = stringBuilder.ToString();
             return hash;
         }
@@ -56,9 +58,9 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
         }
 
 
-        private SessionInfoDTO GetSessionInfo()
+        private SessionInfoDTO GetSessionInfo( Uri uri )
         {
-            var request = WebRequest.CreateHttp( this._uriBuilder.Uri );
+            var request = WebRequest.CreateHttp( uri );
             var response = request.GetResponseAsync().Result;
             var serializer = new XmlSerializer( typeof( SessionInfoDTO ) );
             var sessionInfo = (SessionInfoDTO)serializer.Deserialize( response.GetResponseStream() );
@@ -73,7 +75,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
         private const string SESSION_INFO_PAGE = "login_sid.lua";
 
 
-        private UriBuilder _uriBuilder;
+        private Uri _baseUri;
         private string _username;
     }
 #endregion
