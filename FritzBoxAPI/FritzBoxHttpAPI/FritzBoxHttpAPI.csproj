@@ -113,7 +113,10 @@
     <Compile Include="v1.09\GroupDTO.cs" />
     <Compile Include="v1.09\GroupInfoDTO.cs" />
     <Compile Include="v1.09\HkrDTO.cs" />
-    <Compile Include="v1.09\Login.cs" />
+    <Compile Include="v1.09\Login\AnonymousLogin.cs" />
+    <Compile Include="v1.09\Login\LoginBase.cs" />
+    <Compile Include="v1.09\Login\PasswordBasedLogin.cs" />
+    <Compile Include="v1.09\Login\UserBasedLogin.cs" />
     <Compile Include="v1.09\PowermeterDTO.cs" />
     <Compile Include="v1.09\SessionInfoDTO.cs" />
     <Compile Include="v1.09\SwitchDTO.cs" />
