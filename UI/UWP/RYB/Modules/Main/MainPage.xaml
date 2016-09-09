@@ -5,6 +5,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       mc:Ignorable="d" 
 
+      xmlns:modules="using:XElement.RedYellowBlue.UI.UWP.Modules" 
       xmlns:uwpToolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
     <Page.Resources>
@@ -45,26 +46,31 @@
 
         <uwpToolkit:HamburgerMenu.ItemsSource>
             <uwpToolkit:HamburgerMenuItemCollection>
-                <uwpToolkit:HamburgerMenuGlyphItem x:Name="_homeItem" 
+                <uwpToolkit:HamburgerMenuGlyphItem 
                                                    Glyph="&#xE10F;" 
                                                    Label="&lt;Home&gt;" 
+                                                   TargetPageType="modules:HomePage" 
                 />
             </uwpToolkit:HamburgerMenuItemCollection>
         </uwpToolkit:HamburgerMenu.ItemsSource>
 
         <uwpToolkit:HamburgerMenu.OptionsItemsSource>
             <uwpToolkit:HamburgerMenuItemCollection>
-                <uwpToolkit:HamburgerMenuGlyphItem x:Name="_settingsItem" 
+                <uwpToolkit:HamburgerMenuGlyphItem 
                                                    Glyph="&#xE713;" 
                                                    Label="&lt;Settings&gt;" 
+                                                   TargetPageType="modules:SettingsPage" 
                 />
-                <uwpToolkit:HamburgerMenuGlyphItem x:Name="_aboutItem" 
+                <uwpToolkit:HamburgerMenuGlyphItem 
                                                    Glyph="&#xE783;" 
                                                    Label="&lt;About&gt;" 
+                                                   TargetPageType="modules:AboutPage" 
                 />
             </uwpToolkit:HamburgerMenuItemCollection>
         </uwpToolkit:HamburgerMenu.OptionsItemsSource>
 
-        <Frame x:Name="_navigationFrame" />
+        <Frame x:Name="_navigationFrame" 
+               DataContext="{Binding Path=FrameDataContext, Mode=OneWay}" 
+        />
     </uwpToolkit:HamburgerMenu>
 </Page>

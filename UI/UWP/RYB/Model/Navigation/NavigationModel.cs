@@ -1,17 +1,20 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using System;
 using System.Composition;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
-using XElement.RedYellowBlue.UI.UWP.Modules;
 
 namespace XElement.RedYellowBlue.UI.UWP.Model
 {
 #region not unit-tested
     [Export]
-    internal class NavigationModel
+    internal class NavigationModel : ViewModelBase
     {
         [ImportingConstructor]
         public NavigationModel() { }
+
+
+        public Type CurrentTarget { get { return this._navigationFrame.Content.GetType(); } }
 
 
         public void Initialize( Frame frame, SystemNavigationManager navManager )
@@ -28,19 +31,11 @@ namespace XElement.RedYellowBlue.UI.UWP.Model
         }
 
 
-        public void NavigateTo( NavigationOption navOption )
+        public void NavigateTo( Type targetPageType )
         {
-            Type navigateTo = null;
-
-            if ( navOption == NavigationOption.Home )
-                navigateTo = typeof( HomePage );
-            else if ( navOption == NavigationOption.Settings )
-                navigateTo = typeof( SettingsPage );
-            else /*if ( navOption == NavigationOptions.About )*/
-                navigateTo = typeof( AboutPage );
-
-            this._navigationFrame.Navigate( navigateTo );
+            this._navigationFrame.Navigate( targetPageType );
             this.UpdateGlobalBackButton();
+            this.RaisePropertyChanged( nameof( this.CurrentTarget ) );
         }
 
 

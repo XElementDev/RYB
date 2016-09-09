@@ -95,10 +95,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\DataContextPageTypeMap\Model.cs" />
+    <Compile Include="Model\DataContextPageTypeMap\ModelDependenciesDTO.cs" />
     <Compile Include="Model\Navigation\NavigationModel.cs" />
     <Compile Include="Modules\About\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Main\ViewModelDependenciesDTO.cs" />
     <Compile Include="Modules\Main\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -106,7 +109,6 @@
     <Compile Include="Modules\Home\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Navigation\NavigationOptionEnum.cs" />
     <Compile Include="Modules\Settings\Model.cs" />
     <Compile Include="Modules\Settings\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
@@ -122,6 +124,7 @@
     <None Include="RYB_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

@@ -6,7 +6,13 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
     [Export]
     internal class ViewModel
     {
-        [Import]
+        [ImportingConstructor]
+        public ViewModel( Settings.Model model )
+        {
+            this.Model = model;
+        }
+
+
         public Settings.Model Model { get; private set; }
     }
 #endregion

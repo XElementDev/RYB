@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PropertyChanged;
+using System;
 using System.Composition;
 using System.Windows.Input;
 using XElement.RedYellowBlue.UI.UWP.Model;
@@ -7,11 +8,17 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
 {
 #region not unit-tested
     [Export]
+    [ImplementPropertyChanged]
     internal class Model
     {
-        public Model() { }
+        [ImportingConstructor]
+        public Model( Config config )
+        {
+            this._config = config;
+        }
 
 
+        [DoNotNotify]
         public ICommand OkayCommand { get; private set; }
 
         private void OkayCommand_Execute()
@@ -33,8 +40,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
         public string Username { get; set; }
 
 
-        [Import]
-        private Config _config { get; set; }
+        private Config _config;
     }
 #endregion
 }
