@@ -14,7 +14,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
         public string Challenge { get; set; }
 
 
-        // Rights
+        // TODO: Rights
 
 
         [XmlElement( "SID" )]
