@@ -1,6 +1,7 @@
 ﻿using Microsoft.Toolkit.Uwp.UI.Controls;
-using System;
+using System.Linq;
 using Windows.UI.Core;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -19,15 +20,27 @@ namespace XElement.RedYellowBlue.UI.UWP
         private void HamburgerMenu_ItemClick( object sender, ItemClickEventArgs e )
         {
             var clickedHamburgerMenuItem = e.ClickedItem as HamburgerMenuItem;
-            this.MainVM.Header = clickedHamburgerMenuItem.Label;
-            this.NavigateTo( clickedHamburgerMenuItem.TargetPageType );
+            this.TryInitializeNavigationModel();
+            this.MainVM.NavigateToCommand.Execute( clickedHamburgerMenuItem );
+            this.TryClosePane();
         }
 
 
         private MainViewModel MainVM { get { return (MainViewModel)this.DataContext; } }
 
 
-        private void NavigateTo( Type targetPageType )
+        private void TryClosePane()
+        {
+            var visualStateGroups = VisualStateManager.GetVisualStateGroups( this._hamburgerMenu );
+            var group = visualStateGroups.First();
+            if ( group.CurrentState.Name != "Desktop" )
+            {
+                this._hamburgerMenu.IsPaneOpen = false;
+            }
+        }
+
+
+        private void TryInitializeNavigationModel()
         {
             var mainVM = this.MainVM;
             if ( mainVM != null )
@@ -37,8 +50,6 @@ namespace XElement.RedYellowBlue.UI.UWP
                     var navManager = SystemNavigationManager.GetForCurrentView();
                     mainVM.NavigationModel.Initialize( this._navigationFrame, navManager );
                 }
-
-                mainVM.NavigationModel.NavigateTo( targetPageType );
             }
         }
     }

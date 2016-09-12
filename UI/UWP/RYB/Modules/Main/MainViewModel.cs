@@ -13,6 +13,8 @@ namespace XElement.RedYellowBlue.UI.UWP
         [ImportingConstructor]
         public MainViewModel( ViewModelDependenciesDTO dependencies )
         {
+            this.NavigateToCommand = new RelayCommand<HamburgerMenuItem>( this.NavigateToCommand_Execute );
+
             this._dependencies = dependencies;
         }
 
@@ -39,6 +41,16 @@ namespace XElement.RedYellowBlue.UI.UWP
 
             //this.Config = this._dependencies.Config;
             this.NavigationModel = this._dependencies.NavigationModel;
+        }
+
+
+        [DoNotNotify]
+        public ICommand NavigateToCommand { get; private set; }
+
+        private void NavigateToCommand_Execute( HamburgerMenuItem clickedItem )
+        {
+            this.Header = clickedItem.Label;
+            this.NavigationModel.NavigateTo( clickedItem.TargetPageType );
         }
 
 
