@@ -110,7 +110,7 @@
             <Border x:Name="_headerContainer" 
                     Style="{StaticResource HeaderContainerStyle}">
                 <TextBlock 
-                           Text="-Header-" 
+                           Text="{Binding Path=Header}" 
                            Style="{StaticResource HeaderTextStyle}" 
                 />
             </Border>

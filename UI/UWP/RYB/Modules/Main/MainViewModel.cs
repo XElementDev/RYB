@@ -24,6 +24,15 @@ namespace XElement.RedYellowBlue.UI.UWP
         public object FrameDataContext { get; private set; }
 
 
+        private string _header;
+
+        public string Header
+        {
+            get { return this._header; }
+            set { this._header = value.ToUpper(); }
+        }
+
+
         private void Initialize()
         {
             this._dataContextPageTypeMap = this._dependencies.DataContextPageTypeMap;
