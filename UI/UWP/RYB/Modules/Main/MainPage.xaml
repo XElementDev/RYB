@@ -38,11 +38,47 @@
     </Page.Resources>
 
 
-    <uwpToolkit:HamburgerMenu 
+    <uwpToolkit:HamburgerMenu x:Name="_hamburgerMenu" 
                               ItemTemplate="{StaticResource HamburgerItemTemplate}" 
                               ItemClick="HamburgerMenu_ItemClick" 
                               OptionsItemTemplate="{StaticResource HamburgerItemTemplate}" 
                               OptionsItemClick="HamburgerMenu_ItemClick">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Phone">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="_hamburgerMenu.DisplayMode" Value="Overlay" />
+                        <Setter Target="_hamburgerMenu.IsPaneOpen" Value="False" />
+                        <Setter Target="_headerContainer.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Tablet">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="641"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="_hamburgerMenu.DisplayMode" Value="CompactInline" />
+                        <Setter Target="_hamburgerMenu.IsPaneOpen" Value="False" />
+                        <Setter Target="_headerContainer.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1008"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="_hamburgerMenu.DisplayMode" Value="CompactInline" />
+                        <Setter Target="_hamburgerMenu.IsPaneOpen" Value="True" />
+                        <Setter Target="_headerContainer.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
 
         <uwpToolkit:HamburgerMenu.ItemsSource>
             <uwpToolkit:HamburgerMenuItemCollection>
@@ -69,8 +105,19 @@
             </uwpToolkit:HamburgerMenuItemCollection>
         </uwpToolkit:HamburgerMenu.OptionsItemsSource>
 
-        <Frame x:Name="_navigationFrame" 
-               DataContext="{Binding Path=FrameDataContext, Mode=OneWay}" 
-        />
+        <StackPanel 
+                    Orientation="Vertical">
+            <Border x:Name="_headerContainer" 
+                    Style="{StaticResource HeaderContainerStyle}">
+                <TextBlock 
+                           Text="-Header-" 
+                           Style="{StaticResource HeaderTextStyle}" 
+                />
+            </Border>
+
+            <Frame x:Name="_navigationFrame" 
+                   DataContext="{Binding Path=FrameDataContext, Mode=OneWay}" 
+            />
+        </StackPanel>
     </uwpToolkit:HamburgerMenu>
 </Page>
