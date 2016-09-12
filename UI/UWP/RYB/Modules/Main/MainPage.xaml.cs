@@ -20,13 +20,25 @@ namespace XElement.RedYellowBlue.UI.UWP
         private void HamburgerMenu_ItemClick( object sender, ItemClickEventArgs e )
         {
             var clickedHamburgerMenuItem = e.ClickedItem as HamburgerMenuItem;
+            this.NavigateTo( clickedHamburgerMenuItem );
+        }
+
+
+        private MainViewModel MainVM { get { return (MainViewModel)this.DataContext; } }
+
+
+        private void NavigateTo( HamburgerMenuItem clickedHamburgerMenuItem )
+        {
             this.TryInitializeNavigationModel();
             this.MainVM.NavigateToCommand.Execute( clickedHamburgerMenuItem );
             this.TryClosePane();
         }
 
 
-        private MainViewModel MainVM { get { return (MainViewModel)this.DataContext; } }
+        private void OnDataContextChanged( FrameworkElement sender, DataContextChangedEventArgs args )
+        {
+            this.NavigateTo( this._home );
+        }
 
 
         private void TryClosePane()

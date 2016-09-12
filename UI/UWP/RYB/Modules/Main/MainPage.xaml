@@ -6,7 +6,8 @@
       mc:Ignorable="d" 
 
       xmlns:modules="using:XElement.RedYellowBlue.UI.UWP.Modules" 
-      xmlns:uwpToolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
+      xmlns:uwpToolkit="using:Microsoft.Toolkit.Uwp.UI.Controls" 
+      DataContextChanged="OnDataContextChanged">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -82,7 +83,7 @@
 
         <uwpToolkit:HamburgerMenu.ItemsSource>
             <uwpToolkit:HamburgerMenuItemCollection>
-                <uwpToolkit:HamburgerMenuGlyphItem 
+                <uwpToolkit:HamburgerMenuGlyphItem x:Name="_home" 
                                                    Glyph="&#xE10F;" 
                                                    Label="&lt;Home&gt;" 
                                                    TargetPageType="modules:HomePage" 
