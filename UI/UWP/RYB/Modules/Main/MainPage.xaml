@@ -23,15 +23,15 @@
                     </Grid.ColumnDefinitions>
 
                     <FontIcon 
-                          Grid.Column="0" 
-                          Glyph="{Binding Path=Glyph}" 
-                          Style="{StaticResource HamburgerMenuItemGlyphStyle}" 
+                              Grid.Column="0" 
+                              Glyph="{Binding Path=Glyph}" 
+                              Style="{StaticResource HamburgerMenuItemGlyphStyle}" 
                     />
 
                     <TextBlock 
-                           Grid.Column="1" 
-                           Text="{Binding Path=Label}" 
-                         Style="{StaticResource HamburgerMenuItemLabelStyle}"
+                               Grid.Column="1" 
+                               Text="{Binding Path=Label}" 
+                               Style="{StaticResource HamburgerMenuItemLabelStyle}" 
                     />
                 </Grid>
             </DataTemplate>
