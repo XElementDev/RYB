@@ -11,7 +11,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="./Resources.xaml" />
                 <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -55,6 +55,11 @@
                                   Glyph="&#xE10B;" 
                                   Visibility="{Binding Path=Model.WasConnectionTestPositive, 
                                                        Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+                        />
+                        <FontIcon 
+                                  Glyph="&#xE7BA;" 
+                                  Visibility="{Binding Path=Model.WasConnectionTestPositive, 
+                                                       Converter={StaticResource TrueToCollapsedVisibilityConverter}}" 
                         />
 
                         <Button 

@@ -1,6 +1,6 @@
 ﻿using PropertyChanged;
 using System.Composition;
-using System.Threading.Tasks;
+using XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter;
 
 namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
 {
@@ -24,23 +24,32 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
             this.WasConnectionTestPositive = null;
             this.IsConnectionTestActive = true;
 
-            await Task.Delay( 500 );
+
+            var isLoginValid = await this.CreateHttpService().IsLoginValidAsync();
+
+            if ( isLoginValid )
+            {
+                this.PersistToNextLayer();
+            }
 
             this.IsConnectionTestActive = false;
-            this.WasConnectionTestPositive = true;
+            this.WasConnectionTestPositive = isLoginValid;
+        }
 
-            //var parameters = new ServiceParametersDTO
-            //{
-            //    Uri = this._dependencies.Config.Uri
-            //};
-            //var svc = new Service( parameters )
-            //{
-            //    Password = this._dependencies.Config.Password, 
-            //    Username = this._dependencies.Config.Username
-            //};
-            //svc.IsLoginValid();
 
-            // TODO
+        private IHttpService CreateHttpService()
+        {
+            var parameters = new HttpServiceParametersDTO
+            {
+                Uri = this.Url
+            };
+            var optional = new OptionalHttpServiceParametersDTO
+            {
+                Password = this.Password, 
+                Username = this.Username
+            };
+            var svc = new HttpService( parameters, optional );
+            return svc;
         }
 
 
@@ -57,6 +66,14 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
 
 
         public string Password { get; set; }
+
+
+        private void PersistToNextLayer()
+        {
+            this._dependencies.Config.Password = this.Password;
+            this._dependencies.Config.Uri = this.Url;
+            this._dependencies.Config.Username = this.Username;
+        }
 
 
         public string Url { get; set; }

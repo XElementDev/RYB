@@ -97,6 +97,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Model\DataContextPageTypeMap\Model.cs" />
     <Compile Include="Model\DataContextPageTypeMap\ModelDependenciesDTO.cs" />
     <Compile Include="Model\Navigation\NavigationModel.cs" />
@@ -142,7 +143,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Dictionaries\Resources.xaml">
+    <Page Include="Modules\Settings\Resources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -175,12 +176,22 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\FritzBoxAPI\ApiAdapter.Implementation\ApiAdapter.Implementation.csproj">
+      <Project>{F54BA55D-2336-4991-BBF8-3DEE56BBF8A5}</Project>
+      <Name>ApiAdapter.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FritzBoxAPI\ApiAdapter.Interface\ApiAdapter.Interface.csproj">
+      <Project>{9E5E1955-7C20-4B25-B40A-93449EBAB79F}</Project>
+      <Name>ApiAdapter.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\FritzBoxAPI\FritzBoxHttpAPI\FritzBoxHttpAPI.csproj">
       <Project>{6658add9-a6d5-4a9f-afd6-95c87ba544bd}</Project>
       <Name>FritzBoxHttpAPI</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Dictionaries\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
