@@ -63,6 +63,7 @@
                         />
 
                         <Button 
+                                x:Uid="Settings_TestConnection" 
                                 Command="{Binding Path=ValidateCommand}" 
                                 Content="&lt;Test connection&gt;" 
                                 Style="{StaticResource ValidateButton}" 

@@ -129,4 +129,8 @@
     <value>Einstellungen</value>
     <comment>// 2016-09-13</comment>
   </data>
+  <data name="Settings_TestConnection.Content" xml:space="preserve">
+    <value>Verbindung überprüfen</value>
+    <comment>// 2016-09-13</comment>
+  </data>
 </root>
