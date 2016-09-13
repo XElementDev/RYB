@@ -1,4 +1,5 @@
-﻿using XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109;
+﻿using System.Threading.Tasks;
+using XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109;
 
 namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
 {
@@ -42,6 +43,13 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
             catch { isLoginValid = false; }
 
             return isLoginValid;
+        }
+
+        public Task<bool> /*IService.*/IsLoginValidAsync()
+        {
+            var task = new Task<bool>( this.IsLoginValid );
+            task.Start();
+            return task;
         }
 
 
