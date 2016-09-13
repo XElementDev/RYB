@@ -2,6 +2,7 @@
   "dependencies": {
     "Microsoft.Composition": "1.0.30",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+    "Microsoft.Toolkit.Uwp.UI": "1.1.0-pullrequest003-00263",
     "Microsoft.Toolkit.Uwp.UI.Controls": "1.1.0-pullrequest003-00159",
     "MvvmLight": "5.3.0",
     "PropertyChanged.Fody": "1.51.3"

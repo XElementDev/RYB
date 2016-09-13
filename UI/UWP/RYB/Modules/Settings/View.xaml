@@ -8,26 +8,62 @@
 
       xmlns:uwpToolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="./Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Pivot>
             <PivotItem 
                        Header="&lt;Login&gt;">
-                <StackPanel>
+                <VariableSizedWrapGrid>
+                    <TextBlock 
+                               Text="&lt;Fritz!Box address:&gt;" 
+                    />
                     <TextBox 
-                             Text="{Binding Path=Model.Url, 
-                                            Mode=TwoWay}" 
+                             Text="{Binding Path=Url, 
+                                         Mode=TwoWay}" 
                     />
 
+                    <TextBlock 
+                               Text="&lt;Username:&gt;" 
+                    />
                     <TextBox 
-                             Text="{Binding Path=Model.Username, 
-                                            Mode=TwoWay}" 
+                             Text="{Binding Path=Username, 
+                                         Mode=TwoWay}" 
                     />
 
+                    <TextBlock 
+                               Text="&lt;Password:&gt;" 
+                    />
                     <PasswordBox 
-                                 Password="{Binding Path=Model.Password, 
-                                                    Mode=TwoWay}" 
+                                 Password="{Binding Path=Password, 
+                                                 Mode=TwoWay}" 
                     />
-                </StackPanel>
+
+                    <StackPanel>
+                        <ProgressRing 
+                                      IsActive="{Binding Path=Model.IsConnectionTestActive}" 
+                        />
+                        <FontIcon 
+                                  Glyph="&#xE10B;" 
+                                  Visibility="{Binding Path=Model.WasConnectionTestPositive, 
+                                                       Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+                        />
+
+                        <Button 
+                                Command="{Binding Path=ValidateCommand}" 
+                                Content="&lt;Test connection&gt;" 
+                                Style="{StaticResource ValidateButton}" 
+                        />
+                    </StackPanel>
+                </VariableSizedWrapGrid>
             </PivotItem>
         </Pivot>
     </Grid>

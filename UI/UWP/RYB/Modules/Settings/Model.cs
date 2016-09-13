@@ -1,8 +1,6 @@
 ﻿using PropertyChanged;
-using System;
 using System.Composition;
-using System.Windows.Input;
-using XElement.RedYellowBlue.UI.UWP.Model;
+using System.Threading.Tasks;
 
 namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
 {
@@ -12,35 +10,65 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
     internal class Model
     {
         [ImportingConstructor]
-        public Model( Config config )
+        public Model( ModelDependenciesDTO dependencies )
         {
-            this._config = config;
+            this.IsConnectionTestActive = false;
+            this.WasConnectionTestPositive = null;
+
+            this._dependencies = dependencies;
         }
 
 
-        [DoNotNotify]
-        public ICommand OkayCommand { get; private set; }
-
-        private void OkayCommand_Execute()
+        public async void CheckLogin()
         {
-            if ( (this.Username ?? String.Empty) == String.Empty )
-                this.Username = this._config.Username;
-            else
-                this._config.Username = this.Username;
+            this.WasConnectionTestPositive = null;
+            this.IsConnectionTestActive = true;
+
+            await Task.Delay( 500 );
+
+            this.IsConnectionTestActive = false;
+            this.WasConnectionTestPositive = true;
+
+            //var parameters = new ServiceParametersDTO
+            //{
+            //    Uri = this._dependencies.Config.Uri
+            //};
+            //var svc = new Service( parameters )
+            //{
+            //    Password = this._dependencies.Config.Password, 
+            //    Username = this._dependencies.Config.Username
+            //};
+            //svc.IsLoginValid();
+
+            // TODO
         }
+
+
+        public bool IsConnectionTestActive { get; private set; }
 
 
         [OnImportsSatisfied]
         internal void OnImportsSatisfied()
         {
-            this.Username = this._config.Username;
+            this.Password = this._dependencies.Config.Password;
+            this.Url = this._dependencies.Config.Uri;
+            this.Username = this._dependencies.Config.Username;
         }
+
+
+        public string Password { get; set; }
+
+
+        public string Url { get; set; }
 
 
         public string Username { get; set; }
 
 
-        private Config _config;
+        public bool? WasConnectionTestPositive { get; private set; }
+
+
+        private ModelDependenciesDTO _dependencies;
     }
 #endregion
 }
