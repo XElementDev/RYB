@@ -117,15 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HamburgerMenu_About.Label" xml:space="preserve">
+  <data name="Main_HamburgerMenu_About.Label" xml:space="preserve">
     <value>About</value>
     <comment>// 2016-09-13</comment>
   </data>
-  <data name="HamburgerMenu_Home.Label" xml:space="preserve">
+  <data name="Main_HamburgerMenu_Home.Label" xml:space="preserve">
     <value>Home</value>
     <comment>// 2016-09-13</comment>
   </data>
-  <data name="HamburgerMenu_Settings.Label" xml:space="preserve">
+  <data name="Main_HamburgerMenu_Settings.Label" xml:space="preserve">
     <value>Settings</value>
     <comment>// 2016-09-13</comment>
   </data>
