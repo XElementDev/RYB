@@ -87,8 +87,8 @@
         <uwpToolkit:HamburgerMenu.ItemsSource>
             <uwpToolkit:HamburgerMenuItemCollection>
                 <uwpToolkit:HamburgerMenuGlyphItem x:Name="_home" 
+                                                   x:Uid="HamburgerMenu_Home" 
                                                    Glyph="&#xE10F;" 
-                                                   Label="&lt;Home&gt;" 
                                                    TargetPageType="modules:HomePage" 
                 />
             </uwpToolkit:HamburgerMenuItemCollection>
@@ -97,13 +97,13 @@
         <uwpToolkit:HamburgerMenu.OptionsItemsSource>
             <uwpToolkit:HamburgerMenuItemCollection>
                 <uwpToolkit:HamburgerMenuGlyphItem 
+                                                   x:Uid="HamburgerMenu_Settings" 
                                                    Glyph="&#xE713;" 
-                                                   Label="&lt;Settings&gt;" 
                                                    TargetPageType="modules:SettingsPage" 
                 />
                 <uwpToolkit:HamburgerMenuGlyphItem 
+                                                   x:Uid="HamburgerMenu_About" 
                                                    Glyph="&#xE783;" 
-                                                   Label="&lt;About&gt;" 
                                                    TargetPageType="modules:AboutPage" 
                 />
             </uwpToolkit:HamburgerMenuItemCollection>
