@@ -6,7 +6,7 @@ using XElement.RedYellowBlue.UI.UWP.Modules;
 namespace XElement.RedYellowBlue.UI.UWP.Model.DataContextPageTypeMap
 {
 #region not unit-tested
-    [Export]
+    [Shared] [Export]
     internal class Model
     {
         [ImportingConstructor]

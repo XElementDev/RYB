@@ -7,7 +7,7 @@ using System.Windows.Input;
 namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
 {
 #region not unit-tested
-    [Export]
+    [Shared] [Export]
     [ImplementPropertyChanged]
     internal class ViewModel
     {

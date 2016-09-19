@@ -6,7 +6,7 @@ using XElement.RedYellowBlue.UI.UWP.Modules.Main;
 namespace XElement.RedYellowBlue.UI.UWP
 {
 #region not unit-tested
-    [Export]
+    [Shared] [Export]
     [ImplementPropertyChanged]
     internal class MainViewModel
     {

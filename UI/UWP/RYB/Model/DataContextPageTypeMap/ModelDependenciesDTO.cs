@@ -3,7 +3,7 @@
 namespace XElement.RedYellowBlue.UI.UWP.Model.DataContextPageTypeMap
 {
 #region not unit-tested
-    [Export]
+    [Shared] [Export]
     internal class ModelDependenciesDTO
     {
         [Import]

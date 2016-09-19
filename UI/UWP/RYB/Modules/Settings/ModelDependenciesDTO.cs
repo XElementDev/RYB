@@ -4,7 +4,7 @@ using XElement.RedYellowBlue.UI.UWP.Model;
 namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
 {
 #region not unit-tested
-    [Export]
+    [Shared] [Export]
     internal class ModelDependenciesDTO
     {
         [Import]

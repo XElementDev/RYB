@@ -5,7 +5,7 @@ using DataContextPageTypeMap = XElement.RedYellowBlue.UI.UWP.Model.DataContextPa
 namespace XElement.RedYellowBlue.UI.UWP.Modules.Main
 {
 #region not unit-tested
-    [Export]
+    [Shared] [Export]
     internal class ViewModelDependenciesDTO
     {
         [Import]
