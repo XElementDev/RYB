@@ -21,12 +21,6 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
         public Settings.Model Model { get; private set; }
 
 
-        [OnImportsSatisfied]
-        internal void OnImportsSatisfied()
-        {
-        }
-
-
         [DoNotNotify]
         public ICommand ValidateCommand { get; private set; }
 

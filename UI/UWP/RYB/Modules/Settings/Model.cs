@@ -19,7 +19,11 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
         }
 
 
-        public string BoxUrl { get; set; }
+        public string BoxUrl
+        {
+            get { return this._dependencies.Config.BoxUrl; }
+            set { this._dependencies.Config.BoxUrl = value; }
+        }
 
 
         public async void CheckLogin()
@@ -27,13 +31,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
             this.WasConnectionTestPositive = null;
             this.IsConnectionTestActive = true;
 
-
             var isLoginValid = await this.CreateHttpService().IsLoginValidAsync();
-
-            if ( isLoginValid )
-            {
-                this.PersistToNextLayer();
-            }
 
             this.IsConnectionTestActive = false;
             this.WasConnectionTestPositive = isLoginValid;
@@ -59,27 +57,18 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
         public bool IsConnectionTestActive { get; private set; }
 
 
-        [OnImportsSatisfied]
-        internal void OnImportsSatisfied()
+        public string Password
         {
-            this.Password = this._dependencies.Config.Password;
-            this.BoxUrl = this._dependencies.Config.BoxUrl;
-            this.Username = this._dependencies.Config.Username;
+            get { return this._dependencies.Config.Password; }
+            set { this._dependencies.Config.Password = value; }
         }
 
 
-        public string Password { get; set; }
-
-
-        private void PersistToNextLayer()
+        public string Username
         {
-            this._dependencies.Config.Password = this.Password;
-            this._dependencies.Config.BoxUrl = this.BoxUrl;
-            this._dependencies.Config.Username = this.Username;
+            get { return this._dependencies.Config.Username; }
+            set { this._dependencies.Config.Username = value; }
         }
-
-
-        public string Username { get; set; }
 
 
         public bool? WasConnectionTestPositive { get; private set; }
