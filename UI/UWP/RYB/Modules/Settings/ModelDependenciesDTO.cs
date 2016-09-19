@@ -8,7 +8,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
     internal class ModelDependenciesDTO
     {
         [Import]
-        public Config Config { get; set; }
+        public IConfig Config { get; set; }
     }
 #endregion
 }

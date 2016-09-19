@@ -19,6 +19,9 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
         }
 
 
+        public string BoxUrl { get; set; }
+
+
         public async void CheckLogin()
         {
             this.WasConnectionTestPositive = null;
@@ -41,7 +44,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
         {
             var parameters = new HttpServiceParametersDTO
             {
-                Uri = this.Url
+                Uri = this.BoxUrl
             };
             var optional = new OptionalHttpServiceParametersDTO
             {
@@ -60,7 +63,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
         internal void OnImportsSatisfied()
         {
             this.Password = this._dependencies.Config.Password;
-            this.Url = this._dependencies.Config.Uri;
+            this.BoxUrl = this._dependencies.Config.BoxUrl;
             this.Username = this._dependencies.Config.Username;
         }
 
@@ -71,12 +74,9 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
         private void PersistToNextLayer()
         {
             this._dependencies.Config.Password = this.Password;
-            this._dependencies.Config.Uri = this.Url;
+            this._dependencies.Config.BoxUrl = this.BoxUrl;
             this._dependencies.Config.Username = this.Username;
         }
-
-
-        public string Url { get; set; }
 
 
         public string Username { get; set; }

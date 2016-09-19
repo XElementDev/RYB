@@ -8,8 +8,9 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Main
     [Shared] [Export]
     internal class ViewModelDependenciesDTO
     {
+        //  --> import-only
         [Import]
-        public Config Config { get; set; }
+        public Model.AutoSave.Model AutoSaveModel { get; set; }
 
 
         [Import]

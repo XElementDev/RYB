@@ -250,3 +250,6 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+# 2016-09-19, Ian
+UI/UWP/RYB/Model/Configuration/key.txt

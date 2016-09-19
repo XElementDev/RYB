@@ -1,5 +1,8 @@
-﻿using PropertyChanged;
+﻿using GalaSoft.MvvmLight.Command;
+using Microsoft.Toolkit.Uwp.UI.Controls;
+using PropertyChanged;
 using System.Composition;
+using System.Windows.Input;
 using XElement.RedYellowBlue.UI.UWP.Model;
 using XElement.RedYellowBlue.UI.UWP.Modules.Main;
 
@@ -19,10 +22,6 @@ namespace XElement.RedYellowBlue.UI.UWP
         }
 
 
-        //[DoNotNotify]
-        //public Config Config { get; private set; } // TODO: Is that needed here?
-
-
         public object FrameDataContext { get; private set; }
 
 
@@ -38,8 +37,6 @@ namespace XElement.RedYellowBlue.UI.UWP
         private void Initialize()
         {
             this._dataContextPageTypeMap = this._dependencies.DataContextPageTypeMap;
-
-            //this.Config = this._dependencies.Config;
             this.NavigationModel = this._dependencies.NavigationModel;
         }
 
@@ -64,9 +61,6 @@ namespace XElement.RedYellowBlue.UI.UWP
             this.Initialize();
             this.SubscribeEvents();
 
-            //var login = new Login( this.Config.Uri, this.Config.Username );
-            //login.Do( this.Config.Password );
-            //var sid = login.Sid;
         }
 
 

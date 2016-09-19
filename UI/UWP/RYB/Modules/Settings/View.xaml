@@ -27,24 +27,24 @@
                                Text="&lt;Fritz!Box address:&gt;" 
                     />
                     <TextBox 
-                             Text="{Binding Path=Url, 
-                                         Mode=TwoWay}" 
+                             Text="{Binding Path=Model.BoxUrl, 
+                                            Mode=TwoWay}" 
                     />
 
                     <TextBlock 
                                Text="&lt;Username:&gt;" 
                     />
                     <TextBox 
-                             Text="{Binding Path=Username, 
-                                         Mode=TwoWay}" 
+                             Text="{Binding Path=Model.Username, 
+                                            Mode=TwoWay}" 
                     />
 
                     <TextBlock 
                                Text="&lt;Password:&gt;" 
                     />
                     <PasswordBox 
-                                 Password="{Binding Path=Password, 
-                                                 Mode=TwoWay}" 
+                                 Password="{Binding Path=Model.Password, 
+                                                    Mode=TwoWay}" 
                     />
 
                     <StackPanel>
