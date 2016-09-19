@@ -2,12 +2,6 @@
 {
     internal interface IAutoSaveTarget
     {
-        IAutoSaveTarget DeepClone();
-
-
-        bool NeedsToBePersisted( IAutoSaveTarget old );
-
-
         void Persist();
     }
 }

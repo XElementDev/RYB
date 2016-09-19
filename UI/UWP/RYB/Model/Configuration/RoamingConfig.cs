@@ -21,37 +21,8 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Configuration
         public string BoxUrl { get; set; }
 
 
-        IAutoSaveTarget IAutoSaveTarget.DeepClone()
-        {
-            var cloned = new RoamingConfig
-            {
-                BoxUrl = this.BoxUrl, 
-                EncryptedPassword = this.EncryptedPassword, 
-                Username = this.Username
-            };
-            return cloned;
-        }
-
-
         [XmlElement( "password" )]
         public string EncryptedPassword { get; set; }
-
-
-        bool IAutoSaveTarget.NeedsToBePersisted( IAutoSaveTarget old )
-        {
-            var needsToBePersisted = false;
-
-            var oldRoamingConfig = old as RoamingConfig;
-            if ( oldRoamingConfig != null )
-            {
-                var isUrlEqual = oldRoamingConfig.BoxUrl == this.BoxUrl;
-                var isPasswordEqual = oldRoamingConfig.Password == this.Password;
-                var isUsernameEqual = oldRoamingConfig.Username == this.Username;
-                needsToBePersisted = !isUrlEqual || !isPasswordEqual || !isUsernameEqual;
-            }
-
-            return needsToBePersisted;
-        }
 
 
         [XmlIgnore()]

@@ -22,18 +22,6 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Configuration
         }
 
 
-        IAutoSaveTarget IAutoSaveTarget.DeepClone()
-        {
-            return ((IAutoSaveTarget)this._roaming).DeepClone();
-        }
-
-
-        bool IAutoSaveTarget.NeedsToBePersisted( IAutoSaveTarget old )
-        {
-            return ((IAutoSaveTarget)this._roaming).NeedsToBePersisted( old );
-        }
-
-
         public string /*IConfig.*/Password
         {
             get { return this._roaming.Password; }
