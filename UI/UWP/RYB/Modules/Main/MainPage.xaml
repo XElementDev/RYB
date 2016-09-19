@@ -103,7 +103,7 @@
                 />
                 <uwpToolkit:HamburgerMenuGlyphItem 
                                                    x:Uid="Main_HamburgerMenu_About" 
-                                                   Glyph="&#xE783;" 
+                                                   Glyph="&#xE897;" 
                                                    TargetPageType="modules:AboutPage" 
                 />
             </uwpToolkit:HamburgerMenuItemCollection>
