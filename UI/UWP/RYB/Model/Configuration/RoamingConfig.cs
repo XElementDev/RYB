@@ -33,6 +33,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Configuration
         }
 
 
+        //  --> TODO: Fix error causing this operation not to complete before app is closed.
         void IAutoSaveTarget.Persist()
         {
             using ( var stream = new MemoryStream() )
