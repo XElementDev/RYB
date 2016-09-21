@@ -108,6 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="v1.09\AbstractLayer\Aha.cs" />
+    <Compile Include="v1.09\ConcreteLayer\AhaCmdEnum.cs" />
+    <Compile Include="v1.09\ConcreteLayer\AhaRequest.cs" />
     <Compile Include="v1.09\DeviceDTO.cs" />
     <Compile Include="v1.09\DeviceListDTO.cs" />
     <Compile Include="v1.09\GroupDTO.cs" />

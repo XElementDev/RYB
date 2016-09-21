@@ -3,7 +3,7 @@
 namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
 {
 #region not unit-tested
-    internal class DeviceDTO
+    public class DeviceDTO
     {
         public DeviceDTO() { }
 
@@ -25,6 +25,11 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
         /// </summary>
         [XmlAttribute( "fwversion" )]
         public string FwVersion { get; set; }
+
+
+        //  --> optional content
+        [XmlElement( "hkr" )]
+        public HkrDTO Hkr { get; set; }
 
 
         /// <summary>
@@ -55,18 +60,33 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
         public string Name { get; set; }
 
 
+        //  --> optional content
+        [XmlElement( "powermeter" )]
+        public PowermeterDTO Powermeter { get; set; }
+
+
         /// <summary>
         /// present: 0/1 - Gerät verbunden nein/ja
         /// </summary>
         [XmlElement( "present" )]
-        internal int Present { get; set; }
+        public int Present { get; set; }
 
 
         /// <summary>
         /// productname: Produktname des Gerätes, leer bei unbekanntem/undefiniertem Gerät
         /// </summary>
         [XmlAttribute( "productname" )]
-        internal string ProductName { get; set; }
+        public string ProductName { get; set; }
+
+
+        //  --> optional content
+        [XmlElement( "switch" )]
+        public SwitchDTO Switch { get; set; }
+
+
+        //  --> optional content
+        [XmlElement( "temperature" )]
+        public TemperatureDTO Temperature { get; set; }
     }
 #endregion
 }

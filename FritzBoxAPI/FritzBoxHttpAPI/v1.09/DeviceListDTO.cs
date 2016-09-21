@@ -5,7 +5,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
 {
 #region not unit-tested
     [XmlRoot( "devicelist" )]
-    internal class DeviceListDTO
+    public class DeviceListDTO
     {
         public DeviceListDTO() { }
 

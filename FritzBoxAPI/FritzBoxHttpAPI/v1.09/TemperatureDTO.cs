@@ -10,9 +10,10 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
 
         /// <summary>
         /// celsius: Wert in 0,1 °C, negative und positive Werte möglich
+        /// Actual example: "220" for "22,0°C"
         /// </summary>
         [XmlElement( "celsius" )]
-        public double Celsius { get; set; }
+        public int Celsius { get; set; }
 
 
         /// <summary>
