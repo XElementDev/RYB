@@ -98,6 +98,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Model\Api\MefApiAdapter.cs" />
     <Compile Include="Model\AutoSave\DependenciesDTO.cs" />
     <Compile Include="Model\AutoSave\IAutoSaveTarget.cs" />
     <Compile Include="Model\AutoSave\Model.cs" />
@@ -111,6 +112,9 @@
     <Compile Include="Modules\About\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Home\Model.cs" />
+    <Compile Include="Modules\Home\ModelDependenciesDTO.cs" />
+    <Compile Include="Modules\Home\ViewModel.cs" />
     <Compile Include="Modules\Main\ViewModelDependenciesDTO.cs" />
     <Compile Include="Modules\Main\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

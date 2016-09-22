@@ -19,6 +19,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.DataContextPageTypeMap
         private void InitializeMap()
         {
             this._map = new Dictionary<Type, object>();
+            this._map[typeof( HomePage )] = this._dependencies.HomeVM;
             this._map[typeof( SettingsPage )] = this._dependencies.SettingsVM;
         }
 

@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDevice.cs" />
     <Compile Include="IHttpService.cs" />
     <Compile Include="OptionalHttpServiceParametersDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

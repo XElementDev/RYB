@@ -42,7 +42,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
         {
             var parameters = new HttpServiceParametersDTO
             {
-                Uri = this.BoxUrl
+                BoxUrl = this.BoxUrl
             };
             var optional = new OptionalHttpServiceParametersDTO
             {

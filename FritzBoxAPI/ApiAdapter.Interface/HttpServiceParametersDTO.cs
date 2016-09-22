@@ -3,7 +3,7 @@
 #region not unit-tested
     public class HttpServiceParametersDTO
     {
-        public string Uri { get; set; }
+        public string BoxUrl { get; set; }
     }
 #endregion
 }

@@ -1,9 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109;
 
 namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
 {
 #region not unit-tested
+    //  --> TODO: Check for sufficient rights, aka capabilities.
     public class HttpService : IHttpService
     {
         public HttpService( HttpServiceParametersDTO parameters ) : this( parameters, null ) { }
@@ -19,7 +21,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
         {
             LoginBase login = null;
 
-            var uri = this._parameters.Uri;
+            var uri = this._parameters.BoxUrl;
             var password = this._optionalParameters?.Password;
             var username = this._optionalParameters?.Username;
 
@@ -31,6 +33,24 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
                 login = new AnonymousLogin( uri );
 
             return login;
+        }
+
+
+        public IEnumerable<IDevice> GetDevices()
+        {
+            var devices = new List<IDevice>();
+
+            var login = this.CreateLogin();
+            login.Do();
+            var aha = new Aha( this._parameters.BoxUrl, login.Sid );
+            var deviceListDTO = aha.GetDeviceListInfos();
+            foreach ( var deviceDTO in deviceListDTO.Devices )
+            {
+                var device = new Device( deviceDTO );
+                devices.Add( device );
+            }
+
+            return devices;
         }
 
 
