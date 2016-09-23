@@ -8,24 +8,75 @@
       xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView 
-                  ItemsSource="{Binding Path=Model.Devices}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <toolkit:HeaderedTextBlock 
-                                                   Header="&lt;MANUFACTURER:&gt;" 
-                                                   Text="{Binding Path=Manufacturer}" 
-                        />
-
-                        <toolkit:HeaderedTextBlock 
-                                                   Header="&lt;PRODUCT NAME:&gt;" 
-                                                   Text="{Binding Path=ProductName}" 
+        <Pivot>
+            <PivotItem>
+                <PivotItem.Header>
+                    <StackPanel 
+                                Orientation="Vertical">
+                        <FontIcon 
+                                  Glyph="&#xE1C9;" 
+                        />  <!-- alternatives: xE1C9 xE772 -->
+                        <TextBlock 
+                                   x:Uid="Home_Tabs_Devices" 
                         />
                     </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                </PivotItem.Header>
+
+                <ListView 
+                          ItemsSource="{Binding Path=DeviceVMs}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <toolkit:HeaderedTextBlock 
+                                                           Header="&lt;MANUFACTURER:&gt;" 
+                                                           Text="{Binding Path=Manufacturer}" 
+                                />
+                                <toolkit:HeaderedTextBlock 
+                                                           Header="&lt;PRODUCT NAME:&gt;" 
+                                                           Text="{Binding Path=ProductName}" 
+                                />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+
+            <PivotItem>
+                <PivotItem.Header>
+                    <StackPanel 
+                                Orientation="Vertical">
+                        <FontIcon 
+                                  Glyph="&#xE1CE;" 
+                        />
+                        <TextBlock 
+                                   x:Uid="Home_Tabs_Favorites" 
+                        />
+                    </StackPanel>
+                </PivotItem.Header>
+
+                <TextBlock 
+                           x:Uid="COMMON_AvailableSoon" 
+                />
+            </PivotItem>
+
+            <PivotItem>
+                <PivotItem.Header>
+                    <StackPanel 
+                                Orientation="Vertical">
+                        <FontIcon 
+                                  Glyph="&#xE8CC;" 
+                        />  <!-- alternatives: xE8CC xEBD2 -->
+                        <TextBlock 
+                                   x:Uid="Home_Tabs_Groups" 
+                        />
+                    </StackPanel>
+                </PivotItem.Header>
+
+                <TextBlock 
+                           x:Uid="COMMON_AvailableSoon" 
+                />
+            </PivotItem>
+        </Pivot>
     </Grid>
 
 </Page>
