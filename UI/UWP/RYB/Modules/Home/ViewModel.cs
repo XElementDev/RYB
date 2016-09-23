@@ -1,4 +1,5 @@
-﻿using System.Composition;
+﻿using System.Collections.Generic;
+using System.Composition;
 
 namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
 {
@@ -9,11 +10,33 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
         [ImportingConstructor]
         public ViewModel( Home.Model model )
         {
-            this.Model = model;
+            this._model = model;
         }
 
 
-        public Home.Model Model { get; private set; }
+        public IEnumerable<AhaDevice.ViewModel> DeviceVMs { get; private set; }
+
+
+        private void Initialize()
+        {
+            var deviceVMs = new List<AhaDevice.ViewModel>();
+            foreach ( var device in this._model.Devices )
+            {
+                var deviceVM = new AhaDevice.ViewModel( device );
+                deviceVMs.Add( deviceVM );
+            }
+            this.DeviceVMs = deviceVMs;
+        }
+
+
+        [OnImportsSatisfied]
+        internal void OnImportsSatisfied()
+        {
+            this.Initialize();
+        }
+
+
+        private Home.Model _model;
     }
 #endregion
 }

@@ -112,6 +112,7 @@
     <Compile Include="Modules\About\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\AhaDevice\ViewModel.cs" />
     <Compile Include="Modules\Home\Model.cs" />
     <Compile Include="Modules\Home\ModelDependenciesDTO.cs" />
     <Compile Include="Modules\Home\ViewModel.cs" />
