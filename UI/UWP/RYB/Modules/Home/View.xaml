@@ -5,21 +5,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       mc:Ignorable="d" 
 
+      xmlns:modules="using:XElement.RedYellowBlue.UI.UWP.Modules" 
       xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Pivot>
             <PivotItem>
                 <PivotItem.Header>
-                    <StackPanel 
-                                Orientation="Vertical">
-                        <FontIcon 
-                                  Glyph="&#xE1C9;" 
-                        />  <!-- alternatives: xE1C9 xE772 -->
-                        <TextBlock 
-                                   x:Uid="Home_Tabs_Devices" 
-                        />
-                    </StackPanel>
+                    <modules:TabHeaderUC 
+                                         x:Uid="Home_Tabs_Devices" 
+                                         Glyph="&#xE1C9;" 
+                    />
                 </PivotItem.Header>
 
                 <ListView 
@@ -43,15 +39,10 @@
 
             <PivotItem>
                 <PivotItem.Header>
-                    <StackPanel 
-                                Orientation="Vertical">
-                        <FontIcon 
-                                  Glyph="&#xE1CE;" 
-                        />
-                        <TextBlock 
-                                   x:Uid="Home_Tabs_Favorites" 
-                        />
-                    </StackPanel>
+                    <modules:TabHeaderUC 
+                                         x:Uid="Home_Tabs_Favorites" 
+                                         Glyph="&#xE1CE;" 
+                    />
                 </PivotItem.Header>
 
                 <TextBlock 
@@ -61,15 +52,10 @@
 
             <PivotItem>
                 <PivotItem.Header>
-                    <StackPanel 
-                                Orientation="Vertical">
-                        <FontIcon 
-                                  Glyph="&#xE8CC;" 
-                        />  <!-- alternatives: xE8CC xEBD2 -->
-                        <TextBlock 
-                                   x:Uid="Home_Tabs_Groups" 
-                        />
-                    </StackPanel>
+                    <modules:TabHeaderUC 
+                                         x:Uid="Home_Tabs_Groups" 
+                                         Glyph="&#xE8CC;" 
+                    />
                 </PivotItem.Header>
 
                 <TextBlock 

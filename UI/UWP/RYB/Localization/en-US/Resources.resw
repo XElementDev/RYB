@@ -121,15 +121,15 @@
     <value>Available soon.</value>
     <comment>// 2016-09-23</comment>
   </data>
-  <data name="Home_Tabs_Devices.Text" xml:space="preserve">
+  <data name="Home_Tabs_Devices.Label" xml:space="preserve">
     <value>Devices</value>
     <comment>// 2016-09-23</comment>
   </data>
-  <data name="Home_Tabs_Favorites.Text" xml:space="preserve">
+  <data name="Home_Tabs_Favorites.Label" xml:space="preserve">
     <value>Favorites</value>
     <comment>// 2016-09-23</comment>
   </data>
-  <data name="Home_Tabs_Groups.Text" xml:space="preserve">
+  <data name="Home_Tabs_Groups.Label" xml:space="preserve">
     <value>Groups</value>
     <comment>// 2016-09-23</comment>
   </data>

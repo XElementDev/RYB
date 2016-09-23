@@ -199,6 +199,10 @@
       <Project>{6658add9-a6d5-4a9f-afd6-95c87ba544bd}</Project>
       <Name>FritzBoxHttpAPI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Modules\TabHeader\TabHeaderUC\TabHeaderUC.csproj">
+      <Project>{37438cd6-46c6-4495-91f5-0c76fe9c0d1e}</Project>
+      <Name>TabHeaderUC</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dictionaries\" />
