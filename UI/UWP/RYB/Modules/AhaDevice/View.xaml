@@ -19,59 +19,57 @@
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
+        <TextBlock 
+                   Text="{Binding Path=Name}" 
+                   Style="{StaticResource NameTextBlockStyle}" 
+        />
+
+        <StackPanel 
+                    Style="{StaticResource StatePanelStyle}">
             <TextBlock 
-                       Text="{Binding Path=Name}" 
-                       Style="{StaticResource NameTextBlockStyle}" 
+                       x:Uid="AhaDevice_StatePanel" 
+                       Style="{StaticResource PanelInfoTextBlockStyle}" 
             />
 
-            <StackPanel 
-                        Style="{StaticResource StatePanelStyle}">
-                <TextBlock 
-                           x:Uid="AhaDevice_StatePanel" 
-                           Style="{StaticResource PanelInfoTextBlockStyle}" 
-                />
+            <FontIcon 
+                      x:Uid="AhaDevice_State_NotConnected" 
+                      Glyph="&#xEB5E;" 
+                      Visibility="{Binding Path=IsConnected, 
+                                           Converter={StaticResource TrueToCollapsedVisibilityConverter}}" 
+            />  <!-- alternatives: xEB5D -->
+            <FontIcon 
+                      x:Uid="AhaDevice_State_Connected" 
+                      Glyph="&#xEC3F;" 
+                      Visibility="{Binding Path=IsConnected, 
+                                           Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+            />  <!-- alternatives: xEC3F xEC44 -->
+        </StackPanel>
 
-                <FontIcon 
-                          x:Uid="AhaDevice_State_NotConnected" 
-                          Glyph="&#xEB5E;" 
-                          Visibility="{Binding Path=IsConnected, 
-                                               Converter={StaticResource TrueToCollapsedVisibilityConverter}}" 
-                />  <!-- alternatives: xEB5D -->
-                <FontIcon 
-                          x:Uid="AhaDevice_State_Connected" 
-                          Glyph="&#xEC3F;" 
-                          Visibility="{Binding Path=IsConnected, 
-                                               Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
-                />  <!-- alternatives: xEC3F xEC44 -->
-            </StackPanel>
+        <StackPanel 
+                    Style="{StaticResource FeaturesPanelStyle}">
+            <TextBlock 
+                       x:Uid="AhaDevice_FeaturesPanel" 
+                       Style="{StaticResource PanelInfoTextBlockStyle}" 
+            />
 
-            <StackPanel 
-                        Style="{StaticResource FeaturesPanelStyle}">
-                <TextBlock 
-                           x:Uid="AhaDevice_FeaturesPanel" 
-                           Style="{StaticResource PanelInfoTextBlockStyle}" 
-                />
-
-                <FontIcon 
-                          x:Uid="AhaDevice_FeaturesPanel_Switch" 
-                          Glyph="&#xE7E8;" 
-                          Visibility="{Binding Path=IsASwitch, 
-                                               Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
-                />  <!-- alternatives: xE7E8 -->
-            </StackPanel>
-        </Grid>
+            <FontIcon 
+                      x:Uid="AhaDevice_FeaturesPanel_Switch" 
+                      Glyph="&#xE7E8;" 
+                      Visibility="{Binding Path=IsASwitch, 
+                                           Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+            />  <!-- alternatives: xE7E8 -->
+        </StackPanel>
 
 
         <!--on/off-symbol: E7E8--> 
