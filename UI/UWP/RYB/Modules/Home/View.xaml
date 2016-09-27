@@ -8,6 +8,15 @@
       xmlns:modules="using:XElement.RedYellowBlue.UI.UWP.Modules" 
       xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Pivot>
             <PivotItem>
@@ -18,23 +27,17 @@
                     />
                 </PivotItem.Header>
 
-                <ListView 
-                          ItemsSource="{Binding Path=DeviceVMs}">
-                    <ListView.ItemTemplate>
+                <toolkit:AdaptiveGridView 
+                                          ItemsSource="{Binding Path=DeviceVMs}" 
+                                          ItemHeight="128" DesiredWidth="256">
+                    <toolkit:AdaptiveGridView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel>
-                                <toolkit:HeaderedTextBlock 
-                                                           Header="&lt;MANUFACTURER:&gt;" 
-                                                           Text="{Binding Path=Manufacturer}" 
-                                />
-                                <toolkit:HeaderedTextBlock 
-                                                           Header="&lt;PRODUCT NAME:&gt;" 
-                                                           Text="{Binding Path=ProductName}" 
-                                />
-                            </StackPanel>
+                            <modules:AhaDevicePage 
+                                                   DataContext="{Binding}" 
+                            />
                         </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                    </toolkit:AdaptiveGridView.ItemTemplate>
+                </toolkit:AdaptiveGridView>
             </PivotItem>
 
             <PivotItem>

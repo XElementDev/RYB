@@ -12,7 +12,13 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
         }
 
 
+        public bool /*IDevice.*/IsConnected { get { return this._device.IsConnected; } }
+
+
         public string /*IDevice.*/Manufacturer { get { return this._device.Manufacturer; } }
+
+
+        public string /*IDevice.*/Name { get { return this._device.Name; } }
 
 
         public string /*IDevice.*/ProductName { get { return this._device.ProductName; } }

@@ -3,16 +3,11 @@
 
                     xmlns:converters="using:XElement.RedYellowBlue.UI.UWP.Converters">
 
-    <converters:BoolToVisibilityConverter x:Key="FalseToCollapsedVisibilityConverter" 
-                                          FalseValue="Collapsed" 
-                                          NullValue="Collapsed" 
-                                          TrueValue="Visible" 
-    />
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
 
-    <converters:BoolToVisibilityConverter x:Key="TrueToCollapsedVisibilityConverter" 
-                                          FalseValue="Visible" 
-                                          NullValue="Collapsed" 
-                                          TrueValue="Collapsed" 
-    />
+
+    <!-- ! -->
 
 </ResourceDictionary>

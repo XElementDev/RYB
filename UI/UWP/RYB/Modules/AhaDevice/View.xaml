@@ -1,0 +1,67 @@
+﻿<Page x:Class="XElement.RedYellowBlue.UI.UWP.Modules.AhaDevicePage" 
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+      xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      mc:Ignorable="d" 
+
+      xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="./Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock 
+                       Text="{Binding Path=Name}" 
+                       Style="{StaticResource NameTextBlockStyle}" 
+            />
+
+            <StackPanel 
+                        Style="{StaticResource StatePanelStyle}">
+                <TextBlock 
+                           x:Uid="AhaDevice_StatePanel" 
+                           Style="{StaticResource PanelInfoTextBlockStyle}" 
+                />
+
+                <FontIcon 
+                          x:Uid="AhaDevice_State_NotConnected" 
+                          Glyph="&#xEB5E;" 
+                          Visibility="{Binding Path=IsConnected, 
+                                               Converter={StaticResource TrueToCollapsedVisibilityConverter}}" 
+                /><!-- alternatives: xEB5D -->
+                <FontIcon 
+                          x:Uid="AhaDevice_State_Connected" 
+                          Glyph="&#xEC3F;" 
+                          Visibility="{Binding Path=IsConnected, 
+                                               Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+                /><!-- alternatives: xEC3F xEC44 -->
+            </StackPanel>
+        </Grid>
+
+
+        <!--on/off-symbol: E7E8--> 
+        <!--thermometer: E9CA--> 
+        <!--frost symbol: EA38 EDAD--> 
+        <!--light: EC8A--> 
+    </Grid>
+
+</Page>

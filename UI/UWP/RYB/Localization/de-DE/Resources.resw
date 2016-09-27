@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AhaDevice_StatePanel.Text" xml:space="preserve">
+    <value>Status:</value>
+    <comment>// 2016-09-27</comment>
+  </data>
+  <data name="AhaDevice_State_Connected.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Verbunden</value>
+    <comment>// 2016-09-27</comment>
+  </data>
+  <data name="AhaDevice_State_NotConnected.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Nicht verbunden</value>
+    <comment>// 2016-09-27</comment>
+  </data>
   <data name="COMMON_AvailableSoon.Text" xml:space="preserve">
     <value>Bald verfügbar.</value>
     <comment>// 2016-09-23</comment>
