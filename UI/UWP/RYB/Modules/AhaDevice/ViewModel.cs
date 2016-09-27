@@ -12,6 +12,9 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
         }
 
 
+        public bool /*IDevice.*/IsASwitch { get { return this._device.IsASwitch; } }
+
+
         public bool /*IDevice.*/IsConnected { get { return this._device.IsConnected; } }
 
 

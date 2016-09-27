@@ -8,15 +8,19 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
         public Device( DeviceDTO initialValues )
         {
             this._ain = initialValues.Identifier;
-            this._isConnected = initialValues.Present == 1;
 
+            this.IsConnected = initialValues.Present == 1;
+            this.IsASwitch = (initialValues.FunctionBitmask & Device.BIT_NO9) != 0;
             this.Manufacturer = initialValues.Manufacturer;
             this.Name = initialValues.Name;
             this.ProductName = initialValues.ProductName;
         }
 
 
-        public bool /*IDevice.*/IsConnected { get { return this._isConnected; } }
+        public bool /*IDevice.*/IsASwitch { get; private set; }
+
+
+        public bool /*IDevice.*/IsConnected { get; private set; }
 
 
         //public bool /*IDevice.*/IsConnected()
@@ -34,9 +38,10 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
         public string /*IDevice.*/ProductName { get; private set; }
 
 
-        private string _ain;
+        private const int BIT_NO9 = 512;
 
-        private bool _isConnected;
+
+        private string _ain;
     }
 #endregion
 }

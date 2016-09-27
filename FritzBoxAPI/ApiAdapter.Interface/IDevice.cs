@@ -2,6 +2,9 @@
 {
     public interface IDevice
     {
+        bool IsASwitch { get; }
+
+
         bool IsConnected { get; }
 
 

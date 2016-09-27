@@ -27,6 +27,7 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -47,13 +48,28 @@
                           Glyph="&#xEB5E;" 
                           Visibility="{Binding Path=IsConnected, 
                                                Converter={StaticResource TrueToCollapsedVisibilityConverter}}" 
-                /><!-- alternatives: xEB5D -->
+                />  <!-- alternatives: xEB5D -->
                 <FontIcon 
                           x:Uid="AhaDevice_State_Connected" 
                           Glyph="&#xEC3F;" 
                           Visibility="{Binding Path=IsConnected, 
                                                Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
-                /><!-- alternatives: xEC3F xEC44 -->
+                />  <!-- alternatives: xEC3F xEC44 -->
+            </StackPanel>
+
+            <StackPanel 
+                        Style="{StaticResource FeaturesPanelStyle}">
+                <TextBlock 
+                           x:Uid="AhaDevice_FeaturesPanel" 
+                           Style="{StaticResource PanelInfoTextBlockStyle}" 
+                />
+
+                <FontIcon 
+                          x:Uid="AhaDevice_FeaturesPanel_Switch" 
+                          Glyph="&#xE7E8;" 
+                          Visibility="{Binding Path=IsASwitch, 
+                                               Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+                />  <!-- alternatives: xE7E8 -->
             </StackPanel>
         </Grid>
 
