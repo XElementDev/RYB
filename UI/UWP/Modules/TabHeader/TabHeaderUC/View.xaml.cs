@@ -12,7 +12,6 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules
         public TabHeaderUC()
         {
             this.InitializeComponent();
-            this.DataContext = this;
         }
 
 
