@@ -10,6 +10,11 @@
     </Style>
 
 
+    <Style TargetType="FontIcon">
+        <Setter Property="Foreground" Value="{StaticResource SystemControlForegroundBaseHighBrush}" />
+    </Style>
+
+
     <Style x:Key="FeaturesPanelStyle" TargetType="StackPanel" BasedOn="{StaticResource _panelStyleBase}">
         <Setter Property="Grid.Row" Value="1" />
     </Style>
@@ -17,6 +22,7 @@
     <Style x:Key="NameTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="18" />
         <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="Foreground" Value="{StaticResource SystemControlForegroundBaseHighBrush}" />
         <Setter Property="Grid.Row" Value="0" />
         <Setter Property="Grid.RowSpan" Value="2" />
         <Setter Property="Margin" Value="2 2 0 0" />
@@ -27,6 +33,10 @@
         <Setter Property="Foreground" Value="{StaticResource SystemControlPageTextBaseMediumBrush}" />
         <Setter Property="Margin" Value="0 0 4 0" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
+    </Style>
+
+    <Style x:Key="RootStyle" TargetType="Grid">
+        <Setter Property="Background" Value="{StaticResource SystemControlBackgroundBaseLowBrush}" />
     </Style>
 
     <Style x:Key="StatePanelStyle" TargetType="StackPanel" BasedOn="{StaticResource _panelStyleBase}">
