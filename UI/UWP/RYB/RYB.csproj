@@ -98,6 +98,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Dictionaries\Resources\SvgSwitch.cs" />
     <Compile Include="Model\Api\MefApiAdapter.cs" />
     <Compile Include="Model\AutoSave\DependenciesDTO.cs" />
     <Compile Include="Model\AutoSave\IAutoSaveTarget.cs" />
@@ -112,13 +113,18 @@
     <Compile Include="Modules\About\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\About\ViewModel.cs" />
+    <Compile Include="Modules\About\ViewModelDepdenciesDTO.cs" />
     <Compile Include="Modules\AhaDevice\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\AhaDevice\ViewModel.cs" />
+    <Compile Include="Modules\AhaDevice\ViewModelDependenciesDTO.cs" />
+    <Compile Include="Modules\AhaDevice\ViewModelFactory.cs" />
     <Compile Include="Modules\Home\Model.cs" />
     <Compile Include="Modules\Home\ModelDependenciesDTO.cs" />
     <Compile Include="Modules\Home\ViewModel.cs" />
+    <Compile Include="Modules\Home\ViewModelDependenciesDTO.cs" />
     <Compile Include="Modules\Main\ViewModelDependenciesDTO.cs" />
     <Compile Include="Modules\Main\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -222,6 +228,14 @@
     <ProjectReference Include="..\..\..\FritzBoxAPI\FritzBoxHttpAPI\FritzBoxHttpAPI.csproj">
       <Project>{6658add9-a6d5-4a9f-afd6-95c87ba544bd}</Project>
       <Name>FritzBoxHttpAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
+      <Project>{a607542c-2920-40b5-8074-f1c3d4125ebf}</Project>
+      <Name>FactoryMethod.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\FlaticonCredit\FlaticonCreditUC.csproj">
+      <Project>{637852e9-7e85-4cf0-a630-d87252f63da5}</Project>
+      <Name>FlaticonCreditUC</Name>
     </ProjectReference>
     <ProjectReference Include="..\Modules\TabHeader\TabHeaderUC\TabHeaderUC.csproj">
       <Project>{37438cd6-46c6-4495-91f5-0c76fe9c0d1e}</Project>

@@ -8,9 +8,10 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
     internal class ViewModel
     {
         [ImportingConstructor]
-        public ViewModel( Home.Model model )
+        public ViewModel( Home.Model model, ViewModelDependenciesDTO dependencies )
         {
             this._model = model;
+            this._dependencies = dependencies;
         }
 
 
@@ -22,7 +23,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
             var deviceVMs = new List<AhaDevice.ViewModel>();
             foreach ( var device in this._model.Devices )
             {
-                var deviceVM = new AhaDevice.ViewModel( device );
+                var deviceVM = this._dependencies.AhaDeviceVmFactory.Get( device );
                 deviceVMs.Add( deviceVM );
             }
             this.DeviceVMs = deviceVMs;
@@ -35,6 +36,8 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
             this.Initialize();
         }
 
+
+        private ViewModelDependenciesDTO _dependencies;
 
         private Home.Model _model;
     }

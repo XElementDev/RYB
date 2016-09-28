@@ -4,11 +4,20 @@
       xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.About" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      mc:Ignorable="d">
+      mc:Ignorable="d" 
+
+      xmlns:modules="using:XElement.RedYellowBlue.UI.UWP.Modules">
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="This is the about page." />
+        <StackPanel 
+                    Orientation="Vertical">
+            <modules:FlaticonCreditUC 
+                                      AuthorName="Freepik" 
+                                      AuthorUri="http://www.freepik.com" 
+                                      SvgImage="{Binding Path=Switch}" 
+            />
+        </StackPanel>
     </Grid>
 
 </Page>

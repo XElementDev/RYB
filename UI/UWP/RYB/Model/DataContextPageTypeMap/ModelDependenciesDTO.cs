@@ -7,6 +7,10 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.DataContextPageTypeMap
     internal class ModelDependenciesDTO
     {
         [Import]
+        public Modules.About.ViewModel AboutVM { get; set; }
+
+
+        [Import]
         public Modules.Home.ViewModel HomeVM { get; set; }
 
 

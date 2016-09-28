@@ -1,6 +1,4 @@
 ﻿using Mntone.SvgForXaml;
-using System.IO;
-using System.Reflection;
 using XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter;
 
 namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
@@ -8,19 +6,19 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
 #region not unit-tested
     internal class ViewModel : IDevice
     {
-        public ViewModel( IDevice device )
+        public ViewModel( IDevice device, ViewModelDependenciesDTO dependencies )
         {
             this._device = device;
-            this.InitializeSvgImage();
+            this.InitializeSvgImage( dependencies );
             // TODO: run auto refresh in background
         }
 
 
-        private void InitializeSvgImage()
+        private void InitializeSvgImage( ViewModelDependenciesDTO dependencies )
         {
             if ( this.IsASwitch )
             {
-                this.LoadSvg();
+                this.SvgImage = dependencies.SvgSwitch.Svg;
             }
         }
 
@@ -34,17 +32,6 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
         public bool IsImageVisible { get { return this.SvgImage != null; } }
 
 
-        private void LoadSvg()
-        {
-            var assembly = this.GetType().GetTypeInfo().Assembly;
-            using ( var resourceStream = assembly.GetManifestResourceStream( RESOURCE_NAME ) )
-            using ( var reader = new StreamReader( resourceStream ) )
-            {
-                var document = reader.ReadToEnd();
-                this.SvgImage = SvgDocument.Parse( document );
-            }
-        }
-
 
         public string /*IDevice.*/Manufacturer { get { return this._device.Manufacturer; } }
 
@@ -56,11 +43,6 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
 
 
         public SvgDocument SvgImage { get; private set; }
-
-
-        private const string NAMESPACE = "XElement.RedYellowBlue.UI.UWP.Assets";
-
-        private const string RESOURCE_NAME = NAMESPACE + "." + "plug-for-electric-connection.svg";
 
 
         private IDevice _device;
