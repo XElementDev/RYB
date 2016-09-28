@@ -1,4 +1,7 @@
-﻿using XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter;
+﻿using Mntone.SvgForXaml;
+using System.IO;
+using System.Reflection;
+using XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter;
 
 namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
 {
@@ -8,7 +11,17 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
         public ViewModel( IDevice device )
         {
             this._device = device;
+            this.InitializeSvgImage();
             // TODO: run auto refresh in background
+        }
+
+
+        private void InitializeSvgImage()
+        {
+            if ( this.IsASwitch )
+            {
+                this.LoadSvg();
+            }
         }
 
 
@@ -18,6 +31,21 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
         public bool /*IDevice.*/IsConnected { get { return this._device.IsConnected; } }
 
 
+        public bool IsImageVisible { get { return this.SvgImage != null; } }
+
+
+        private void LoadSvg()
+        {
+            var assembly = this.GetType().GetTypeInfo().Assembly;
+            using ( var resourceStream = assembly.GetManifestResourceStream( RESOURCE_NAME ) )
+            using ( var reader = new StreamReader( resourceStream ) )
+            {
+                var document = reader.ReadToEnd();
+                this.SvgImage = SvgDocument.Parse( document );
+            }
+        }
+
+
         public string /*IDevice.*/Manufacturer { get { return this._device.Manufacturer; } }
 
 
@@ -25,6 +53,14 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
 
 
         public string /*IDevice.*/ProductName { get { return this._device.ProductName; } }
+
+
+        public SvgDocument SvgImage { get; private set; }
+
+
+        private const string NAMESPACE = "XElement.RedYellowBlue.UI.UWP.Assets";
+
+        private const string RESOURCE_NAME = NAMESPACE + "." + "plug-for-electric-connection.svg";
 
 
         private IDevice _device;

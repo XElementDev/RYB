@@ -6,6 +6,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       mc:Ignorable="d" 
 
+      xmlns:svg="using:Mntone.SvgForXaml.UI.Xaml" 
       xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
     <Page.Resources>
@@ -22,6 +23,7 @@
           Style="{StaticResource RootStyle}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
@@ -30,6 +32,16 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
+        <Border 
+                Visibility="{Binding Path=IsImageVisible, 
+                                     Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+                Style="{StaticResource ImageContainerStyle}">
+            <svg:SvgImage 
+                          Content="{Binding Path=SvgImage}" 
+                          Style="{StaticResource ImageStyle}" 
+            />
+        </Border>
 
         <TextBlock 
                    Text="{Binding Path=Name}" 

@@ -142,6 +142,7 @@
     <None Include="RYB_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Assets\plug-for-electric-connection.svg" />
     <Content Include="FodyWeavers.xml" />
     <EmbeddedResource Include="Model\Configuration\key.txt" />
     <Content Include="Properties\Default.rd.xml" />

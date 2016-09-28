@@ -4,7 +4,7 @@
                     xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice">
 
     <Style x:Key="_panelStyleBase" TargetType="StackPanel">
-        <Setter Property="Grid.Column" Value="2" />
+        <Setter Property="Grid.Column" Value="3" />
         <Setter Property="Margin" Value="0 2 2 0" />
         <Setter Property="Orientation" Value="Horizontal" />
     </Style>
@@ -19,10 +19,25 @@
         <Setter Property="Grid.Row" Value="1" />
     </Style>
 
+    <Style x:Key="ImageContainerStyle" TargetType="Border">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="Grid.Row" Value="0" />
+        <Setter Property="Grid.RowSpan" Value="3" />
+        <Setter Property="Margin" Value="4" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+
+    <Style x:Key="ImageStyle" TargetType="Control">
+        <Setter Property="Margin" Value="8 0" />
+        <Setter Property="Height" Value="48" />
+        <Setter Property="Width" Value="48" />
+    </Style>
+
     <Style x:Key="NameTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="18" />
-        <Setter Property="Grid.Column" Value="0" />
         <Setter Property="Foreground" Value="{StaticResource SystemControlForegroundBaseHighBrush}" />
+        <Setter Property="Grid.Column" Value="1" />
         <Setter Property="Grid.Row" Value="0" />
         <Setter Property="Grid.RowSpan" Value="2" />
         <Setter Property="Margin" Value="2 2 0 0" />
