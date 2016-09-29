@@ -52,10 +52,11 @@
                         <AdaptiveTrigger MinWindowWidth="0"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
+                        <Setter Target="_bigHeader.Visibility" Value="Collapsed" />
                         <Setter Target="_hamburgerMenu.DisplayMode" Value="Overlay" />
                         <Setter Target="_hamburgerMenu.IsPaneOpen" Value="False" />
-                        <Setter Target="_headerContainer.Visibility" Value="Visible" />
-                        <Setter Target="_navigationFrame.Padding" Value="12 0 12 0" />
+                        <Setter Target="_mainContent.Padding" Value="12 0 12 0" />
+                        <Setter Target="_smallHeaderContainer.Visibility" Value="Visible" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Tablet">
@@ -63,10 +64,11 @@
                         <AdaptiveTrigger MinWindowWidth="641"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
+                        <Setter Target="_bigHeader.Visibility" Value="Visible" />
                         <Setter Target="_hamburgerMenu.DisplayMode" Value="CompactInline" />
                         <Setter Target="_hamburgerMenu.IsPaneOpen" Value="False" />
-                        <Setter Target="_headerContainer.Visibility" Value="Collapsed" />
-                        <Setter Target="_navigationFrame.Padding" Value="24 0 24 0" />
+                        <Setter Target="_mainContent.Padding" Value="24 0 24 0" />
+                        <Setter Target="_smallHeaderContainer.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Desktop">
@@ -74,10 +76,11 @@
                         <AdaptiveTrigger MinWindowWidth="1008"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
+                        <Setter Target="_bigHeader.Visibility" Value="Visible" />
                         <Setter Target="_hamburgerMenu.DisplayMode" Value="CompactInline" />
                         <Setter Target="_hamburgerMenu.IsPaneOpen" Value="True" />
-                        <Setter Target="_headerContainer.Visibility" Value="Collapsed" />
-                        <Setter Target="_navigationFrame.Padding" Value="24 0 24 0" />
+                        <Setter Target="_mainContent.Padding" Value="24 0 24 0" />
+                        <Setter Target="_smallHeaderContainer.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -111,17 +114,26 @@
 
         <StackPanel 
                     Orientation="Vertical">
-            <Border x:Name="_headerContainer" 
-                    Style="{StaticResource HeaderContainerStyle}">
+            <Border x:Name="_smallHeaderContainer" 
+                    Style="{StaticResource SmallHeaderContainerStyle}">
                 <TextBlock 
-                           Text="{Binding Path=Header}" 
-                           Style="{StaticResource HeaderTextStyle}" 
+                           Text="{Binding Path=SmallHeader}" 
+                           Style="{StaticResource SmallHeaderTextStyle}" 
                 />
             </Border>
 
-            <Frame x:Name="_navigationFrame" 
-                   DataContext="{Binding Path=FrameDataContext, Mode=OneWay}" 
-            />
+            <StackPanel x:Name="_mainContent" 
+                        Orientation="Vertical">
+                <TextBlock x:Name="_bigHeader" 
+                           Text="{Binding Path=BigHeader}" 
+                           Style="{StaticResource BigHeaderTextStyle}" 
+                />
+
+                <Frame x:Name="_navigationFrame" 
+                       DataContext="{Binding Path=FrameDataContext, Mode=OneWay}" 
+                />
+            </StackPanel>
+            
         </StackPanel>
     </uwpToolkit:HamburgerMenu>
 </Page>

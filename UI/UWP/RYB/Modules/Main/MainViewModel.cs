@@ -22,16 +22,14 @@ namespace XElement.RedYellowBlue.UI.UWP
         }
 
 
+        [DependsOn( nameof( Header ) )]
+        public string BigHeader { get { return this.Header; }}
+
+
         public object FrameDataContext { get; private set; }
 
 
-        private string _header;
-
-        public string Header
-        {
-            get { return this._header; }
-            set { this._header = value.ToUpper(); }
-        }
+        private string Header { get; set; }
 
 
         private void Initialize()
@@ -62,6 +60,10 @@ namespace XElement.RedYellowBlue.UI.UWP
             this.SubscribeEvents();
 
         }
+
+
+        [DependsOn( nameof( Header ) )]
+        public string SmallHeader { get { return this.Header.ToUpper(); } }
 
 
         private void SubscribeEvents()
