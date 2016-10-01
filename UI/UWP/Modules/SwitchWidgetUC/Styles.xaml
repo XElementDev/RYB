@@ -4,7 +4,7 @@
                     xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.SwitchWidget">
 
     <Style x:Key="RootStyle" TargetType="StackPanel">
-        <Setter Property="Margin" Value="4" />
+        <Setter Property="Margin" Value="0 0 8 0" />
         <Setter Property="Orientation" Value="Horizontal" />
     </Style>
 

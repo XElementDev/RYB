@@ -24,7 +24,7 @@
         <Setter Property="Grid.Column" Value="0" />
         <Setter Property="Grid.Row" Value="0" />
         <Setter Property="Grid.RowSpan" Value="4" />
-        <Setter Property="Margin" Value="4" />
+        <Setter Property="Margin" Value="0 0 8 0" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
     </Style>
 
@@ -40,7 +40,6 @@
         <Setter Property="Grid.Column" Value="1" />
         <Setter Property="Grid.Row" Value="0" />
         <Setter Property="Grid.RowSpan" Value="2" />
-        <Setter Property="Margin" Value="2 2 0 0" />
     </Style>
 
     <Style x:Key="PanelInfoTextBlockStyle" TargetType="TextBlock">
@@ -52,6 +51,7 @@
 
     <Style x:Key="RootStyle" TargetType="Grid">
         <Setter Property="Background" Value="{StaticResource SystemControlBackgroundBaseLowBrush}" />
+        <Setter Property="Padding" Value="8" />
     </Style>
 
     <Style x:Key="StatePanelStyle" TargetType="StackPanel" BasedOn="{StaticResource _panelStyleBase}">
