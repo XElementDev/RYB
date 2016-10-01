@@ -97,7 +97,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Dictionaries\Resources\SvgSwitch.cs" />
     <Compile Include="Model\Api\MefApiAdapter.cs" />
     <Compile Include="Model\AutoSave\DependenciesDTO.cs" />
@@ -232,6 +231,10 @@
     <ProjectReference Include="..\..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
       <Project>{a607542c-2920-40b5-8074-f1c3d4125ebf}</Project>
       <Name>FactoryMethod.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{480d7c55-3cf8-42da-a7f7-cd63790d8814}</Project>
+      <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Modules\FlaticonCredit\FlaticonCreditUC.csproj">
       <Project>{637852e9-7e85-4cf0-a630-d87252f63da5}</Project>
