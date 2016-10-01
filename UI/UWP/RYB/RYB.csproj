@@ -224,10 +224,6 @@
       <Project>{9E5E1955-7C20-4B25-B40A-93449EBAB79F}</Project>
       <Name>ApiAdapter.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\FritzBoxAPI\FritzBoxHttpAPI\FritzBoxHttpAPI.csproj">
-      <Project>{6658add9-a6d5-4a9f-afd6-95c87ba544bd}</Project>
-      <Name>FritzBoxHttpAPI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
       <Project>{a607542c-2920-40b5-8074-f1c3d4125ebf}</Project>
       <Name>FactoryMethod.Interface</Name>
