@@ -10,10 +10,21 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
             this._ain = initialValues.Identifier;
 
             this.IsConnected = initialValues.Present == 1;
-            this.IsASwitch = (initialValues.FunctionBitmask & Device.BIT_NO9) != 0;
             this.Manufacturer = initialValues.Manufacturer;
             this.Name = initialValues.Name;
             this.ProductName = initialValues.ProductName;
+            this.InitializeSwitchStuff( initialValues );
+        }
+
+
+        private void InitializeSwitchStuff( DeviceDTO initialValues )
+        {
+            this.IsASwitch = (initialValues.FunctionBitmask & Device.BIT_NO9) != 0;
+
+            if ( this.IsASwitch )
+            {
+                this.SwitchFeature = new SwitchFeature( initialValues.Switch );
+            }
         }
 
 
@@ -36,6 +47,9 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
 
 
         public string /*IDevice.*/ProductName { get; private set; }
+
+
+        public ISwitchFeature /*IDevice.*/SwitchFeature { get; private set; }
 
 
         private const int BIT_NO9 = 512;

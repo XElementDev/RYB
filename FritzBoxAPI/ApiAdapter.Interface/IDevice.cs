@@ -18,5 +18,8 @@
 
 
         string ProductName { get; }
+
+
+        ISwitchFeature SwitchFeature { get; }
     }
 }

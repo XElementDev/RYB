@@ -4,7 +4,7 @@ using XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter;
 namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
 {
 #region not unit-tested
-    internal class ViewModel : IDevice
+    internal class ViewModel
     {
         public ViewModel( IDevice device, ViewModelDependenciesDTO dependencies )
         {
