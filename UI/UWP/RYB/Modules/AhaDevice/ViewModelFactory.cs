@@ -1,13 +1,12 @@
 ﻿using System.Composition;
 using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
-using XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter;
 using XElement.RedYellowBlue.UI.UWP.Resources;
 
 namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
 {
 #region not unit-tested
-    [Shared] [Export( typeof( IFactory</*AhaDevice.*/ViewModel, IDevice> ) )]
-    internal class ViewModelFactory : IFactory</*AhaDevice.*/ViewModel, IDevice>
+    [Shared] [Export( typeof( IFactory</*AhaDevice.*/ViewModel, /*AhaDevice.*/Model> ) )]
+    internal class ViewModelFactory : IFactory</*AhaDevice.*/ViewModel, /*AhaDevice.*/Model>
     {
         [ImportingConstructor]
         public ViewModelFactory( SvgSwitch svgSwitch )
@@ -16,13 +15,13 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
         }
 
 
-        public /*AhaDevice.*/ViewModel /*IFactory<TOut>.*/Get( IDevice parameter )
+        public /*AhaDevice.*/ViewModel /*IFactory<TOut>.*/Get( /*AhaDevice.*/Model parameter )
         {
-            var dependencies = new ViewModelDependenciesDTO
+            var dependencies = new /*AhaDevice.*/ViewModelDependenciesDTO
             {
                 SvgSwitch = this._svgSwitch
             };
-            return new ViewModel( parameter, dependencies );
+            return new /*AhaDevice.*/ViewModel( parameter, dependencies );
         }
 
 

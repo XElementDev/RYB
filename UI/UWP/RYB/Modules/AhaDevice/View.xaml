@@ -6,6 +6,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       mc:Ignorable="d" 
 
+      xmlns:modules="using:XElement.RedYellowBlue.UI.UWP.Modules" 
       xmlns:svg="using:Mntone.SvgForXaml.UI.Xaml" 
       xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
@@ -31,6 +32,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Border 
@@ -44,7 +46,7 @@
         </Border>
 
         <TextBlock 
-                   Text="{Binding Path=Name}" 
+                   Text="{Binding Path=Model.Name}" 
                    Style="{StaticResource NameTextBlockStyle}" 
         />
 
@@ -58,13 +60,13 @@
             <FontIcon 
                       x:Uid="AhaDevice_State_NotConnected" 
                       Glyph="&#xEB5E;" 
-                      Visibility="{Binding Path=IsConnected, 
+                      Visibility="{Binding Path=Model.IsConnected, 
                                            Converter={StaticResource TrueToCollapsedVisibilityConverter}}" 
             />  <!-- alternatives: xEB5D -->
             <FontIcon 
                       x:Uid="AhaDevice_State_Connected" 
                       Glyph="&#xEC3F;" 
-                      Visibility="{Binding Path=IsConnected, 
+                      Visibility="{Binding Path=Model.IsConnected, 
                                            Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
             />  <!-- alternatives: xEC3F xEC44 -->
         </StackPanel>
@@ -79,10 +81,19 @@
             <FontIcon 
                       x:Uid="AhaDevice_FeaturesPanel_Switch" 
                       Glyph="&#xE7E8;" 
-                      Visibility="{Binding Path=IsASwitch, 
+                      Visibility="{Binding Path=Model.IsASwitch, 
                                            Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
             />  <!-- alternatives: xE7E8 -->
         </StackPanel>
+
+        <Border 
+                Visibility="{Binding Path=Model.IsASwitch, 
+                                     Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+                Style="{StaticResource SwitchWidgetStyle}">
+            <modules:SwitchWidgetUC 
+                                    DataContext="{Binding Path=SwitchWidgetVM}" 
+            />
+        </Border>
 
 
         <!--on/off-symbol: E7E8--> 

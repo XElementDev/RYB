@@ -1,7 +1,6 @@
 ﻿using PropertyChanged;
 using System.Collections.Generic;
 using System.Composition;
-using XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter;
 
 namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
 {
@@ -17,13 +16,35 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
         }
 
 
-        public IEnumerable<IDevice> Devices { get; private set; }
+        public IEnumerable<AhaDevice.Model> DeviceModels { get; private set; }
+
+
+        private void InitializeDeviceModels()
+        {
+            var devices = this._dependencies.ApiService.GetDevices();
+            var deviceModels = new List<AhaDevice.Model>();
+            foreach ( var device in devices )
+            {
+                var deviceModel = this._dependencies.AhaDeviceModelFactory.Get( device );
+                deviceModels.Add( deviceModel );
+            }
+            this.DeviceModels = deviceModels;
+        }
 
 
         [OnImportsSatisfied]
         internal void OnImportsSatisfied()
         {
-            this.Devices = this._dependencies.ApiService.GetDevices();
+            this.TryInitializeDeviceModels();
+        }
+
+
+        private void TryInitializeDeviceModels()
+        {
+            if ( this._dependencies.Config.BoxUrl != null )
+            {
+                this.InitializeDeviceModels();
+            }
         }
 
 

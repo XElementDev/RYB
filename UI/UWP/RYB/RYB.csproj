@@ -114,6 +114,8 @@
     </Compile>
     <Compile Include="Modules\About\ViewModel.cs" />
     <Compile Include="Modules\About\ViewModelDepdenciesDTO.cs" />
+    <Compile Include="Modules\AhaDevice\Model.cs" />
+    <Compile Include="Modules\AhaDevice\ModelFactory.cs" />
     <Compile Include="Modules\AhaDevice\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
@@ -235,6 +237,10 @@
     <ProjectReference Include="..\Modules\FlaticonCredit\FlaticonCreditUC.csproj">
       <Project>{637852e9-7e85-4cf0-a630-d87252f63da5}</Project>
       <Name>FlaticonCreditUC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\SwitchWidgetUC\SwitchWidgetUC.csproj">
+      <Project>{bf1b2833-d1c8-4e2c-9ef2-ac3005e984db}</Project>
+      <Name>SwitchWidgetUC</Name>
     </ProjectReference>
     <ProjectReference Include="..\Modules\TabHeader\TabHeaderUC\TabHeaderUC.csproj">
       <Project>{37438cd6-46c6-4495-91f5-0c76fe9c0d1e}</Project>

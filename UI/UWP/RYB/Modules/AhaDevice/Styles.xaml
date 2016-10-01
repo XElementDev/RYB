@@ -23,7 +23,7 @@
         <Setter Property="Background" Value="White" />
         <Setter Property="Grid.Column" Value="0" />
         <Setter Property="Grid.Row" Value="0" />
-        <Setter Property="Grid.RowSpan" Value="3" />
+        <Setter Property="Grid.RowSpan" Value="4" />
         <Setter Property="Margin" Value="4" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
     </Style>
@@ -56,6 +56,11 @@
 
     <Style x:Key="StatePanelStyle" TargetType="StackPanel" BasedOn="{StaticResource _panelStyleBase}">
         <Setter Property="Grid.Row" Value="0" />
+    </Style>
+
+    <Style x:Key="SwitchWidgetStyle" TargetType="FrameworkElement">
+        <Setter Property="Grid.Column" Value="1" />
+        <Setter Property="Grid.Row" Value="3" />
     </Style>
 
 </ResourceDictionary>

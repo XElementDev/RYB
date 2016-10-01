@@ -21,7 +21,8 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
         private void Initialize()
         {
             var deviceVMs = new List<AhaDevice.ViewModel>();
-            foreach ( var device in this._model.Devices )
+            var deviceModels = this._model.DeviceModels ?? new List<AhaDevice.Model>();
+            foreach ( var device in deviceModels )
             {
                 var deviceVM = this._dependencies.AhaDeviceVmFactory.Get( device );
                 deviceVMs.Add( deviceVM );

@@ -1,6 +1,5 @@
 ﻿using System.Composition;
 using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
-using XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter;
 
 namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
 {
@@ -9,7 +8,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
     internal class ViewModelDependenciesDTO
     {
         [Import]
-        public IFactory<AhaDevice.ViewModel, IDevice> AhaDeviceVmFactory { get; set; }
+        public IFactory<AhaDevice.ViewModel, AhaDevice.Model> AhaDeviceVmFactory { get; set; }
     }
 #endregion
 }
