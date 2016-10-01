@@ -26,7 +26,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
         /// <summary>
         /// state: 0/1 - Schaltzustand aus/an( leer bei unbekannt oder Fehler)
         /// </summary>
-        [XmlElement( "switch" )]
+        [XmlElement( "state" )]
         public int State { get; set; }
     }
 #endregion
