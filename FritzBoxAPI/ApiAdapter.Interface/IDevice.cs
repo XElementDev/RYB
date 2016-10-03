@@ -5,6 +5,9 @@
         bool IsASwitch { get; }
 
 
+        bool IsAThermostat { get; }
+
+
         bool IsConnected { get; }
 
 

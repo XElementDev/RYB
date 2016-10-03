@@ -14,6 +14,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
             this.Name = initialValues.Name;
             this.ProductName = initialValues.ProductName;
             this.InitializeSwitchStuff( initialValues );
+            this.IsAThermostat = (initialValues.FunctionBitmask & Device.BIT_NO6) != 0;
         }
 
 
@@ -29,6 +30,9 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
 
 
         public bool /*IDevice.*/IsASwitch { get; private set; }
+
+
+        public bool /*IDevice.*/IsAThermostat { get; private set; }
 
 
         public bool /*IDevice.*/IsConnected { get; private set; }
@@ -51,6 +55,8 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
 
         public ISwitchFeature /*IDevice.*/SwitchFeature { get; private set; }
 
+
+        private const int BIT_NO6 = 64;
 
         private const int BIT_NO9 = 512;
 
