@@ -9,9 +9,10 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
     internal class ViewModelFactory : IFactory</*AhaDevice.*/ViewModel, /*AhaDevice.*/Model>
     {
         [ImportingConstructor]
-        public ViewModelFactory( SvgSwitch svgSwitch )
+        public ViewModelFactory( SvgSwitch svgSwitch, SvgThermostat svgThermostat )
         {
             this._svgSwitch = svgSwitch;
+            this._svgThermostat = svgThermostat;
         }
 
 
@@ -19,13 +20,16 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
         {
             var dependencies = new /*AhaDevice.*/ViewModelDependenciesDTO
             {
-                SvgSwitch = this._svgSwitch
+                SvgSwitch = this._svgSwitch, 
+                SvgThermostat = this._svgThermostat
             };
             return new /*AhaDevice.*/ViewModel( parameter, dependencies );
         }
 
 
         private SvgSwitch _svgSwitch;
+
+        private SvgThermostat _svgThermostat;
     }
 #endregion
 }

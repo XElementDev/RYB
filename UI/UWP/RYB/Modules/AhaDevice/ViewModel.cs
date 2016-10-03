@@ -20,6 +20,10 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
             {
                 this.SvgImage = dependencies.SvgSwitch.Svg;
             }
+            else if ( this.Model.IsAThermostat )
+            {
+                this.SvgImage = dependencies.SvgThermostat.Svg;
+            }
         }
 
 

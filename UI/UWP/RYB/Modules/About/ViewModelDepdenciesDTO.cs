@@ -9,6 +9,10 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.About
     {
         [Import]
         public SvgSwitch SvgSwitch { get; set; }
+
+
+        [Import]
+        public SvgThermostat SvgThermostat { get; set; }
     }
 #endregion
 }

@@ -6,6 +6,9 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
     internal class ViewModelDependenciesDTO
     {
         public SvgSwitch SvgSwitch { get; set; }
+
+
+        public SvgThermostat SvgThermostat { get; set; }
     }
 #endregion
 }

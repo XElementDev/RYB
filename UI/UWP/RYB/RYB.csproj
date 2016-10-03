@@ -97,7 +97,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dictionaries\Resources\SvgBase.cs" />
     <Compile Include="Dictionaries\Resources\SvgSwitch.cs" />
+    <Compile Include="Dictionaries\Resources\SvgThermostat.cs" />
     <Compile Include="Model\Api\MefApiAdapter.cs" />
     <Compile Include="Model\AutoSave\DependenciesDTO.cs" />
     <Compile Include="Model\AutoSave\IAutoSaveTarget.cs" />
@@ -150,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\plug-for-electric-connection.svg" />
+    <EmbeddedResource Include="Assets\heating.svg" />
     <Content Include="FodyWeavers.xml" />
     <EmbeddedResource Include="Model\Configuration\key.txt" />
     <Content Include="Properties\Default.rd.xml" />

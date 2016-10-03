@@ -28,6 +28,9 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
         public bool IsASwitch { get { return this._device.IsASwitch; } }
 
 
+        public bool IsAThermostat { get { return this._device.IsAThermostat; } }
+
+
         public bool IsConnected { get { return this._device.IsConnected; } }
 
 

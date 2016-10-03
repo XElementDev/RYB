@@ -17,6 +17,12 @@
                                       AuthorUri="http://www.freepik.com" 
                                       SvgImage="{Binding Path=Switch}" 
             />
+
+            <modules:FlaticonCreditUC 
+                                      AuthorName="Freepik" 
+                                      AuthorUri="http://www.freepik.com" 
+                                      SvgImage="{Binding Path=Thermostat}" 
+            />
         </StackPanel>
     </Grid>
 
