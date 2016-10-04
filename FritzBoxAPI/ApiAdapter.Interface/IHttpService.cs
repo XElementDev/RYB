@@ -11,5 +11,8 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
         bool IsLoginValid();
 
         Task<bool> IsLoginValidAsync();
+
+
+        void SetSwitch( bool targetState, string ain );
     }
 }

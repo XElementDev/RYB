@@ -5,9 +5,10 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
 #region not unit-tested
     internal class Device : IDevice
     {
-        public Device( DeviceDTO initialValues )
+        public Device( DeviceDTO initialValues, IHttpService httpService )
         {
             this._ain = initialValues.Identifier;
+            this._httpService = httpService;
 
             this.IsConnected = initialValues.Present == 1;
             this.Manufacturer = initialValues.Manufacturer;
@@ -24,7 +25,9 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
 
             if ( this.IsASwitch )
             {
-                this.SwitchFeature = new SwitchFeature( initialValues.Switch );
+                this.SwitchFeature = new SwitchFeature( initialValues.Switch, 
+                                                        this._httpService, 
+                                                        this._ain );
             }
         }
 
@@ -62,6 +65,8 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
 
 
         private string _ain;
+
+        private IHttpService _httpService;
     }
 #endregion
 }

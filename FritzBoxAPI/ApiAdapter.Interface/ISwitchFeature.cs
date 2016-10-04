@@ -2,6 +2,6 @@
 {
     public interface ISwitchFeature
     {
-        bool IsActive { get; }
+        bool IsActive { get; set; }
     }
 }

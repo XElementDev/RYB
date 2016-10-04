@@ -17,6 +17,15 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
         }
 
 
+        private Aha CreateAha()
+        {
+            var login = this.CreateLogin();
+            login.Do();
+            var aha = new Aha( this._parameters.BoxUrl, login.Sid );
+            return aha;
+        }
+
+
         private LoginBase CreateLogin()
         {
             LoginBase login = null;
@@ -40,13 +49,11 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
         {
             var devices = new List<IDevice>();
 
-            var login = this.CreateLogin();
-            login.Do();
-            var aha = new Aha( this._parameters.BoxUrl, login.Sid );
+            var aha = this.CreateAha();
             var deviceListDTO = aha.GetDeviceListInfos();
             foreach ( var deviceDTO in deviceListDTO.Devices )
             {
-                var device = new Device( deviceDTO );
+                var device = new Device( deviceDTO, this );
                 devices.Add( device );
             }
 
@@ -70,6 +77,20 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
             var task = new Task<bool>( this.IsLoginValid );
             task.Start();
             return task;
+        }
+
+
+        public void /*IService.*/SetSwitch( bool targetState, string ain )
+        {
+            var aha = this.CreateAha();
+            if ( targetState == false )
+            {
+                aha.SetSwitchOff( ain );
+            }
+            else
+            {
+                aha.SetSwitchOn( ain );
+            }
         }
 
 
