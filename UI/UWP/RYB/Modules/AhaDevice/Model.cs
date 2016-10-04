@@ -18,7 +18,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
             {
                 var parameters = new SwitchWidget.ModelParametersDTO
                 {
-                    IsActive = this._device.SwitchFeature.IsActive
+                    SwitchFeature = this._device.SwitchFeature
                 };
                 this.SwitchWidgetModel = new SwitchWidget.Model( parameters );
             }

@@ -133,6 +133,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\FritzBoxAPI\ApiAdapter.Interface\ApiAdapter.Interface.csproj">
+      <Project>{9E5E1955-7C20-4B25-B40A-93449EBAB79F}</Project>
+      <Name>ApiAdapter.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\Common.csproj">
       <Project>{480d7c55-3cf8-42da-a7f7-cd63790d8814}</Project>
       <Name>Common</Name>

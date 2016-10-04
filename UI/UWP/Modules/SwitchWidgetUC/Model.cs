@@ -7,7 +7,9 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.SwitchWidget
     {
         public Model( ModelParametersDTO parameters )
         {
-            this.IsActive = parameters.IsActive;
+            this._parameters = parameters;
+
+            this.IsActive = this._parameters.SwitchFeature.IsActive;
         }
 
 
@@ -16,9 +18,13 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.SwitchWidget
 
         public Task SetStateAsync( bool targetState )
         {
-            // TODO
-            return Task.Delay( 5000 );
+            var task = new Task( () => this._parameters.SwitchFeature.IsActive = targetState );
+            task.Start();
+            return task;
         }
+
+
+        private ModelParametersDTO _parameters;
     }
 #endregion
 }
