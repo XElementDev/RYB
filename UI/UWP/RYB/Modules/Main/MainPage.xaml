@@ -112,8 +112,12 @@
             </uwpToolkit:HamburgerMenuItemCollection>
         </uwpToolkit:HamburgerMenu.OptionsItemsSource>
 
-        <StackPanel 
-                    Orientation="Vertical">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
             <Border x:Name="_smallHeaderContainer" 
                     Style="{StaticResource SmallHeaderContainerStyle}">
                 <TextBlock 
@@ -122,8 +126,13 @@
                 />
             </Border>
 
-            <StackPanel x:Name="_mainContent" 
-                        Orientation="Vertical">
+            <Grid x:Name="_mainContent" 
+                  Style="{StaticResource MainContentStyle}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
                 <TextBlock x:Name="_bigHeader" 
                            Text="{Binding Path=BigHeader}" 
                            Style="{StaticResource BigHeaderTextStyle}" 
@@ -131,9 +140,9 @@
 
                 <Frame x:Name="_navigationFrame" 
                        DataContext="{Binding Path=FrameDataContext, Mode=OneWay}" 
+                       Style="{StaticResource NavigationFrameStyle}" 
                 />
-            </StackPanel>
-            
-        </StackPanel>
+            </Grid>
+        </Grid>
     </uwpToolkit:HamburgerMenu>
 </Page>
