@@ -28,8 +28,7 @@
                 </PivotItem.Header>
 
                 <toolkit:AdaptiveGridView 
-                                          ItemsSource="{Binding Path=DeviceVMs}" 
-                                          ItemHeight="128" DesiredWidth="256">
+                                          ItemsSource="{Binding Path=DeviceVMs}">
                     <toolkit:AdaptiveGridView.ItemTemplate>
                         <DataTemplate>
                             <modules:AhaDevicePage 

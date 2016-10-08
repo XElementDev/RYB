@@ -6,7 +6,9 @@
                     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
     <Style TargetType="toolkit:AdaptiveGridView">
-        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden" />
+        <Setter Property="DesiredWidth" Value="512" />
+        <Setter Property="ItemHeight" Value="128" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
     </Style>
 
 </ResourceDictionary>
