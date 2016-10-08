@@ -4,9 +4,9 @@
                     xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice">
 
     <Style x:Key="_panelStyleBase" TargetType="StackPanel">
-        <Setter Property="Grid.Column" Value="3" />
         <Setter Property="Margin" Value="0 2 2 0" />
         <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="RelativePanel.AlignRightWithPanel" Value="True" />
     </Style>
 
 
@@ -16,16 +16,16 @@
 
 
     <Style x:Key="FeaturesPanelStyle" TargetType="StackPanel" BasedOn="{StaticResource _panelStyleBase}">
-        <Setter Property="Grid.Row" Value="1" />
+        <Setter Property="RelativePanel.Below" Value="_statePanel" />
     </Style>
 
     <Style x:Key="ImageContainerStyle" TargetType="Border">
         <Setter Property="Background" Value="White" />
-        <Setter Property="Grid.Column" Value="0" />
-        <Setter Property="Grid.Row" Value="0" />
-        <Setter Property="Grid.RowSpan" Value="4" />
         <Setter Property="Margin" Value="0 0 8 0" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="RelativePanel.AlignBottomWithPanel" Value="True" />
+        <Setter Property="RelativePanel.AlignLeftWithPanel" Value="True" />
+        <Setter Property="RelativePanel.AlignTopWithPanel" Value="True" />
     </Style>
 
     <Style x:Key="ImageStyle" TargetType="Control">
@@ -37,10 +37,9 @@
     <Style x:Key="NameTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="18" />
         <Setter Property="Foreground" Value="{StaticResource SystemControlForegroundBaseHighBrush}" />
-        <Setter Property="Grid.Column" Value="1" />
-        <Setter Property="Grid.Row" Value="0" />
-        <Setter Property="Grid.RowSpan" Value="2" />
-        <Setter Property="MaxWidth" Value="256" />
+        <Setter Property="RelativePanel.AlignTopWithPanel" Value="True" />
+        <Setter Property="RelativePanel.LeftOf" Value="_statePanel" />
+        <Setter Property="RelativePanel.RightOf" Value="_imageContainer" />
         <Setter Property="TextTrimming" Value="CharacterEllipsis" />
     </Style>
 
@@ -51,18 +50,17 @@
         <Setter Property="VerticalAlignment" Value="Bottom" />
     </Style>
 
-    <Style x:Key="RootStyle" TargetType="Grid">
+    <Style x:Key="RootStyle" TargetType="RelativePanel">
         <Setter Property="Background" Value="{StaticResource SystemControlBackgroundBaseLowBrush}" />
         <Setter Property="Padding" Value="8" />
     </Style>
 
     <Style x:Key="StatePanelStyle" TargetType="StackPanel" BasedOn="{StaticResource _panelStyleBase}">
-        <Setter Property="Grid.Row" Value="0" />
     </Style>
 
     <Style x:Key="SwitchWidgetStyle" TargetType="FrameworkElement">
-        <Setter Property="Grid.Column" Value="1" />
-        <Setter Property="Grid.Row" Value="3" />
+        <Setter Property="RelativePanel.AlignBottomWithPanel" Value="True" />
+        <Setter Property="RelativePanel.RightOf" Value="_imageContainer" />
     </Style>
 
 </ResourceDictionary>

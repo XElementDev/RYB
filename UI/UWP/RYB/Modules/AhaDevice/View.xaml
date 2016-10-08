@@ -20,22 +20,10 @@
     </Page.Resources>
 
 
-    <Grid 
-          Style="{StaticResource RootStyle}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <RelativePanel 
+                   Style="{StaticResource RootStyle}">
 
-        <Border 
+        <Border x:Name="_imageContainer" 
                 Visibility="{Binding Path=IsImageVisible, 
                                      Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
                 Style="{StaticResource ImageContainerStyle}">
@@ -51,7 +39,7 @@
                    Style="{StaticResource NameTextBlockStyle}" 
         />
 
-        <StackPanel 
+        <StackPanel x:Name="_statePanel" 
                     Style="{StaticResource StatePanelStyle}">
             <TextBlock 
                        x:Uid="AhaDevice_StatePanel" 
@@ -72,7 +60,7 @@
             />  <!-- alternatives: xEC3F xEC44 -->
         </StackPanel>
 
-        <StackPanel 
+        <StackPanel x:Name="_featuresPanel" 
                     Style="{StaticResource FeaturesPanelStyle}">
             <TextBlock 
                        x:Uid="AhaDevice_FeaturesPanel" 
@@ -101,6 +89,6 @@
         <!--thermometer: E9CA--> 
         <!--frost symbol: EA38 EDAD--> 
         <!--light: EC8A--> 
-    </Grid>
+    </RelativePanel>
 
 </Page>
