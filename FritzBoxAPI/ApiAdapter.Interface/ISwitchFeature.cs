@@ -3,5 +3,8 @@
     public interface ISwitchFeature
     {
         bool IsActive { get; set; }
+
+
+        bool IsLocked { get; }
     }
 }

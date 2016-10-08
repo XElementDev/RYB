@@ -10,6 +10,8 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
             this._ain = ain;
             this._httpService = httpService;
             this._isActive = initialValues.State == 1;
+
+            this.IsLocked = initialValues.Lock == 1;
         }
 
 
@@ -20,6 +22,9 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
             get { return this._isActive; }
             set { this.SetIsActive( value ); }
         }
+
+
+        public bool /*ISwitchFeature.*/IsLocked { get; private set; }
 
 
         private void SetIsActive( bool targetState )
