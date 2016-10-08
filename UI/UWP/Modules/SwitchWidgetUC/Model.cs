@@ -10,10 +10,14 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.SwitchWidget
             this._parameters = parameters;
 
             this.IsActive = this._parameters.SwitchFeature.IsActive;
+            this.IsLocked = this._parameters.SwitchFeature.IsLocked;
         }
 
 
         public bool IsActive { get; private set; }
+
+
+        public bool IsLocked { get; private set; }
 
 
         public Task SetStateAsync( bool targetState )

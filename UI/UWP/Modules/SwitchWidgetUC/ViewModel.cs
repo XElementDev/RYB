@@ -10,12 +10,13 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.SwitchWidget
     {
         public ViewModel( Model model )
         {
+            this._needsRefresh = false;
             this.IsBusy = false;
             this.Model = model;
             this.TurnOffCommand = new DelegateCommand( this.TurnOffCommand_Execute, 
-                                                       this.TurnOffCommand_CanExecute );
+                                                       this.TurnOffOnCommand_CanExecute );
             this.TurnOnCommand = new DelegateCommand( this.TurnOnCommand_Execute, 
-                                                      this.TurnOnCommand_CanExecute );
+                                                      this.TurnOffOnCommand_CanExecute );
         }
 
 
@@ -32,6 +33,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.SwitchWidget
         {
             this.IsBusy = true;
             await this.Model.SetStateAsync( value );
+            this._needsRefresh = true;
             this.IsBusy = false;
         }
 
@@ -39,29 +41,28 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.SwitchWidget
         [DoNotNotify]
         public ICommand TurnOffCommand { get; private set; }
 
-        private bool TurnOffCommand_CanExecute()
-        {
-            return !this.IsBusy;
-        }
-
         private void TurnOffCommand_Execute()
         {
             this.SetStateAsync( false );
         }
 
 
+        private bool TurnOffOnCommand_CanExecute()
+        {
+            return (!this.Model?.IsLocked ?? false) && !this.IsBusy && !this._needsRefresh;
+        }
+
+
         [DoNotNotify]
         public ICommand TurnOnCommand { get; private set; }
-
-        private bool TurnOnCommand_CanExecute()
-        {
-            return !this.IsBusy;
-        }
 
         private void TurnOnCommand_Execute()
         {
             this.SetStateAsync( true );
         }
+
+
+        private bool _needsRefresh;
     }
 #endregion
 }

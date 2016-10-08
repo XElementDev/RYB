@@ -3,14 +3,39 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
                     xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.SwitchWidget">
 
+    <Style x:Key="_fontIconBase" TargetType="FontIcon">
+        <Setter Property="Margin" Value="0 0 4 0" />
+    </Style>
+
+
     <Style TargetType="ProgressRing">
         <Setter Property="Height" Value="32" />
         <Setter Property="Margin" Value="8 0 0 0" />
     </Style>
 
 
-    <Style x:Key="RootStyle" TargetType="StackPanel">
+    <Style x:Key="FeaturePanelStyle" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal" />
+    </Style>
+
+    <Style x:Key="SwitchOffFontIconStyle" TargetType="FontIcon" BasedOn="{StaticResource _fontIconBase}">
+        <Setter Property="Glyph" Value="&#xE7E8;" />
+        <Setter Property="Opacity" Value=".25" />
+    </Style>
+
+    <Style x:Key="SwitchOnFontIconStyle" TargetType="FontIcon" BasedOn="{StaticResource _fontIconBase}">
+        <Setter Property="Foreground" Value="{StaticResource SystemControlForegroundAccentBrush}" />
+        <Setter Property="Glyph" Value="&#xE7E8;" />
+    </Style>
+
+    <Style x:Key="RootPanelStyle" TargetType="StackPanel">
         <Setter Property="Margin" Value="0 0 8 0" />
+        <Setter Property="Orientation" Value="Vertical" />
+    </Style>
+
+    <Style x:Key="StatePanelStyle" TargetType="StackPanel">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Margin" Value="0 0 0 4" />
         <Setter Property="Orientation" Value="Horizontal" />
     </Style>
 

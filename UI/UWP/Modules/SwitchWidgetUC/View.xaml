@@ -19,28 +19,54 @@
 
 
     <StackPanel 
-                Style="{StaticResource RootStyle}">
-        <Grid>
-            <Button 
-                    Content="&lt;TURN OFF&gt;" 
-                    Command="{Binding Path=TurnOffCommand}" 
-                    Visibility="{Binding Path=Model.IsActive, 
-                                         Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+                Style="{StaticResource RootPanelStyle}">
+        <StackPanel 
+                    Style="{StaticResource StatePanelStyle}">
+            <FontIcon 
+                      ToolTipService.ToolTip="&lt;SWITCH TURNED ON&gt;" 
+                      Visibility="{Binding Path=Model.IsActive, 
+                                           Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+                      Style="{StaticResource SwitchOnFontIconStyle}" 
             />
-            <Button 
-                    Content="&lt;TURN ON&gt;" 
-                    Command="{Binding Path=TurnOnCommand}" 
-                    Visibility="{Binding Path=Model.IsActive, 
-                                         Converter={StaticResource TrueToCollapsedVisibilityConverter}}" 
+            <FontIcon 
+                      ToolTipService.ToolTip="&lt;SWITCH TURNED OFF&gt;" 
+                      Visibility="{Binding Path=Model.IsActive, 
+                                           Converter={StaticResource TrueToCollapsedVisibilityConverter}}" 
+                      Style="{StaticResource SwitchOffFontIconStyle}" 
             />
-        </Grid>
+
+            <FontIcon 
+                      Glyph="&#xE1F6;" 
+                      ToolTipService.ToolTip="&lt;SWITCH LOCKED&gt;" 
+                      Visibility="{Binding Path=Model.IsLocked, 
+                                           Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+            />
+        </StackPanel>
 
         <StackPanel 
-                    Visibility="{Binding Path=IsBusy, 
-                                         Converter={StaticResource FalseToCollapsedVisibilityConverter}}">
-            <ProgressRing 
-                          IsActive="True" 
-            />
+                    Style="{StaticResource FeaturePanelStyle}">
+            <Grid>
+                <Button 
+                        Content="&lt;TURN OFF&gt;" 
+                        Command="{Binding Path=TurnOffCommand}" 
+                        Visibility="{Binding Path=Model.IsActive, 
+                                             Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+                />
+                <Button 
+                        Content="&lt;TURN ON&gt;" 
+                        Command="{Binding Path=TurnOnCommand}" 
+                        Visibility="{Binding Path=Model.IsActive, 
+                                             Converter={StaticResource TrueToCollapsedVisibilityConverter}}" 
+                />
+            </Grid>
+
+            <StackPanel 
+                        Visibility="{Binding Path=IsBusy, 
+                                             Converter={StaticResource FalseToCollapsedVisibilityConverter}}">
+                <ProgressRing 
+                              IsActive="True" 
+                />
+            </StackPanel>
         </StackPanel>
     </StackPanel>
 
