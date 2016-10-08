@@ -40,6 +40,8 @@
         <Setter Property="Grid.Column" Value="1" />
         <Setter Property="Grid.Row" Value="0" />
         <Setter Property="Grid.RowSpan" Value="2" />
+        <Setter Property="MaxWidth" Value="256" />
+        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
     </Style>
 
     <Style x:Key="PanelInfoTextBlockStyle" TargetType="TextBlock">

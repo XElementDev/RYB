@@ -47,6 +47,7 @@
 
         <TextBlock 
                    Text="{Binding Path=Model.Name}" 
+                   ToolTipService.ToolTip="{Binding Path=Model.Name}" 
                    Style="{StaticResource NameTextBlockStyle}" 
         />
 
