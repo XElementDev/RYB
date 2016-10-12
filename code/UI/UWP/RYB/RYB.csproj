@@ -153,6 +153,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Assets\plug-for-electric-connection.svg" />
     <EmbeddedResource Include="Assets\heating.svg" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
     <Content Include="FodyWeavers.xml" />
     <EmbeddedResource Include="Model\Configuration\key.txt" />
     <Content Include="Properties\Default.rd.xml" />
