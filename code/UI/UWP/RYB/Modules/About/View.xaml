@@ -28,9 +28,9 @@
                 <TextBlock 
                            Text="{Binding Path=Model.Version}" 
                 />
-                <TextBlock 
-                           Text="&lt;COPYRIGHT&gt;" 
-                />
+                <!--<TextBlock 
+                           Text="{Binding Path=Model.Copyright}" 
+                />-->
             </StackPanel>
 
             <TextBlock 

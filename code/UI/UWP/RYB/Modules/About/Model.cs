@@ -10,15 +10,29 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.About
         [ImportingConstructor]
         public Model()
         {
-            // TODO
-            this.InitializeAssemblyInfos();
+            this.Initialize();
         }
 
 
         public string ApplicationName { get; private set; }
 
 
-        private void InitializeAssemblyInfos()
+
+        private void Initialize()
+        {
+            this.InitializeUsingAssemblyInformation();
+            this.InitializeUsingPackageInformation();
+        }
+
+
+        private void InitializeUsingAssemblyInformation()
+        {
+            // TODO
+            //this.Copyright = 
+        }
+
+
+        private void InitializeUsingPackageInformation()
         {
             var package = Package.Current;
             this.ApplicationName = package.DisplayName;
