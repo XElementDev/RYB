@@ -21,10 +21,10 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Pivot>
             <PivotItem 
-                       Header="&lt;Login&gt;">
+                       x:Uid="Settings_Tabs_Login">
                 <VariableSizedWrapGrid>
                     <TextBlock 
-                               Text="&lt;Fritz!Box address:&gt;" 
+                               x:Uid="Settings_LoginTab_BoxAddress" 
                     />
                     <TextBox 
                              Text="{Binding Path=Model.BoxUrlAsString, 
@@ -32,7 +32,7 @@
                     />
 
                     <TextBlock 
-                               Text="&lt;Username:&gt;" 
+                               x:Uid="Settings_LoginTab_Username" 
                     />
                     <TextBox 
                              Text="{Binding Path=Model.Username, 
@@ -40,7 +40,7 @@
                     />
 
                     <TextBlock 
-                               Text="&lt;Password:&gt;" 
+                               x:Uid="Settings_LoginTab_Password" 
                     />
                     <PasswordBox 
                                  Password="{Binding Path=Model.Password, 

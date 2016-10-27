@@ -165,6 +165,22 @@
     <value>Einstellungen</value>
     <comment>// 2016-09-13</comment>
   </data>
+  <data name="Settings_LoginTab_BoxAddress.Text" xml:space="preserve">
+    <value>Fritz!Box-Adresse:</value>
+    <comment>// 2016-10-27</comment>
+  </data>
+  <data name="Settings_LoginTab_Password.Text" xml:space="preserve">
+    <value>Passwort:</value>
+    <comment>// 2016-10-27</comment>
+  </data>
+  <data name="Settings_LoginTab_Username.Text" xml:space="preserve">
+    <value>Benutzername:</value>
+    <comment>// 2016-10-27</comment>
+  </data>
+  <data name="Settings_Tabs_Login.Header" xml:space="preserve">
+    <value>Login</value>
+    <comment>// 2016-10-27</comment>
+  </data>
   <data name="Settings_TestConnection.Content" xml:space="preserve">
     <value>Verbindung überprüfen</value>
     <comment>// 2016-09-13</comment>
