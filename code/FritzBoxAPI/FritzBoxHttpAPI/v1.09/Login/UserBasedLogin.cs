@@ -1,9 +1,11 @@
-﻿namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
+﻿using System;
+
+namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
 {
 #region not unit-tested
     public class UserBasedLogin : PasswordBasedLogin
     {
-        public UserBasedLogin( string fritzBoxUri, string username, string password ) 
+        public UserBasedLogin( Uri fritzBoxUri, string username, string password ) 
             : base( fritzBoxUri, password )
         {
             this._username = username;

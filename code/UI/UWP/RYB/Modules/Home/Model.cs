@@ -41,7 +41,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
 
         private void TryInitializeDeviceModels()
         {
-            if ( this._dependencies.Config.BoxUrl != null )
+            if ( this._dependencies.Config.BoxUrlAsString != null )
             {
                 this.InitializeDeviceModels();
             }

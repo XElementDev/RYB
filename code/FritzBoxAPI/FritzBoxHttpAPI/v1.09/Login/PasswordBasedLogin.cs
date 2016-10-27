@@ -8,7 +8,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
 #region not unit-tested
     public class PasswordBasedLogin : LoginBase
     {
-        public PasswordBasedLogin( string fritzBoxUri, string password ) : 
+        public PasswordBasedLogin( Uri fritzBoxUri, string password ) : 
             base( fritzBoxUri )
         {
             this._password = password;

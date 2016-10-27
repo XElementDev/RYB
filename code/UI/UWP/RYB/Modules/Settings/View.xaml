@@ -27,7 +27,7 @@
                                Text="&lt;Fritz!Box address:&gt;" 
                     />
                     <TextBox 
-                             Text="{Binding Path=Model.BoxUrl, 
+                             Text="{Binding Path=Model.BoxUrlAsString, 
                                             Mode=TwoWay}" 
                     />
 

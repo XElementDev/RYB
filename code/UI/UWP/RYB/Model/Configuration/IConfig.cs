@@ -1,8 +1,13 @@
-﻿namespace XElement.RedYellowBlue.UI.UWP.Model
+﻿using System;
+
+namespace XElement.RedYellowBlue.UI.UWP.Model
 {
     public interface IConfig
     {
-        string BoxUrl { get; set; }
+        Uri BoxUrl { get; }
+
+
+        string BoxUrlAsString { get; set; }
 
 
         string Password { get; set; }

@@ -1,9 +1,11 @@
-﻿namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
+﻿using System;
+
+namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
 {
 #region not unit-tested
     public class AnonymousLogin : LoginBase
     {
-        public AnonymousLogin( string fritzBoxUri ) : base( fritzBoxUri ) { }
+        public AnonymousLogin( Uri fritzBoxUri ) : base( fritzBoxUri ) { }
 
 
         protected override string /*LoginBase.*/GetSid()

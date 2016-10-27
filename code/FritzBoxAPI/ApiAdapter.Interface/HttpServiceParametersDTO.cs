@@ -1,9 +1,11 @@
-﻿namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
+﻿using System;
+
+namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
 {
 #region not unit-tested
     public class HttpServiceParametersDTO
     {
-        public string BoxUrl { get; set; }
+        public Uri BoxUrl { get; set; }
     }
 #endregion
 }

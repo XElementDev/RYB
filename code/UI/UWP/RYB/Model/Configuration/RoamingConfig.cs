@@ -18,7 +18,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Configuration
 
 
         [XmlElement( "boxUrl" )]
-        public string BoxUrl { get; set; }
+        public string BoxUrlAsString { get; set; }
 
 
         [XmlElement( "password" )]
@@ -53,7 +53,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Configuration
                 var deserialized = this._serializer.Deserialize( new MemoryStream( bytes ) );
                 var roamingConfig = deserialized as RoamingConfig;
 
-                this.BoxUrl = roamingConfig.BoxUrl;
+                this.BoxUrlAsString = roamingConfig.BoxUrlAsString;
                 this.EncryptedPassword = roamingConfig.EncryptedPassword;
                 this.Username = roamingConfig.Username;
             }

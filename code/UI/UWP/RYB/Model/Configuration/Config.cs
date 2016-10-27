@@ -1,4 +1,5 @@
-﻿using System.Composition;
+﻿using System;
+using System.Composition;
 using XElement.RedYellowBlue.UI.UWP.Model.AutoSave;
 
 namespace XElement.RedYellowBlue.UI.UWP.Model.Configuration
@@ -15,10 +16,16 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Configuration
         }
 
 
-        public string /*IConfig.*/BoxUrl
+        public Uri /*IConfig.*/BoxUrl
         {
-            get { return this._roaming.BoxUrl; }
-            set { this._roaming.BoxUrl = value; }
+            get { return new UriBuilder( this.BoxUrlAsString ).Uri; }
+        }
+
+
+        public string /*IConfig.*/BoxUrlAsString
+        {
+            get { return this._roaming.BoxUrlAsString; }
+            set { this._roaming.BoxUrlAsString = value; }
         }
 
 

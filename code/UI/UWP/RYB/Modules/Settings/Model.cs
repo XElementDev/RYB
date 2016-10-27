@@ -19,10 +19,10 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
         }
 
 
-        public string BoxUrl
+        public string BoxUrlAsString
         {
-            get { return this._dependencies.Config.BoxUrl; }
-            set { this._dependencies.Config.BoxUrl = value; }
+            get { return this._dependencies.Config.BoxUrlAsString; }
+            set { this._dependencies.Config.BoxUrlAsString = value; }
         }
 
 
@@ -42,7 +42,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Settings
         {
             var parameters = new HttpServiceParametersDTO
             {
-                BoxUrl = this.BoxUrl
+                BoxUrl = this._dependencies.Config.BoxUrl
             };
             var optional = new OptionalHttpServiceParametersDTO
             {

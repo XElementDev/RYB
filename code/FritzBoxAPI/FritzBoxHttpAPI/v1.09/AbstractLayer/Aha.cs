@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.Xml.Serialization;
 using XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109.ConcreteLayer;
 
 namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
@@ -6,7 +7,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
 #region not unit-tested
     public class Aha
     {
-        public Aha( string boxUrl, string sid )
+        public Aha( Uri boxUrl, string sid )
         {
             this._boxUrl = boxUrl;
             this._sid = sid;
@@ -68,7 +69,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
         }
 
 
-        private string _boxUrl;
+        private Uri _boxUrl;
 
         private string _sid;
     }

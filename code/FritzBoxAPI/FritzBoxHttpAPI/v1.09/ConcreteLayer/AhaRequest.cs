@@ -11,7 +11,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109.ConcreteLayer
 #region not unit-tested
     internal class AhaRequest
     {
-        public AhaRequest( string fritzBoxUrl, AhaCmd switchcmd, string sid )
+        public AhaRequest( Uri fritzBoxUrl, AhaCmd switchcmd, string sid )
         {
             this.Sid = sid;
             this.SwitchCmd = switchcmd;

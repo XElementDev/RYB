@@ -10,7 +10,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
 #region not unit-tested
     public abstract class LoginBase
     {
-        public LoginBase( string fritzBoxUrl )
+        public LoginBase( Uri fritzBoxUrl )
         {
             var uriBuilder = new UriBuilder( fritzBoxUrl );
             uriBuilder.Path = SESSION_INFO_PAGE;
