@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Composition;
 using System.Composition.Hosting;
+using System.Globalization;
 using System.Reflection;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -23,6 +24,8 @@ namespace XElement.RedYellowBlue.UI.UWP
         public App()
         {
             this.InitializeMef();
+
+            this.SetLocaleIfInDebug();
 
             this.InitializeComponent();
             this.Suspending += OnSuspending;
@@ -113,6 +116,14 @@ namespace XElement.RedYellowBlue.UI.UWP
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+
+        private void SetLocaleIfInDebug()
+        {
+#if DEBUG
+            CultureInfo.CurrentUICulture = new CultureInfo( "en-US" );
+#endif
         }
     }
 #endregion
