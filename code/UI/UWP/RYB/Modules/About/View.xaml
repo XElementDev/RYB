@@ -8,21 +8,90 @@
 
       xmlns:modules="using:XElement.RedYellowBlue.UI.UWP.Modules">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Resources.xaml" />
+                <ResourceDictionary Source="./Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel 
                     Orientation="Vertical">
-            <modules:FlaticonCreditUC 
-                                      AuthorName="Freepik" 
-                                      AuthorUri="http://www.freepik.com" 
-                                      SvgImage="{Binding Path=Switch}" 
-            />
+            <StackPanel 
+                        Style="{StaticResource GroupBoxContent}">
+                <TextBlock 
+                           Text="{Binding Path=Model.ApplicationName}" 
+                />
+                <TextBlock 
+                           Text="{Binding Path=Model.Version}" 
+                />
+                <TextBlock 
+                           Text="&lt;COPYRIGHT&gt;" 
+                />
+            </StackPanel>
 
-            <modules:FlaticonCreditUC 
-                                      AuthorName="Freepik" 
-                                      AuthorUri="http://www.freepik.com" 
-                                      SvgImage="{Binding Path=Thermostat}" 
+            <TextBlock 
+                       Text="Credits: " 
+                       Style="{StaticResource GroupBoxHeader}" 
             />
+            <StackPanel 
+                        Style="{StaticResource GroupBoxContent}">
+                <TextBlock>
+                    <Span>
+                        <Run Text="Thanks to" />
+                        <Hyperlink 
+                                   NavigateUri="http://flaticons.net/">
+                            <Run 
+                                 Text="FlatIcons" 
+                            />
+                        </Hyperlink>
+                    </Span>
+                </TextBlock>
+
+                <modules:FlaticonCreditUC 
+                                          AuthorName="Freepik" 
+                                          AuthorUri="http://www.freepik.com" 
+                                          SvgImage="{Binding Path=Switch}" 
+                />
+
+                <modules:FlaticonCreditUC 
+                                          AuthorName="Freepik" 
+                                          AuthorUri="http://www.freepik.com" 
+                                          SvgImage="{Binding Path=Thermostat}" 
+                />
+            </StackPanel>
+
+            <StackPanel 
+                        Style="{StaticResource GitHubHintContainer}">
+                <Image 
+                       Source="{StaticResource DarkGitHubMark}" 
+                       Visibility="{Binding Path=IsInDarkMode, 
+                                            Converter={StaticResource TrueToCollapsedVisibilityConverter}}" 
+                />
+                <Image 
+                       Source="{StaticResource LightGitHubMark}" 
+                       Visibility="{Binding Path=IsInDarkMode, 
+                                            Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+                />
+
+                <TextBlock 
+                           Margin="4 0 0 0" 
+                           VerticalAlignment="Bottom">
+                    <Span>
+                        <Run Text="Visit us on" />
+                        <Hyperlink 
+                                   NavigateUri="https://github.com/XElementSoftware/RYB">
+                            <Run 
+                                 Text="GitHub" 
+                            />
+                        </Hyperlink>
+                    </Span>
+                </TextBlock>
+            </StackPanel>
         </StackPanel>
     </Grid>
 

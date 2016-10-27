@@ -1,5 +1,6 @@
 ﻿using Mntone.SvgForXaml;
 using System.Composition;
+using Windows.UI.Xaml;
 
 namespace XElement.RedYellowBlue.UI.UWP.Modules.About
 {
@@ -8,10 +9,20 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.About
     internal class ViewModel
     {
         [ImportingConstructor]
-        public ViewModel( ViewModelDepdenciesDTO dependencies )
+        public ViewModel( About.Model model, ViewModelDepdenciesDTO dependencies )
         {
             this._dependencies = dependencies;
+            this.Model = model;
         }
+
+
+        public bool IsInDarkMode
+        {
+            get { return Application.Current.RequestedTheme == ApplicationTheme.Dark; }
+        }
+
+
+        public About.Model Model { get; private set; }
 
 
         [OnImportsSatisfied]

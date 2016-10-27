@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.About">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///XElement.RedYellowBlue.UI.UWP.Common/Dictionaries/Resources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <BitmapImage x:Key="DarkGitHubMark" 
+                 UriSource="../../Assets/GitHub-Mark-32px.png" 
+    />
+
+    <BitmapImage x:Key="LightGitHubMark" 
+                 UriSource="../../Assets/GitHub-Mark-Light-32px.png" 
+    />
+
+</ResourceDictionary>
