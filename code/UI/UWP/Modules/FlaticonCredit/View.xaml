@@ -22,10 +22,14 @@
 
     <StackPanel 
                 Orientation="Horizontal">
-        <svg:SvgImage 
-                      Content="{Binding ElementName=_userControl,
-                                        Path=SvgImage}" 
-        />
+        <Border 
+                Style="{StaticResource ImageContainerStyle}">
+            <svg:SvgImage 
+                          Content="{Binding ElementName=_userControl, 
+                                            Path=SvgImage}" 
+                          Style="{StaticResource ImageStyle}" 
+            />
+        </Border>
 
         <TextBlock>
             <Span>

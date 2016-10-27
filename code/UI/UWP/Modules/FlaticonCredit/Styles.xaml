@@ -5,9 +5,14 @@
 
                     xmlns:svg="using:Mntone.SvgForXaml.UI.Xaml">
 
-    <Style TargetType="svg:SvgImage">
-        <Setter Property="Height" Value="16" />
+    <Style x:Key="ImageContainerStyle" TargetType="Border">
+        <Setter Property="Background" Value="White" />
         <Setter Property="Margin" Value="0 0 4 0" />
+        <Setter Property="Padding" Value="1" />
+    </Style>
+
+    <Style x:Key="ImageStyle" TargetType="svg:SvgImage">
+        <Setter Property="Height" Value="16" />
         <Setter Property="Width" Value="16" />
     </Style>
 
