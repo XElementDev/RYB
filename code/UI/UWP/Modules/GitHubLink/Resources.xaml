@@ -1,6 +1,7 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+﻿<ResourceDictionary 
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-                    xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.About">
+                    xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.GitHubLink">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ms-appx:///XElement.RedYellowBlue.UI.UWP.Common/Dictionaries/Resources.xaml" />
@@ -8,11 +9,11 @@
 
 
     <BitmapImage x:Key="DarkGitHubMark" 
-                 UriSource="../../Assets/GitHub-Mark-32px.png" 
+                 UriSource="./Assets/GitHub-Mark-32px.png" 
     />
 
     <BitmapImage x:Key="LightGitHubMark" 
-                 UriSource="../../Assets/GitHub-Mark-Light-32px.png" 
+                 UriSource="./Assets/GitHub-Mark-Light-32px.png" 
     />
 
 </ResourceDictionary>

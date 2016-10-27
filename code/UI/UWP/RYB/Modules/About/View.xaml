@@ -11,7 +11,6 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="./Resources.xaml" />
                 <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -65,33 +64,9 @@
                 />
             </StackPanel>
 
-            <StackPanel 
-                        Style="{StaticResource GitHubHintContainer}">
-                <Image 
-                       Source="{StaticResource DarkGitHubMark}" 
-                       Visibility="{Binding Path=IsInDarkMode, 
-                                            Converter={StaticResource TrueToCollapsedVisibilityConverter}}" 
-                />
-                <Image 
-                       Source="{StaticResource LightGitHubMark}" 
-                       Visibility="{Binding Path=IsInDarkMode, 
-                                            Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
-                />
-
-                <TextBlock 
-                           Margin="4 0 0 0" 
-                           VerticalAlignment="Bottom">
-                    <Span>
-                        <Run Text="Visit us on" />
-                        <Hyperlink 
-                                   NavigateUri="https://github.com/XElementSoftware/RYB">
-                            <Run 
-                                 Text="GitHub" 
-                            />
-                        </Hyperlink>
-                    </Span>
-                </TextBlock>
-            </StackPanel>
+            <modules:GitHubLinkUC 
+                                  GitHubProjectUri="https://github.com/XElementSoftware/RYB" 
+            />
         </StackPanel>
     </Grid>
 
