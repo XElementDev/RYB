@@ -7,6 +7,10 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.AutoSave
     [Shared] [Export]
     internal class DependenciesDTO
     {
+        [Import]
+        public AppStateManager.Model AppStateManager { get; set; }
+
+
         [ImportMany]
         public IEnumerable<IAutoSaveTarget> AutoSaveTargets { get; set; }
     }

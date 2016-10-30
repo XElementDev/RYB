@@ -1,6 +1,5 @@
 ﻿using System.Composition;
 using XElement.RedYellowBlue.UI.UWP.Model;
-using DataContextPageTypeMap = XElement.RedYellowBlue.UI.UWP.Model.DataContextPageTypeMap.Model;
 
 namespace XElement.RedYellowBlue.UI.UWP.Modules.Main
 {
@@ -8,13 +7,14 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Main
     [Shared] [Export]
     internal class ViewModelDependenciesDTO
     {
-        //  --> import-only
+        #region import-only
         [Import]
         public Model.AutoSave.Model AutoSaveModel { get; set; }
+        #endregion
 
 
         [Import]
-        public DataContextPageTypeMap DataContextPageTypeMap { get; set; }
+        public Model.DataContextPageTypeMap.Model DataContextPageTypeMap { get; set; }
 
 
         [Import]

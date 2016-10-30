@@ -1,5 +1,4 @@
 ﻿using System.Composition;
-using Windows.UI.Xaml;
 
 namespace XElement.RedYellowBlue.UI.UWP.Model.AutoSave
 {
@@ -11,8 +10,6 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.AutoSave
         public Model( DependenciesDTO dependencies )
         {
             this._dependencies = dependencies;
-
-            Application.Current.Suspending += ( s, e ) => this.OnAppSuspending();
         }
 
 
@@ -22,6 +19,13 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.AutoSave
             {
                 autoSaveTarget.Persist();
             }
+        }
+
+
+        [OnImportsSatisfied]
+        internal void OnImportsSatisfied()
+        {
+            this._dependencies.AppStateManager.OnSuspending += this.OnAppSuspending;
         }
 
 

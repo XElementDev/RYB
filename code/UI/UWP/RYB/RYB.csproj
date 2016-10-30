@@ -101,6 +101,8 @@
     <Compile Include="Dictionaries\Resources\SvgSwitch.cs" />
     <Compile Include="Dictionaries\Resources\SvgThermostat.cs" />
     <Compile Include="Model\Api\MefApiAdapter.cs" />
+    <Compile Include="Model\AppStateManager\DependenciesDTO.cs" />
+    <Compile Include="Model\AppStateManager\Model.cs" />
     <Compile Include="Model\AutoSave\DependenciesDTO.cs" />
     <Compile Include="Model\AutoSave\IAutoSaveTarget.cs" />
     <Compile Include="Model\AutoSave\Model.cs" />
