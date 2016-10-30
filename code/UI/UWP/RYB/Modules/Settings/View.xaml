@@ -22,32 +22,46 @@
         <Pivot>
             <PivotItem 
                        x:Uid="Settings_Tabs_Login">
-                <VariableSizedWrapGrid>
-                    <TextBlock 
-                               x:Uid="Settings_LoginTab_BoxAddress" 
-                    />
-                    <TextBox 
-                             Text="{Binding Path=Model.BoxUrlAsString, 
-                                            Mode=TwoWay}" 
-                    />
+                <StackPanel>
+                    <VariableSizedWrapGrid>
+                        <TextBlock 
+                                   x:Uid="Settings_LoginTab_BoxAddress" 
+                        />
+                        <TextBox 
+                                 Text="{Binding Path=Model.BoxUrlAsString, 
+                                                Mode=TwoWay}" 
+                        />
+                    </VariableSizedWrapGrid>
 
-                    <TextBlock 
-                               x:Uid="Settings_LoginTab_Username" 
-                    />
-                    <TextBox 
-                             Text="{Binding Path=Model.Username, 
-                                            Mode=TwoWay}" 
-                    />
+                    <VariableSizedWrapGrid>
+                        <TextBlock 
+                                   x:Uid="Settings_LoginTab_Username" 
+                        />
+                        <TextBox 
+                                 Text="{Binding Path=Model.Username, 
+                                                Mode=TwoWay}" 
+                        />
+                    </VariableSizedWrapGrid>
 
-                    <TextBlock 
-                               x:Uid="Settings_LoginTab_Password" 
-                    />
-                    <PasswordBox 
-                                 Password="{Binding Path=Model.Password, 
-                                                    Mode=TwoWay}" 
-                    />
+                    <VariableSizedWrapGrid>
+                        <TextBlock 
+                                   x:Uid="Settings_LoginTab_Password" 
+                        />
+                        <PasswordBox 
+                                     Password="{Binding Path=Model.Password, 
+                                                        Mode=TwoWay}" 
+                        />
+                    </VariableSizedWrapGrid>
 
-                    <StackPanel>
+                    <StackPanel 
+                                Style="{StaticResource ValidationContainerStyle}">
+                        <Button 
+                                x:Uid="Settings_TestConnection" 
+                                Command="{Binding Path=ValidateCommand}" 
+                                Content="&lt;Test connection&gt;" 
+                                Style="{StaticResource ValidateButtonStyle}" 
+                        />
+
                         <ProgressRing 
                                       IsActive="{Binding Path=Model.IsConnectionTestActive}" 
                         />
@@ -61,15 +75,8 @@
                                   Visibility="{Binding Path=Model.WasConnectionTestPositive, 
                                                        Converter={StaticResource TrueToCollapsedVisibilityConverter}}" 
                         />
-
-                        <Button 
-                                x:Uid="Settings_TestConnection" 
-                                Command="{Binding Path=ValidateCommand}" 
-                                Content="&lt;Test connection&gt;" 
-                                Style="{StaticResource ValidateButton}" 
-                        />
                     </StackPanel>
-                </VariableSizedWrapGrid>
+                </StackPanel>
             </PivotItem>
         </Pivot>
     </Grid>

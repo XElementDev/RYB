@@ -11,28 +11,33 @@
     <Style TargetType="PasswordBox" BasedOn="{StaticResource _boxBase}" />
 
     <Style TargetType="StackPanel">
-        <Setter Property="HorizontalAlignment" Value="Right" />
-        <Setter Property="Orientation" Value="Horizontal" />
-        <Setter Property="VariableSizedWrapGrid.ColumnSpan" Value="3" />
-        <Setter Property="VariableSizedWrapGrid.RowSpan" Value="2" />
+        <Setter Property="Orientation" Value="Vertical" />
     </Style>
 
     <Style TargetType="TextBlock">
-        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
     <Style TargetType="TextBox" BasedOn="{StaticResource _boxBase}" />
 
     <Style TargetType="VariableSizedWrapGrid">
-        <Setter Property="ItemHeight" Value="36" />
+        <Setter Property="ItemHeight" Value="34" />
         <Setter Property="ItemWidth" Value="200" />
         <Setter Property="MaximumRowsOrColumns" Value="3" />
         <Setter Property="Orientation" Value="Horizontal" />
     </Style>
 
 
-    <Style x:Key="ValidateButton" TargetType="Button">
-        <Setter Property="Margin" Value="8 0 0 0" />
+    <Style x:Key="ValidateButtonStyle" TargetType="Button">
+        <Setter Property="Margin" Value="0 0 8 0" />
+    </Style>
+
+    <Style x:Key="ValidationContainerStyle" TargetType="StackPanel">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Margin" Value="0 16 0 0" />
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="VariableSizedWrapGrid.ColumnSpan" Value="3" />
+        <Setter Property="VariableSizedWrapGrid.RowSpan" Value="2" />
     </Style>
 
 </ResourceDictionary>
