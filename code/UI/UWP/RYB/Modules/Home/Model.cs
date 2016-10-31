@@ -46,7 +46,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
 
         public Task RefreshAsync()
         {
-            return Task.Factory.StartNew( this.Refresh );
+            return Task.Run( () => this.Refresh() );
         }
 
 
