@@ -18,7 +18,13 @@
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Pivot>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Pivot 
+               Grid.Row="0">
             <PivotItem>
                 <PivotItem.Header>
                     <modules:TabHeaderUC 
@@ -65,6 +71,17 @@
                 />
             </PivotItem>
         </Pivot>
+
+        <CommandBar 
+                    Grid.Row="1">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton 
+                              Command="{Binding Path=RefreshCommand}" 
+                              Icon="Refresh" 
+                              Label="&lt;REFRESH&gt;" 
+                />
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
     </Grid>
 
 </Page>
