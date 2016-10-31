@@ -1,12 +1,11 @@
-﻿using PropertyChanged;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Composition;
+using System.Threading.Tasks;
 
 namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
 {
 #region not unit-tested
     [Shared] [Export]
-    [ImplementPropertyChanged]
     internal class Model
     {
         [ImportingConstructor]
@@ -36,6 +35,18 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
         internal void OnImportsSatisfied()
         {
             this.TryInitializeDeviceModels();
+        }
+
+
+        private void Refresh()
+        {
+            this.TryInitializeDeviceModels();
+        }
+
+
+        public Task RefreshAsync()
+        {
+            return Task.Factory.StartNew( this.Refresh );
         }
 
 

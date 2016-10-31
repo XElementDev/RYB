@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using GalaSoft.MvvmLight.Command;
+using PropertyChanged;
+using System.Collections.Generic;
 using System.Composition;
+using System.Windows.Input;
 
 namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
 {
 #region not unit-tested
     [Shared] [Export]
+    [ImplementPropertyChanged]
     internal class ViewModel
     {
         [ImportingConstructor]
@@ -12,6 +16,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
         {
             this._model = model;
             this._dependencies = dependencies;
+            this.RefreshCommand = new RelayCommand( this.RefreshCommand_Execute );
         }
 
 
@@ -35,6 +40,22 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
         internal void OnImportsSatisfied()
         {
             this.Initialize();
+        }
+
+
+        private async void RefreshAsync()
+        {
+            await this._model.RefreshAsync();
+            this.Initialize();
+        }
+
+
+        [DoNotNotify]
+        public ICommand RefreshCommand { get; private set; }
+
+        private void RefreshCommand_Execute()
+        {
+            this.RefreshAsync();
         }
 
 
