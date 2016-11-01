@@ -5,18 +5,17 @@
 
     <x:Double x:Key="_navPaneSize">48</x:Double>
 
+    <Style x:Key="_smallHeaderContainerBase" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource AppBarBackground}" />
+        <Setter Property="Grid.Row" Value="0" />
+        <Setter Property="Height" Value="{StaticResource _navPaneSize}" />
+    </Style>
+
 
     <Style TargetType="uwpToolkit:HamburgerMenu">
         <Setter Property="PaneBackground" Value="{StaticResource AppBarBackground}" />
     </Style>
 
-
-    <Style x:Key="BigHeaderTextStyle" TargetType="TextBlock">
-        <Setter Property="FontSize" Value="29" />
-        <Setter Property="FontWeight" Value="Light" />
-        <Setter Property="Grid.Row" Value="0" />
-        <Setter Property="Margin" Value="0 14 0 8" />
-    </Style>
 
     <Style x:Key="HamburgerMenuItemGlyphStyle" TargetType="FontIcon">
         <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
@@ -30,19 +29,20 @@
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
-    <Style x:Key="MainContentStyle" TargetType="FrameworkElement">
-        <Setter Property="Grid.Row" Value="1" />
-    </Style>
-
     <Style x:Key="NavigationFrameStyle" TargetType="Control">
         <Setter Property="Grid.Row" Value="1" />
     </Style>
+    
+    <Style x:Key="SmallHeaderContainerDesktopStyle" TargetType="Border" BasedOn="{StaticResource _smallHeaderContainerBase}">
+        <Setter Property="Padding" Value="0" />
+    </Style>
 
-    <Style x:Key="SmallHeaderContainerStyle" TargetType="Border">
-        <Setter Property="Background" Value="{StaticResource AppBarBackground}" />
-        <Setter Property="Grid.Row" Value="0" />
-        <Setter Property="Height" Value="{StaticResource _navPaneSize}" />
+    <Style x:Key="SmallHeaderContainerPhoneStyle" TargetType="Border" BasedOn="{StaticResource _smallHeaderContainerBase}">
         <Setter Property="Padding" Value="48 0 0 0" />
+    </Style>
+
+    <Style x:Key="SmallHeaderContainerTabletStyle" TargetType="Border" BasedOn="{StaticResource _smallHeaderContainerBase}">
+        <Setter Property="Padding" Value="0" />
     </Style>
 
     <Style x:Key="SmallHeaderTextStyle" TargetType="TextBlock">

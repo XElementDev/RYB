@@ -5,14 +5,53 @@
 
                     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
-    <Style TargetType="toolkit:AdaptiveGridView">
-        <Setter Property="DesiredWidth" Value="512" />
-        <Setter Property="ItemHeight" Value="128" />
-        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Dictionaries/ResponsiveDesign.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <Style x:Key="_commandBarBase" TargetType="CommandBar">
+        <Setter Property="Grid.Row" Value="0" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Margin" Value="0 -48 0 0" />
     </Style>
 
+    <Style x:Key="_mainContentBase" TargetType="toolkit:AdaptiveGridView">
+        <Setter Property="DesiredWidth" Value="512" />
+        <Setter Property="ItemHeight" Value="128" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden" />
+    </Style>
+
+
     <Style TargetType="Pivot">
-        <Setter Property="Grid.Row" Value="0" />
+        <Setter Property="Grid.Row" Value="1" />
+    </Style>
+
+    <Style TargetType="PivotItem">
+        <Setter Property="Margin" Value="0" />
+    </Style>
+
+
+    <Style x:Key="CommandBarDesktopStyle" TargetType="CommandBar" BasedOn="{StaticResource _commandBarBase}" />
+
+    <Style x:Key="CommandBarPhoneStyle" TargetType="CommandBar" BasedOn="{StaticResource _commandBarBase}">
+        <Setter Property="Grid.Row" Value="2" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+
+    <Style x:Key="CommandBarTabletStyle" TargetType="CommandBar" BasedOn="{StaticResource _commandBarBase}" />
+
+    <Style x:Key="MainContentDesktopStyle" TargetType="toolkit:AdaptiveGridView" BasedOn="{StaticResource _mainContentBase}">
+        <Setter Property="Margin" Value="{StaticResource MainContentPadding_Desktop}" />
+    </Style>
+
+    <Style x:Key="MainContentPhoneStyle" TargetType="toolkit:AdaptiveGridView" BasedOn="{StaticResource _mainContentBase}">
+        <Setter Property="Margin" Value="{StaticResource MainContentPadding_Phone}" />
+    </Style>
+
+    <Style x:Key="MainContentTabletStyle" TargetType="toolkit:AdaptiveGridView" BasedOn="{StaticResource _mainContentBase}">
+        <Setter Property="Margin" Value="{StaticResource MainContentPadding_Tablet}" />
     </Style>
 
 </ResourceDictionary>

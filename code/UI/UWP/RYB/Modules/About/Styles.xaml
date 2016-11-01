@@ -3,6 +3,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
                     xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.About">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Dictionaries/ResponsiveDesign.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <Style x:Key="_mainContentBase" TargetType="StackPanel">
+        <Setter Property="Margin" Value="0 16 0 0" />
+        <Setter Property="Orientation" Value="Vertical" />
+    </Style>
+
+
     <Style x:Key="GroupBoxContent" TargetType="StackPanel">
         <Setter Property="Margin" Value="0 0 0 16" />
         <Setter Property="Orientation" Value="Vertical" />
@@ -11,6 +22,18 @@
 
     <Style x:Key="GroupBoxHeader" TargetType="TextBlock">
         <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style x:Key="MainContentDesktopStyle" TargetType="StackPanel" BasedOn="{StaticResource _mainContentBase}">
+        <Setter Property="Padding" Value="{StaticResource MainContentPadding_Desktop}" />
+    </Style>
+
+    <Style x:Key="MainContentPhoneStyle" TargetType="StackPanel" BasedOn="{StaticResource _mainContentBase}">
+        <Setter Property="Padding" Value="{StaticResource MainContentPadding_Phone}" />
+    </Style>
+
+    <Style x:Key="MainContentTabletStyle" TargetType="StackPanel" BasedOn="{StaticResource _mainContentBase}">
+        <Setter Property="Padding" Value="{StaticResource MainContentPadding_Tablet}" />
     </Style>
 
 </ResourceDictionary>

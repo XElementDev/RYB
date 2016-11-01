@@ -53,11 +53,9 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowWidth_Phone}"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="_bigHeader.Visibility" Value="Collapsed" />
                         <Setter Target="_hamburgerMenu.DisplayMode" Value="Overlay" />
                         <Setter Target="_hamburgerMenu.IsPaneOpen" Value="False" />
-                        <Setter Target="_mainContent.Padding" Value="{StaticResource MainContentPadding_Phone}" />
-                        <Setter Target="_smallHeaderContainer.Visibility" Value="Visible" />
+                        <Setter Target="_smallHeaderContainer.Style" Value="{StaticResource SmallHeaderContainerPhoneStyle}" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Tablet">
@@ -65,11 +63,9 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowWidth_Tablet}"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="_bigHeader.Visibility" Value="Visible" />
                         <Setter Target="_hamburgerMenu.DisplayMode" Value="CompactInline" />
                         <Setter Target="_hamburgerMenu.IsPaneOpen" Value="False" />
-                        <Setter Target="_mainContent.Padding" Value="{StaticResource MainContentPadding_Tablet}" />
-                        <Setter Target="_smallHeaderContainer.Visibility" Value="Collapsed" />
+                        <Setter Target="_smallHeaderContainer.Style" Value="{StaticResource SmallHeaderContainerTabletStyle}" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Desktop">
@@ -77,11 +73,9 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowWidth_Desktop}"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="_bigHeader.Visibility" Value="Visible" />
                         <Setter Target="_hamburgerMenu.DisplayMode" Value="CompactInline" />
                         <Setter Target="_hamburgerMenu.IsPaneOpen" Value="True" />
-                        <Setter Target="_mainContent.Padding" Value="{StaticResource MainContentPadding_Desktop}" />
-                        <Setter Target="_smallHeaderContainer.Visibility" Value="Collapsed" />
+                        <Setter Target="_smallHeaderContainer.Style" Value="{StaticResource SmallHeaderContainerDesktopStyle}" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -119,31 +113,17 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Border x:Name="_smallHeaderContainer" 
-                    Style="{StaticResource SmallHeaderContainerStyle}">
+            <Border x:Name="_smallHeaderContainer">
                 <TextBlock 
                            Text="{Binding Path=SmallHeader}" 
                            Style="{StaticResource SmallHeaderTextStyle}" 
                 />
             </Border>
 
-            <Grid x:Name="_mainContent" 
-                  Style="{StaticResource MainContentStyle}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <TextBlock x:Name="_bigHeader" 
-                           Text="{Binding Path=BigHeader}" 
-                           Style="{StaticResource BigHeaderTextStyle}" 
-                />
-
-                <Frame x:Name="_navigationFrame" 
-                       DataContext="{Binding Path=FrameDataContext, Mode=OneWay}" 
-                       Style="{StaticResource NavigationFrameStyle}" 
-                />
-            </Grid>
+            <Frame x:Name="_navigationFrame" 
+                    DataContext="{Binding Path=FrameDataContext, Mode=OneWay}" 
+                    Style="{StaticResource NavigationFrameStyle}" 
+            />
         </Grid>
     </uwpToolkit:HamburgerMenu>
 </Page>

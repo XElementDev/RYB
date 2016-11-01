@@ -27,8 +27,8 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowWidth_Phone}"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="_commandBar.(Grid.Row)" Value="1" />
-                        <Setter Target="_commandBar.Margin" Value="{StaticResource NegativeMainContentPadding_Phone}" />
+                        <Setter Target="_commandBar.Style" Value="{StaticResource CommandBarPhoneStyle}" />
+                        <Setter Target="_devicesTabMainContent.Style" Value="{StaticResource MainContentPhoneStyle}" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Tablet">
@@ -36,8 +36,8 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowWidth_Tablet}"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="_commandBar.(Grid.Row)" Value="1" />
-                        <Setter Target="_commandBar.Margin" Value="{StaticResource NegativeMainContentPadding_Tablet}" />
+                        <Setter Target="_commandBar.Style" Value="{StaticResource CommandBarTabletStyle}" />
+                        <Setter Target="_devicesTabMainContent.Style" Value="{StaticResource MainContentTabletStyle}" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Desktop">
@@ -45,14 +45,15 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowWidth_Desktop}"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="_commandBar.(Grid.Row)" Value="1" />
-                        <Setter Target="_commandBar.Margin" Value="{StaticResource NegativeMainContentPadding_Desktop}" />
+                        <Setter Target="_commandBar.Style" Value="{StaticResource CommandBarDesktopStyle}" />
+                        <Setter Target="_devicesTabMainContent.Style" Value="{StaticResource MainContentDesktopStyle}" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -66,16 +67,18 @@
                     />
                 </PivotItem.Header>
 
-                <toolkit:AdaptiveGridView 
-                                          ItemsSource="{Binding Path=DeviceVMs}">
-                    <toolkit:AdaptiveGridView.ItemTemplate>
-                        <DataTemplate>
-                            <modules:AhaDevicePage 
-                                                   DataContext="{Binding}" 
-                            />
-                        </DataTemplate>
-                    </toolkit:AdaptiveGridView.ItemTemplate>
-                </toolkit:AdaptiveGridView>
+                <ScrollViewer VerticalScrollBarVisibility="Visible">
+                    <toolkit:AdaptiveGridView x:Name="_devicesTabMainContent" 
+                                              ItemsSource="{Binding Path=DeviceVMs}">
+                        <toolkit:AdaptiveGridView.ItemTemplate>
+                            <DataTemplate>
+                                <modules:AhaDevicePage 
+                                                       DataContext="{Binding}" 
+                                />
+                            </DataTemplate>
+                        </toolkit:AdaptiveGridView.ItemTemplate>
+                    </toolkit:AdaptiveGridView>
+                </ScrollViewer>
             </PivotItem>
 
             <PivotItem>
@@ -88,6 +91,7 @@
 
                 <TextBlock 
                            x:Uid="COMMON_AvailableSoon" 
+                           HorizontalAlignment="Center" VerticalAlignment="Center" 
                 />
             </PivotItem>
 
@@ -101,6 +105,7 @@
 
                 <TextBlock 
                            x:Uid="COMMON_AvailableSoon" 
+                           HorizontalAlignment="Center" VerticalAlignment="Center" 
                 />
             </PivotItem>
         </Pivot>
