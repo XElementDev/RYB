@@ -31,6 +31,10 @@
         <Setter Property="Margin" Value="0" />
     </Style>
 
+    <Style TargetType="ScrollViewer">
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+    </Style>
+
 
     <Style x:Key="CommandBarDesktopStyle" TargetType="CommandBar" BasedOn="{StaticResource _commandBarBase}" />
 

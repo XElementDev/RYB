@@ -9,6 +9,7 @@
         <Setter Property="Background" Value="{StaticResource AppBarBackground}" />
         <Setter Property="Grid.Row" Value="0" />
         <Setter Property="Height" Value="{StaticResource _navPaneSize}" />
+        <Setter Property="Padding" Value="0" />
     </Style>
 
 
@@ -32,18 +33,14 @@
     <Style x:Key="NavigationFrameStyle" TargetType="Control">
         <Setter Property="Grid.Row" Value="1" />
     </Style>
-    
-    <Style x:Key="SmallHeaderContainerDesktopStyle" TargetType="Border" BasedOn="{StaticResource _smallHeaderContainerBase}">
-        <Setter Property="Padding" Value="0" />
-    </Style>
+
+    <Style x:Key="SmallHeaderContainerDesktopStyle" TargetType="Border" BasedOn="{StaticResource _smallHeaderContainerBase}" />
 
     <Style x:Key="SmallHeaderContainerPhoneStyle" TargetType="Border" BasedOn="{StaticResource _smallHeaderContainerBase}">
         <Setter Property="Padding" Value="48 0 0 0" />
     </Style>
 
-    <Style x:Key="SmallHeaderContainerTabletStyle" TargetType="Border" BasedOn="{StaticResource _smallHeaderContainerBase}">
-        <Setter Property="Padding" Value="0" />
-    </Style>
+    <Style x:Key="SmallHeaderContainerTabletStyle" TargetType="Border" BasedOn="{StaticResource _smallHeaderContainerBase}" />
 
     <Style x:Key="SmallHeaderTextStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="17" />

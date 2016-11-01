@@ -67,7 +67,7 @@
                     />
                 </PivotItem.Header>
 
-                <ScrollViewer VerticalScrollBarVisibility="Visible">
+                <ScrollViewer>
                     <toolkit:AdaptiveGridView x:Name="_devicesTabMainContent" 
                                               ItemsSource="{Binding Path=DeviceVMs}">
                         <toolkit:AdaptiveGridView.ItemTemplate>
