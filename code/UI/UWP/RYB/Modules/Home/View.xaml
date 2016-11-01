@@ -11,6 +11,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Dictionaries/ResponsiveDesign.xaml" />
                 <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -18,6 +19,39 @@
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Phone">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowWidth_Phone}"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="_commandBar.(Grid.Row)" Value="1" />
+                        <Setter Target="_commandBar.Margin" Value="{StaticResource NegativeMainContentPadding_Phone}" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Tablet">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowWidth_Tablet}"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="_commandBar.(Grid.Row)" Value="1" />
+                        <Setter Target="_commandBar.Margin" Value="{StaticResource NegativeMainContentPadding_Tablet}" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowWidth_Desktop}"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="_commandBar.(Grid.Row)" Value="1" />
+                        <Setter Target="_commandBar.Margin" Value="{StaticResource NegativeMainContentPadding_Desktop}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
@@ -72,8 +106,7 @@
             </PivotItem>
         </Pivot>
 
-        <CommandBar 
-                    Grid.Row="1">
+        <CommandBar x:Name="_commandBar">
             <CommandBar.PrimaryCommands>
                 <AppBarButton 
                               Command="{Binding Path=RefreshCommand}" 

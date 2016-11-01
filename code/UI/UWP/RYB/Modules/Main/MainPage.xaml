@@ -12,6 +12,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Dictionaries/ResponsiveDesign.xaml" />
                 <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
@@ -49,37 +50,37 @@
             <VisualStateGroup>
                 <VisualState x:Name="Phone">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0"/>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowWidth_Phone}"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="_bigHeader.Visibility" Value="Collapsed" />
                         <Setter Target="_hamburgerMenu.DisplayMode" Value="Overlay" />
                         <Setter Target="_hamburgerMenu.IsPaneOpen" Value="False" />
-                        <Setter Target="_mainContent.Padding" Value="12 0 12 0" />
+                        <Setter Target="_mainContent.Padding" Value="{StaticResource MainContentPadding_Phone}" />
                         <Setter Target="_smallHeaderContainer.Visibility" Value="Visible" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Tablet">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="641"/>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowWidth_Tablet}"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="_bigHeader.Visibility" Value="Visible" />
                         <Setter Target="_hamburgerMenu.DisplayMode" Value="CompactInline" />
                         <Setter Target="_hamburgerMenu.IsPaneOpen" Value="False" />
-                        <Setter Target="_mainContent.Padding" Value="24 0 24 0" />
+                        <Setter Target="_mainContent.Padding" Value="{StaticResource MainContentPadding_Tablet}" />
                         <Setter Target="_smallHeaderContainer.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Desktop">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="1008"/>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowWidth_Desktop}"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="_bigHeader.Visibility" Value="Visible" />
                         <Setter Target="_hamburgerMenu.DisplayMode" Value="CompactInline" />
                         <Setter Target="_hamburgerMenu.IsPaneOpen" Value="True" />
-                        <Setter Target="_mainContent.Padding" Value="24 0 24 0" />
+                        <Setter Target="_mainContent.Padding" Value="{StaticResource MainContentPadding_Desktop}" />
                         <Setter Target="_smallHeaderContainer.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
