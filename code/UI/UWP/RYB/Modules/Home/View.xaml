@@ -113,9 +113,9 @@
         <CommandBar x:Name="_commandBar">
             <CommandBar.PrimaryCommands>
                 <AppBarButton 
+                              x:Uid="Home_RefreshButton" 
                               Command="{Binding Path=RefreshCommand}" 
                               Icon="Refresh" 
-                              Label="&lt;REFRESH&gt;" 
                 />
             </CommandBar.PrimaryCommands>
         </CommandBar>
