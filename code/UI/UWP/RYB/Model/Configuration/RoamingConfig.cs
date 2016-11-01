@@ -40,7 +40,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Configuration
             {
                 this._serializer.Serialize( stream, this );
                 var bytes = stream.ToArray();
-                this.RoamingFolder.WriteBytesToFileAsync( bytes, FILE_NAME );
+                this.WriteBytesToFileSync( bytes, FILE_NAME );
             }
         }
 
@@ -68,6 +68,19 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Configuration
 
         [XmlElement( "username" )]
         public string Username { get; set; }
+
+
+        /*  --> Ian, 2016-10-30:
+                Fixes error causing write operation not to complete before app closes.
+                Since it seems that WriteBytesToFileAsync has to be async...
+                ...(because otherwise it runs forever)...
+                ...this method ensures a sync execution using a hack.
+        */
+        private async void WriteBytesToFileSync( byte[] bytes, string fileName )
+        {
+            var waitForCompletion = await this.RoamingFolder.WriteBytesToFileAsync( bytes, fileName );
+            waitForCompletion = null;
+        }
 
 
         private const string FILE_NAME = "config.xml";
