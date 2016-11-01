@@ -57,8 +57,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Pivot 
-               Grid.Row="0">
+        <Pivot>
             <PivotItem>
                 <PivotItem.Header>
                     <modules:TabHeaderUC 

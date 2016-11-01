@@ -11,4 +11,8 @@
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
     </Style>
 
+    <Style TargetType="Pivot">
+        <Setter Property="Grid.Row" Value="0" />
+    </Style>
+
 </ResourceDictionary>
