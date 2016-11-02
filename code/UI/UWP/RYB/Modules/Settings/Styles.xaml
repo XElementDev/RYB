@@ -4,6 +4,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../../Dictionaries/ResponsiveDesign.xaml" />
+        <ResourceDictionary Source="./Styles.Pivot.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 
@@ -14,18 +15,6 @@
 
 
     <Style TargetType="PasswordBox" BasedOn="{StaticResource _boxBase}" />
-
-    <Style x:Key="PivotItemContainerDesktopStyle" TargetType="Control">
-        <Setter Property="Padding" Value="{StaticResource MainContentPadding_Desktop}" />
-    </Style>
-
-    <Style x:Key="PivotItemContainerPhoneStyle" TargetType="Control">
-        <Setter Property="Padding" Value="{StaticResource MainContentPadding_Phone}" />
-    </Style>
-
-    <Style x:Key="PivotItemContainerTabletStyle" TargetType="Control">
-        <Setter Property="Padding" Value="{StaticResource MainContentPadding_Tablet}" />
-    </Style>
 
     <Style TargetType="StackPanel">
         <Setter Property="Orientation" Value="Vertical" />
@@ -44,6 +33,18 @@
         <Setter Property="Orientation" Value="Horizontal" />
     </Style>
 
+
+    <Style x:Key="PivotItemContainerDesktopStyle" TargetType="Control">
+        <Setter Property="Padding" Value="{StaticResource MainContentPadding_Desktop}" />
+    </Style>
+
+    <Style x:Key="PivotItemContainerPhoneStyle" TargetType="Control">
+        <Setter Property="Padding" Value="{StaticResource MainContentPadding_Phone}" />
+    </Style>
+
+    <Style x:Key="PivotItemContainerTabletStyle" TargetType="Control">
+        <Setter Property="Padding" Value="{StaticResource MainContentPadding_Tablet}" />
+    </Style>
 
     <Style x:Key="ValidateButtonStyle" TargetType="Button">
         <Setter Property="Margin" Value="0 0 8 0" />
