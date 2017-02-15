@@ -7,6 +7,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../../Dictionaries/ResponsiveDesign.xaml" />
+        <ResourceDictionary Source="./Styles.Pivot.xaml" />
         <ResourceDictionary Source="./Styles.PivotHeaderItem.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
@@ -23,10 +24,6 @@
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden" />
     </Style>
 
-
-    <Style TargetType="Pivot">
-        <Setter Property="Grid.Row" Value="1" />
-    </Style>
 
     <Style TargetType="PivotItem">
         <Setter Property="Margin" Value="0" />

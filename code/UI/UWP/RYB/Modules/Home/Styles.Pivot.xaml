@@ -3,8 +3,16 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
                     xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.Home">
 
+    <Style x:Key="_headerContainerStyle" TargetType="Grid">
+        <Setter Property="Background" Value="{StaticResource AppBarBackground}" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+
+
     <!-- based on https://msdn.microsoft.com/en-us/library/windows/apps/mt299144.aspx -->
     <Style TargetType="Pivot">
+        <Setter Property="Grid.Row" Value="1" />
+
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Background" Value="Transparent" />
@@ -241,7 +249,7 @@
                                             <ContentControl.Clip>
                                                 <RectangleGeometry x:Name="HeaderClipperGeometry" />
                                             </ContentControl.Clip>
-                                            <Grid Background="Transparent">
+                                            <Grid Style="{StaticResource _headerContainerStyle}">
                                                 <PivotHeaderPanel x:Name="StaticHeader" Visibility="Collapsed" />
                                                 <PivotHeaderPanel x:Name="Header">
                                                     <PivotHeaderPanel.RenderTransform>
