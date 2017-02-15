@@ -113,22 +113,22 @@
     <Compile Include="AHA\v1.09+\PowermeterDTO.cs" />
     <Compile Include="AHA\v1.09+\SwitchDTO.cs" />
     <Compile Include="AHA\v1.09+\TemperatureDTO.cs" />
-    <Compile Include="v1.09\AbstractLayer\Aha.cs" />
-    <Compile Include="v1.09\ConcreteLayer\AhaCmdEnum.cs" />
-    <Compile Include="v1.09\ConcreteLayer\AhaRequest.cs" />
-    <Compile Include="v1.09\DeviceDTO.cs" />
-    <Compile Include="v1.09\DeviceListDTO.cs" />
-    <Compile Include="v1.09\GroupDTO.cs" />
-    <Compile Include="v1.09\GroupInfoDTO.cs" />
-    <Compile Include="v1.09\HkrDTO.cs" />
+    <Compile Include="AHA\v1.09\AbstractLayer\Aha.cs" />
+    <Compile Include="AHA\v1.09\ConcreteLayer\AhaCmdEnum.cs" />
+    <Compile Include="AHA\v1.09\ConcreteLayer\AhaRequest.cs" />
+    <Compile Include="AHA\v1.09\DeviceDTO.cs" />
+    <Compile Include="AHA\v1.09\DeviceListDTO.cs" />
+    <Compile Include="AHA\v1.09\GroupDTO.cs" />
+    <Compile Include="AHA\v1.09\GroupInfoDTO.cs" />
+    <Compile Include="AHA\v1.09\HkrDTO.cs" />
     <Compile Include="SessionId\v20121217\Login\AnonymousLogin.cs" />
     <Compile Include="SessionId\v20121217\Login\LoginBase.cs" />
     <Compile Include="SessionId\v20121217\Login\PasswordBasedLogin.cs" />
     <Compile Include="SessionId\v20121217\Login\UserBasedLogin.cs" />
-    <Compile Include="v1.09\PowermeterDTO.cs" />
+    <Compile Include="AHA\v1.09\PowermeterDTO.cs" />
     <Compile Include="SessionId\v20121217\SessionInfoDTO.cs" />
-    <Compile Include="v1.09\SwitchDTO.cs" />
-    <Compile Include="v1.09\TemperatureDTO.cs" />
+    <Compile Include="AHA\v1.09\SwitchDTO.cs" />
+    <Compile Include="AHA\v1.09\TemperatureDTO.cs" />
     <EmbeddedResource Include="Properties\FritzBoxAPI.rd.xml" />
   </ItemGroup>
   <ItemGroup />

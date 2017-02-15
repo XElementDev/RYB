@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 
-namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109.ConcreteLayer
+namespace XElement.RedYellowBlue.FritzBoxAPI.HttpApi.Aha.v109.ConcreteLayer
 {
     //  --> Based on: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/AHA-HTTP-Interface.pdf
     //      taken from: https://avm.de/service/schnittstellen/
-    //      Last visited: 2016-09-09
+    //      Last visited: 2017-02-15
 #region not unit-tested
     internal class AhaRequest
     {

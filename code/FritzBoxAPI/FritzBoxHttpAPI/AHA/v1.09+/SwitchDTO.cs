@@ -1,5 +1,4 @@
 ﻿using System.Xml.Serialization;
-using v109 = XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109;
 
 namespace XElement.RedYellowBlue.FritzBoxAPI.HttpApi.Aha.v109_
 {

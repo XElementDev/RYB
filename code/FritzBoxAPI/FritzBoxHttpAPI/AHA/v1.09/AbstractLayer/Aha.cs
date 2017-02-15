@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Xml.Serialization;
-using XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109.ConcreteLayer;
+using XElement.RedYellowBlue.FritzBoxAPI.HttpApi.Aha.v109.ConcreteLayer;
 
-namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
+namespace XElement.RedYellowBlue.FritzBoxAPI.HttpApi.Aha.v109
 {
 #region not unit-tested
     public class Aha

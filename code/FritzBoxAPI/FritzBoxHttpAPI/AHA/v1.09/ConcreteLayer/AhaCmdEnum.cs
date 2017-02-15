@@ -1,4 +1,4 @@
-﻿namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109.ConcreteLayer
+﻿namespace XElement.RedYellowBlue.FritzBoxAPI.HttpApi.Aha.v109.ConcreteLayer
 {
     internal enum AhaCmd
     {

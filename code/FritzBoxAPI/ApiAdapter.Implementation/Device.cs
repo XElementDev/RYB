@@ -1,4 +1,4 @@
-﻿using XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109;
+﻿using XElement.RedYellowBlue.FritzBoxAPI.HttpApi.Aha.v109;
 
 namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
 {
@@ -62,6 +62,8 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
         private const int BIT_NO6 = 64;
 
         private const int BIT_NO9 = 512;
+
+        public const int MAX_NAME_LENGTH = 29;  // tested on 2016-10-05
 
 
         private string _ain;

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109;
+using XElement.RedYellowBlue.FritzBoxAPI.HttpApi.Aha.v109;
 using XElement.RedYellowBlue.FritzBoxAPI.HttpApi.SessionId.v20121217;
 
 namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
