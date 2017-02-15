@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109_
+namespace XElement.RedYellowBlue.FritzBoxAPI.HttpApi.Aha.v109_
 {
 #region not unit-tested
     public class NextChangeDTO
