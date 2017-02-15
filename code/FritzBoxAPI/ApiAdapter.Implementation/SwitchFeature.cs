@@ -1,4 +1,4 @@
-﻿using XElement.RedYellowBlue.FritzBoxAPI.HttpApi.Aha.v109;
+﻿using XElement.RedYellowBlue.FritzBoxAPI.HttpApi.Aha.v109_;
 
 namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
 {
