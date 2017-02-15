@@ -1,9 +1,12 @@
 ﻿namespace XElement.RedYellowBlue.FritzBoxAPI.HttpApi.Aha.v109_
 {
 #region not unit-tested
-    public class GroupDTO : v109.GroupDTO
+    public class GroupDTO
     {
-        public new GroupInfoDTO GroupInfo { get; set; }
+        public GroupDTO() { }
+
+
+        public GroupInfoDTO GroupInfo { get; set; }
     }
 #endregion
 }
