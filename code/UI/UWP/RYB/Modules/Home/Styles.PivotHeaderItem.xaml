@@ -3,16 +3,18 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
                     xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.Home">
 
-    <!-- taken from https://msdn.microsoft.com/en-us/library/windows/apps/mt299142.aspx -->
+    <!-- based on https://msdn.microsoft.com/en-us/library/windows/apps/mt299142.aspx -->
     <Style TargetType="PivotHeaderItem">
+        <Setter Property="BorderThickness" Value="0 0 0 4" />
+        <Setter Property="Height" Value="64" />
+        <Setter Property="Width" Value="64" />
+
         <Setter Property="FontSize" Value="{ThemeResource PivotHeaderItemFontSize}" />
         <Setter Property="FontFamily" Value="{ThemeResource PivotHeaderItemFontFamily}" />
         <Setter Property="FontWeight" Value="{ThemeResource PivotHeaderItemThemeFontWeight}" />
         <Setter Property="CharacterSpacing" Value="{ThemeResource PivotHeaderItemCharacterSpacing}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseMediumBrush}" />
-        <Setter Property="Padding" Value="{ThemeResource PivotHeaderItemMargin}" />
-        <Setter Property="Height" Value="48" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Template">
@@ -21,22 +23,6 @@
                     <Grid
           x:Name="Grid"
           Background="{TemplateBinding Background}">
-                        <Grid.Resources>
-                            <Style x:Key="BaseContentPresenterStyle" TargetType="ContentPresenter">
-                                <Setter Property="FontFamily" Value="XamlAutoFontFamily"/>
-                                <Setter Property="FontWeight" Value="SemiBold"/>
-                                <Setter Property="FontSize" Value="15"/>
-                                <Setter Property="TextWrapping" Value="Wrap"/>
-                                <Setter Property="LineStackingStrategy" Value="MaxHeight"/>
-                                <Setter Property="TextLineBounds" Value="Full"/>
-                                <Setter Property="OpticalMarginAlignment" Value="TrimSideBearings"/>
-                            </Style>
-                            <Style x:Key="BodyContentPresenterStyle" TargetType="ContentPresenter" BasedOn="{StaticResource BaseContentPresenterStyle}">
-                                <Setter Property="FontFamily" Value="{ThemeResource PivotHeaderItemFontFamily}" />
-                                <Setter Property="FontWeight" Value="{ThemeResource PivotHeaderItemThemeFontWeight}"/>
-                                <Setter Property="FontSize" Value="{ThemeResource PivotHeaderItemFontSize}"/>
-                            </Style>
-                        </Grid.Resources>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="SelectionStates">
                                 <VisualStateGroup.Transitions>
@@ -66,11 +52,15 @@
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
                                                Storyboard.TargetProperty="Foreground" >
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlForegroundAccentBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Grid"
                                                Storyboard.TargetProperty="Background" >
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightTransparentBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="_highlightLine" 
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlForegroundAccentBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -90,11 +80,15 @@
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
                                                 Storyboard.TargetProperty="Foreground" >
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseMediumHighBrush}" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlForegroundAccentBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Grid"
                                                Storyboard.TargetProperty="Background" >
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightTransparentBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="_highlightLine" 
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlForegroundAccentBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -114,30 +108,39 @@
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
                                                Storyboard.TargetProperty="Foreground" >
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseMediumHighBrush}" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlForegroundAccentBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Grid"
                                                Storyboard.TargetProperty="Background" >
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightTransparentBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="_highlightLine" 
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlForegroundAccentBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <ContentPresenter
-            x:Name="ContentPresenter"
-            Content="{TemplateBinding Content}"
-            ContentTemplate="{TemplateBinding ContentTemplate}"
-            Margin="{TemplateBinding Padding}"
-            FontSize="{TemplateBinding FontSize}"
-            FontFamily="{TemplateBinding FontFamily}"
-            FontWeight="{TemplateBinding FontWeight}"
-            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                            <ContentPresenter.RenderTransform>
-                                <TranslateTransform x:Name="ContentPresenterTranslateTransform" />
-                            </ContentPresenter.RenderTransform>
-                        </ContentPresenter>
+
+                        <Border x:Name="_highlightLine" 
+                                BorderBrush="Transparent" 
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter
+                x:Name="ContentPresenter"
+                Content="{TemplateBinding Content}"
+                ContentTemplate="{TemplateBinding ContentTemplate}"
+                Margin="{TemplateBinding Padding}"
+                FontSize="{TemplateBinding FontSize}"
+                FontFamily="{TemplateBinding FontFamily}"
+                FontWeight="{TemplateBinding FontWeight}"
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <ContentPresenter.RenderTransform>
+                                    <TranslateTransform x:Name="ContentPresenterTranslateTransform" />
+                                </ContentPresenter.RenderTransform>
+                            </ContentPresenter>
+                        </Border>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
