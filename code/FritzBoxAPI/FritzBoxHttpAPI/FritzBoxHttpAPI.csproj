@@ -108,6 +108,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="v1.09+\HkrDTO.cs" />
+    <Compile Include="v1.09+\NextChangeDTO.cs" />
+    <Compile Include="v1.09+\PowermeterDTO.cs" />
+    <Compile Include="v1.09+\SwitchDTO.cs" />
+    <Compile Include="v1.09+\TemperatureDTO.cs" />
     <Compile Include="v1.09\AbstractLayer\Aha.cs" />
     <Compile Include="v1.09\ConcreteLayer\AhaCmdEnum.cs" />
     <Compile Include="v1.09\ConcreteLayer\AhaRequest.cs" />
