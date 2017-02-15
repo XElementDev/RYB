@@ -7,7 +7,7 @@
     <ProjectGuid>{6658ADD9-A6D5-4A9F-AFD6-95C87BA544BD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI</RootNamespace>
+    <RootNamespace>XElement.RedYellowBlue.FritzBoxAPI.HttpAPI</RootNamespace>
     <AssemblyName>XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
