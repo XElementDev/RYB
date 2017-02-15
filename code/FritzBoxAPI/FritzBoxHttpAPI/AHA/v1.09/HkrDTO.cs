@@ -3,6 +3,7 @@
 namespace XElement.RedYellowBlue.FritzBoxAPI.HttpApi.Aha.v109
 {
 #region not unit-tested
+    [XmlType( nameof( HkrDTO ) + "_v109" )]
     public class HkrDTO
     {
         public HkrDTO() { }
