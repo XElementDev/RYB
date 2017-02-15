@@ -8,7 +8,7 @@
     </Style>
 
 
-    <!-- taken from https://msdn.microsoft.com/en-us/library/windows/apps/mt299144.aspx -->
+    <!-- based on https://msdn.microsoft.com/en-us/library/windows/apps/mt299144.aspx -->
     <Style TargetType="Pivot">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
