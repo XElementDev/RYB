@@ -107,6 +107,12 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AHA\v1.09+\AbstractLayer\Aha.cs" />
+    <Compile Include="AHA\v1.09+\ConcreteLayer\AhaRequest.cs" />
+    <Compile Include="AHA\v1.09+\DeviceDTO.cs" />
+    <Compile Include="AHA\v1.09+\DeviceListDTO.cs" />
+    <Compile Include="AHA\v1.09+\GroupDTO.cs" />
+    <Compile Include="AHA\v1.09+\GroupInfoDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AHA\v1.09+\HkrDTO.cs" />
     <Compile Include="AHA\v1.09+\NextChangeDTO.cs" />
