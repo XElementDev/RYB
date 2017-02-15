@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
+namespace XElement.RedYellowBlue.FritzBoxAPI.HttpApi.SessionId.v20121217
 {
 #region not unit-tested
     public class AnonymousLogin : LoginBase

@@ -2,11 +2,11 @@
 using System.Net;
 using System.Xml.Serialization;
 
-namespace XElement.RedYellowBlue.FritzBoxAPI.FritzBoxHttpAPI.v109
+namespace XElement.RedYellowBlue.FritzBoxAPI.HttpApi.SessionId.v20121217
 {
     //  --> Based on: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/AVM_Technical_Note_-_Session_ID.pdf
     //      taken from: https://avm.de/service/schnittstellen/
-    //      Last visited: 2016-09-08
+    //      Last visited: 2017-02-15
 #region not unit-tested
     public abstract class LoginBase
     {
