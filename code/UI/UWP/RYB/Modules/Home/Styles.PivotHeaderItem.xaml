@@ -6,8 +6,8 @@
     <!-- based on https://msdn.microsoft.com/en-us/library/windows/apps/mt299142.aspx -->
     <Style TargetType="PivotHeaderItem">
         <Setter Property="BorderThickness" Value="0 0 0 4" />
-        <Setter Property="Height" Value="64" />
-        <Setter Property="Width" Value="64" />
+        <Setter Property="Height" Value="68" />
+        <Setter Property="Width" Value="80" />
 
         <Setter Property="FontSize" Value="{ThemeResource PivotHeaderItemFontSize}" />
         <Setter Property="FontFamily" Value="{ThemeResource PivotHeaderItemFontFamily}" />
