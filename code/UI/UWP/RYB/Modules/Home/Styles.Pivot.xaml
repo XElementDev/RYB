@@ -3,6 +3,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
                     xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.Home">
 
+    <Style x:Key="_headerStyle" TargetType="PivotHeaderPanel">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
     <Style x:Key="_headerContainerStyle" TargetType="Grid">
         <Setter Property="Background" Value="{StaticResource AppBarBackground}" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -250,7 +254,10 @@
                                                 <RectangleGeometry x:Name="HeaderClipperGeometry" />
                                             </ContentControl.Clip>
                                             <Grid Style="{StaticResource _headerContainerStyle}">
-                                                <PivotHeaderPanel x:Name="StaticHeader" Visibility="Collapsed" />
+                                                <PivotHeaderPanel x:Name="StaticHeader" 
+                                                                  Visibility="Collapsed" 
+                                                                  Style="{StaticResource _headerStyle}" 
+                                                />
                                                 <PivotHeaderPanel x:Name="Header">
                                                     <PivotHeaderPanel.RenderTransform>
                                                         <TransformGroup>
