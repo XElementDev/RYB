@@ -113,14 +113,14 @@
     <None Include="test_RYB_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="TestAssets\LockScreenLogo.scale-200.png" />
+    <Content Include="TestAssets\SplashScreen.scale-200.png" />
+    <Content Include="TestAssets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="TestAssets\Wide310x150Logo.scale-200.png" />
     <Content Include="Properties\UnitTestApp.rd.xml" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="TestAssets\Square150x150Logo.scale-200.png" />
+    <Content Include="TestAssets\Square44x44Logo.scale-200.png" />
+    <Content Include="TestAssets\StoreLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\FritzBoxAPI\ApiAdapter.Interface\ApiAdapter.Interface.csproj">
