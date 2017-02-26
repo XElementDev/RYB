@@ -127,6 +127,11 @@
       <Project>{9E5E1955-7C20-4B25-B40A-93449EBAB79F}</Project>
       <Name>ApiAdapter.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RYB\RYB.csproj">
+      <Project>{07BFE244-14D6-48E4-96AC-680B2E49C9BF}</Project>
+      <Name>RYB</Name>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
