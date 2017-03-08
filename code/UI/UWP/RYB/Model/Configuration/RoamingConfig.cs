@@ -47,7 +47,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Configuration
 
         public void Read()
         {
-            if ( this.RoamingFolder.IsFileExistsAsync( FILE_NAME ).Result )
+            if ( this.RoamingFolder.FileExistsAsync( FILE_NAME ).Result )
             {
                 var bytes = this.RoamingFolder.ReadBytesFromFileAsync( FILE_NAME ).Result;
                 var deserialized = this._serializer.Deserialize( new MemoryStream( bytes ) );
