@@ -21,16 +21,13 @@
     <Style x:Key="_mainContentBase" TargetType="toolkit:AdaptiveGridView">
         <Setter Property="DesiredWidth" Value="512" />
         <Setter Property="ItemHeight" Value="128" />
+        <Setter Property="Padding" Value="0 12 0 10" /> <!-- see Padding property at https://msdn.microsoft.com/en-us/library/windows/apps/mt299128.aspx -->
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden" />
     </Style>
 
 
     <Style TargetType="PivotItem">
         <Setter Property="Margin" Value="0" />
-    </Style>
-
-    <Style TargetType="ScrollViewer">
-        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
     </Style>
 
 
