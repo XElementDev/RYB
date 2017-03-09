@@ -3,12 +3,12 @@ using XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter;
 
 namespace XElement.RedYellowBlue.UI.UWP.Model.Api
 {
-#region not unit-tested
     [Shared] [Export( typeof( IHttpService ) )]
     internal class MefHttpService : HttpService, IHttpService
     {
         [ImportingConstructor]
-        public MefHttpService( HttpServiceParametersDTO parameters, OptionalHttpServiceParametersDTO optional ) 
+        public MefHttpService( HttpServiceParametersDTO parameters, 
+                               OptionalHttpServiceParametersDTO optional ) 
             : base( parameters, optional ) { }
     }
 
@@ -19,21 +19,25 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
         [ImportingConstructor]
         public MefParametersDTO( IConfig config )
         {
-            this.BoxUrl = config.BoxUrl;
-        }
-
-
-        [OnImportsSatisfied]
-        internal void OnImportsSatisfied()
-        {
+            this._config = config;
             this.SubscribeEvents();
+            this.UpdatePropertyValues();
         }
 
 
         private void SubscribeEvents()
         {
-            // TODO: Update Service on Config change
+            this._config.PropertyChanged += ( s, e ) => this.UpdatePropertyValues();
         }
+
+
+        private void UpdatePropertyValues()
+        {
+            this.BoxUrl = this._config.BoxUrl;
+        }
+
+
+        private IConfig _config;
     }
 
 
@@ -43,22 +47,25 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
         [ImportingConstructor]
         public MefOptionalParametersDT( IConfig config )
         {
-            this.Password = config.Password;
-            this.Username = config.Username;
-        }
-
-
-        [OnImportsSatisfied]
-        internal void OnImportsSatisfied()
-        {
+            this._config = config;
+            this.UpdatePropertyValues();
             this.SubscribeEvents();
         }
 
 
         private void SubscribeEvents()
         {
-            // TODO: Update Service on Config change
+            this._config.PropertyChanged += ( s, e ) => this.UpdatePropertyValues();
         }
+
+
+        private void UpdatePropertyValues()
+        {
+            this.Password = this._config.Password;
+            this.Username = this._config.Username;
+        }
+
+
+        private IConfig _config;
     }
-#endregion
 }

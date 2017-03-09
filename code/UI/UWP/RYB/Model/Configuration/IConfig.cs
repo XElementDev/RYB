@@ -1,8 +1,9 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace XElement.RedYellowBlue.UI.UWP.Model
 {
-    public interface IConfig
+    public interface IConfig : INotifyPropertyChanged
     {
         Uri BoxUrl { get; }
 

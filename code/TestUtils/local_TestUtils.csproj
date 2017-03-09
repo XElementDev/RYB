@@ -108,7 +108,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\SimpleStubs.generated.cs" />
+    <Compile Include="Random.cs" />
     <EmbeddedResource Include="Properties\local_TestUtils.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UI\UWP\RYB\RYB.csproj">
+      <Project>{07BFE244-14D6-48E4-96AC-680B2E49C9BF}</Project>
+      <Name>RYB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XElement\TestUtils\TestUtils.csproj">
+      <Project>{1cccfc19-fc49-4d65-96f1-aaf54f0b04f3}</Project>
+      <Name>TestUtils</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

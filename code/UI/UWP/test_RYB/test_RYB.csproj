@@ -99,6 +99,7 @@
     <Compile Include="UnitTestApp.xaml.cs">
       <DependentUpon>UnitTestApp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="testModel\testApi\testMefApiAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="UnitTestApp.xaml">
@@ -123,9 +124,21 @@
     <Content Include="TestAssets\StoreLogo.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\FritzBoxAPI\ApiAdapter.Implementation\ApiAdapter.Implementation.csproj">
+      <Project>{f54ba55d-2336-4991-bbf8-3dee56bbf8a5}</Project>
+      <Name>ApiAdapter.Implementation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\FritzBoxAPI\ApiAdapter.Interface\ApiAdapter.Interface.csproj">
       <Project>{9E5E1955-7C20-4B25-B40A-93449EBAB79F}</Project>
       <Name>ApiAdapter.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\TestUtils\local_TestUtils.csproj">
+      <Project>{bf8254c4-d011-4afe-b2b6-1298b9e62073}</Project>
+      <Name>local_TestUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\XElement\TestUtils\TestUtils.csproj">
+      <Project>{1cccfc19-fc49-4d65-96f1-aaf54f0b04f3}</Project>
+      <Name>TestUtils</Name>
     </ProjectReference>
     <ProjectReference Include="..\RYB\RYB.csproj">
       <Project>{07BFE244-14D6-48E4-96AC-680B2E49C9BF}</Project>

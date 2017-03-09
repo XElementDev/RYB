@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using System;
 using System.Composition;
 using XElement.RedYellowBlue.UI.UWP.Model.AutoSave;
 
@@ -6,7 +7,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Configuration
 {
 #region not unit-tested
     [Shared] [Export( typeof( IConfig ) )] [Export( typeof( IAutoSaveTarget ) )]
-    internal class Config : IConfig, IAutoSaveTarget
+    internal class Config : ViewModelBase, IConfig, IAutoSaveTarget
     {
         [ImportingConstructor]
         public Config()
@@ -25,14 +26,23 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Configuration
         public string /*IConfig.*/BoxUrlAsString
         {
             get { return this._roaming.BoxUrlAsString; }
-            set { this._roaming.BoxUrlAsString = value; }
+            set
+            {
+                this._roaming.BoxUrlAsString = value;
+                this.RaisePropertyChanged( nameof( this.BoxUrl ) );
+                this.RaisePropertyChanged( nameof( this.BoxUrlAsString ) );
+            }
         }
 
 
         public string /*IConfig.*/Password
         {
             get { return this._roaming.Password; }
-            set { this._roaming.Password = value; }
+            set
+            {
+                this._roaming.Password = value;
+                this.RaisePropertyChanged( nameof( this.Password ) );
+            }
         }
 
 
@@ -45,7 +55,11 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Configuration
         public string /*IConfig.*/Username
         {
             get { return this._roaming.Username; }
-            set { this._roaming.Username = value; }
+            set
+            {
+                this._roaming.Username = value;
+                this.RaisePropertyChanged( nameof( this.Username ) );
+            }
         }
 
 
