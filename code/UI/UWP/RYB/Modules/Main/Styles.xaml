@@ -5,6 +5,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="./Styles.HamburgerMenu.xaml" />
+        <ResourceDictionary Source="./Styles.ListViewItem.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 
