@@ -3,6 +3,11 @@
 
                     xmlns:uwpToolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="./Styles.HamburgerMenu.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
     <x:Double x:Key="_navPaneSize">48</x:Double>
 
     <Style x:Key="_smallHeaderContainerBase" TargetType="Border">
@@ -13,9 +18,9 @@
     </Style>
 
 
-    <Style TargetType="uwpToolkit:HamburgerMenu">
+    <!--<Style TargetType="uwpToolkit:HamburgerMenu">
         <Setter Property="PaneBackground" Value="{StaticResource AppBarBackground}" />
-    </Style>
+    </Style>-->
 
 
     <Style x:Key="HamburgerMenuItemGlyphStyle" TargetType="FontIcon">
