@@ -18,11 +18,6 @@
     </Style>
 
 
-    <!--<Style TargetType="uwpToolkit:HamburgerMenu">
-        <Setter Property="PaneBackground" Value="{StaticResource AppBarBackground}" />
-    </Style>-->
-
-
     <Style x:Key="HamburgerMenuItemGlyphStyle" TargetType="FontIcon">
         <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
         <Setter Property="FontSize" Value="20" />

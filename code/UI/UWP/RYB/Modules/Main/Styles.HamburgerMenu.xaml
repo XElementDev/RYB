@@ -7,6 +7,8 @@
 
     <!-- based on https://github.com/Microsoft/UWPCommunityToolkit/blob/dev/Microsoft.Toolkit.Uwp.UI.Controls/HamburgerMenu/HamburgerMenu.xaml -->
     <Style TargetType="uwpToolkit:HamburgerMenu">
+        <Setter Property="PaneBackground" Value="{StaticResource AppBarBackground}" />
+
         <Setter Property="HamburgerMenuTemplate">
             <Setter.Value>
                 <DataTemplate>
