@@ -4,7 +4,7 @@
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
     "Microsoft.Toolkit.Uwp": "1.4.0-dev00138",
     "Microsoft.Toolkit.Uwp.UI.Controls": "1.4.0-dev00138",
-    "Mntone.SvgForXaml": "0.9.0",
+    "Mntone.SvgForXaml": "0.9.1",
     "MvvmLight": "5.3.0",
     "PropertyChanged.Fody": "1.51.3"
   },
