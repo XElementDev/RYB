@@ -4,7 +4,9 @@
                     xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.Main">
 
     <!-- based on https://msdn.microsoft.com/en-us/library/windows/apps/mt299136.aspx -->
-    <Style TargetType="ListViewItem" x:Key="ListViewItemExpanded">
+    <Style x:Key="HamburgerMenuItemContainerStyle" TargetType="ListViewItem">
+        <Setter Property="BorderThickness" Value="4 0 0 0" />
+
         <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
         <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
         <Setter Property="Background" Value="Transparent"/>
@@ -20,10 +22,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListViewItem">
-                    <Grid x:Name="ContentBorder"
-              Background="{TemplateBinding Background}"
-              BorderBrush="{TemplateBinding BorderBrush}"
-              BorderThickness="{TemplateBinding BorderThickness}">
+                    <Grid x:Name="ContentBorder" 
+              Background="{TemplateBinding Background}">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal">
@@ -37,8 +37,21 @@
                                  Storyboard.TargetProperty="Opacity"
                                  Duration="0"
                                  To="1"/>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderBackground" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightListLowBrush}" />
+                                        <ObjectAnimationUsingKeyFrames 
+                                                                       Storyboard.TargetName="BorderBackground" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame 
+                                                                    KeyTime="0" 
+                                                                    Value="{ThemeResource SystemListLowColor}" 
+                                            />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames 
+                                                                       Storyboard.TargetName="BorderBackground" 
+                                                                       Storyboard.TargetProperty="BorderThickness">
+                                            <DiscreteObjectKeyFrame 
+                                                                    KeyTime="0" 
+                                                                    Value="0" 
+                                            />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
@@ -52,8 +65,21 @@
                                  Storyboard.TargetProperty="Opacity"
                                  Duration="0"
                                  To="1"/>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderBackground" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightListMediumBrush}" />
+                                        <ObjectAnimationUsingKeyFrames 
+                                                                       Storyboard.TargetName="BorderBackground" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame 
+                                                                    KeyTime="0" 
+                                                                    Value="{ThemeResource SystemControlHighlightListMediumBrush}" 
+                                            />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames 
+                                                                       Storyboard.TargetName="BorderBackground" 
+                                                                       Storyboard.TargetProperty="BorderThickness">
+                                            <DiscreteObjectKeyFrame 
+                                                                    KeyTime="0" 
+                                                                    Value="0" 
+                                            />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
@@ -71,11 +97,21 @@
                                  Storyboard.TargetProperty="Opacity"
                                  Duration="0"
                                  To="1"/>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderBackground" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightListAccentLowBrush}" />
+                                        <ObjectAnimationUsingKeyFrames 
+                                                                       Storyboard.TargetName="ContentPresenter" 
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame 
+                                                                    KeyTime="0" 
+                                                                    Value="{ThemeResource SystemControlForegroundAccentBrush}" 
+                                            />
                                         </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                        <ObjectAnimationUsingKeyFrames 
+                                                                       Storyboard.TargetName="BorderBackground" 
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame 
+                                                                    KeyTime="0" 
+                                                                    Value="{ThemeResource SystemControlForegroundAccentBrush}" 
+                                            />
                                         </ObjectAnimationUsingKeyFrames>
                                         <PointerUpThemeAnimation Storyboard.TargetName="ContentPresenter" />
                                     </Storyboard>
@@ -90,11 +126,29 @@
                                  Storyboard.TargetProperty="Opacity"
                                  Duration="0"
                                  To="1"/>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderBackground" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightListAccentMediumBrush}" />
+                                        <ObjectAnimationUsingKeyFrames 
+                                                                       Storyboard.TargetName="BorderBackground" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame 
+                                                                    KeyTime="0" 
+                                                                    Value="{ThemeResource SystemListLowColor}" 
+                                            />
                                         </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                        <ObjectAnimationUsingKeyFrames 
+                                                                       Storyboard.TargetName="BorderBackground" 
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame 
+                                                                    KeyTime="0" 
+                                                                    Value="{ThemeResource SystemControlForegroundAccentBrush}" 
+                                            />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames 
+                                                                       Storyboard.TargetName="ContentPresenter" 
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame 
+                                                                    KeyTime="0" 
+                                                                    Value="{ThemeResource SystemControlForegroundAccentBrush}" 
+                                            />
                                         </ObjectAnimationUsingKeyFrames>
                                         <PointerUpThemeAnimation Storyboard.TargetName="ContentPresenter" />
                                     </Storyboard>
@@ -109,11 +163,29 @@
                                  Storyboard.TargetProperty="Opacity"
                                  Duration="0"
                                  To="1"/>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderBackground" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightListAccentHighBrush}" />
+                                        <ObjectAnimationUsingKeyFrames 
+                                                                       Storyboard.TargetName="BorderBackground" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame 
+                                                                    KeyTime="0" 
+                                                                    Value="{ThemeResource SystemControlHighlightListMediumBrush}" 
+                                            />
                                         </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                        <ObjectAnimationUsingKeyFrames 
+                                                                       Storyboard.TargetName="BorderBackground" 
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame 
+                                                                    KeyTime="0" 
+                                                                    Value="{ThemeResource SystemControlForegroundAccentBrush}" 
+                                            />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames 
+                                                                       Storyboard.TargetName="ContentPresenter" 
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame 
+                                                                    KeyTime="0" 
+                                                                    Value="{ThemeResource SystemControlForegroundAccentBrush}" 
+                                            />
                                         </ObjectAnimationUsingKeyFrames>
                                         <PointerDownThemeAnimation TargetName="ContentPresenter" />
                                     </Storyboard>
@@ -274,9 +346,11 @@
                                 </VisualStateGroup.Transitions>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <Rectangle x:Name="BorderBackground"
+
+                        <Border x:Name="BorderBackground"
+                                BorderBrush="Transparent" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
                     IsHitTestVisible="False"
-                    Fill="{ThemeResource SystemControlHighlightListAccentLowBrush}"
                     Opacity="0"
                     Control.IsTemplateFocusTarget="True"/>
                         <Grid x:Name="ContentPresenterGrid"

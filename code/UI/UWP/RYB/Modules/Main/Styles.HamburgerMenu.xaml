@@ -5,6 +5,11 @@
 
                     xmlns:uwpToolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="./Styles.ListViewItem.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
     <!-- based on https://github.com/Microsoft/UWPCommunityToolkit/blob/dev/Microsoft.Toolkit.Uwp.UI.Controls/HamburgerMenu/HamburgerMenu.xaml -->
     <Style TargetType="uwpToolkit:HamburgerMenu">
         <Setter Property="PaneBackground" Value="{StaticResource AppBarBackground}" />
@@ -61,12 +66,8 @@
                                                       SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                                                       SelectedItem="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                                                       SelectionMode="Single"
-                                                      TabIndex="1">
-                                                <ListView.ItemContainerStyle>
-                                                    <Style TargetType="ListViewItem">
-                                                        <Setter Property="Padding" Value="0" />
-                                                    </Style>
-                                                </ListView.ItemContainerStyle>
+                                                      TabIndex="1" 
+                                                      ItemContainerStyle="{StaticResource HamburgerMenuItemContainerStyle}">
                                             </ListView>
                                             <ListView Name="OptionsListView"
                                                       Grid.Row="2"
@@ -79,12 +80,8 @@
                                                       ItemsSource="{TemplateBinding OptionsItemsSource}"
                                                       SelectedIndex="{Binding SelectedOptionsIndex, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                                                       SelectedItem="{Binding SelectedOptionsItem, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                                      TabIndex="2">
-                                                <ListView.ItemContainerStyle>
-                                                    <Style TargetType="ListViewItem">
-                                                        <Setter Property="Padding" Value="0" />
-                                                    </Style>
-                                                </ListView.ItemContainerStyle>
+                                                      TabIndex="2" 
+                                                      ItemContainerStyle="{StaticResource HamburgerMenuItemContainerStyle}">
                                             </ListView>
                                         </Grid>
                                     </ScrollViewer>
