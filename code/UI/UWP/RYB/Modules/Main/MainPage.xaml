@@ -44,7 +44,8 @@
                               ItemTemplate="{StaticResource HamburgerItemTemplate}" 
                               ItemClick="HamburgerMenu_ItemClick" 
                               OptionsItemTemplate="{StaticResource HamburgerItemTemplate}" 
-                              OptionsItemClick="HamburgerMenu_ItemClick">
+                              OptionsItemClick="HamburgerMenu_ItemClick" 
+                              SelectedIndex="0">
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
