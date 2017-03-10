@@ -11,6 +11,10 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.DataContextPageTypeMap
 
 
         [Import]
+        public Pages.Feedback.ViewModel FeedbackVM { get; set; }
+
+
+        [Import]
         public Modules.Home.ViewModel HomeVM { get; set; }
 
 

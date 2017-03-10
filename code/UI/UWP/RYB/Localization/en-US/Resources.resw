@@ -141,6 +141,10 @@
     <value>Available soon.</value>
     <comment>// 2016-09-23</comment>
   </data>
+  <data name="Feedback_Thanks.Text" xml:space="preserve">
+    <value>Thank you for giving us feedback.</value>
+    <comment>// 2017-03-10</comment>
+  </data>
   <data name="Home_RefreshButton.Label" xml:space="preserve">
     <value>Refresh</value>
     <comment>// 2016-11-01</comment>

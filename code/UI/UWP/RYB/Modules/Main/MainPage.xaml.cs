@@ -21,14 +21,7 @@ namespace XElement.RedYellowBlue.UI.UWP
         private void HamburgerMenu_ItemClick( object sender, ItemClickEventArgs e )
         {
             var clickedHamburgerMenuItem = e.ClickedItem as HamburgerMenuItem;
-            if ( clickedHamburgerMenuItem == this._feedbackOption )
-            {
-                this.MainVM.FeedbackCommand.Execute( "irrelevant" );
-            }
-            else
-            {
-                this.NavigateTo( clickedHamburgerMenuItem );
-            }
+            this.NavigateTo( clickedHamburgerMenuItem );
         }
 
 
@@ -77,7 +70,7 @@ namespace XElement.RedYellowBlue.UI.UWP
 
         private void TryRemoveFeedbackButton()
         {
-            if ( !this.MainVM.FeedbackCommand.CanExecute( "irrelevant" ) )
+            if ( !this.MainVM.FeedbackVM.Model.IsFeedbackHubAvailable() )
             {
                 var optionItemsSource = this._hamburgerMenu.OptionsItemsSource;
                 var optionItems = optionItemsSource as IList;

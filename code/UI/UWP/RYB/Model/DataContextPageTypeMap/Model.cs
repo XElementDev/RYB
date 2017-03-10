@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Composition;
 using XElement.RedYellowBlue.UI.UWP.Modules;
+using XElement.RedYellowBlue.UI.UWP.Pages;
 
 namespace XElement.RedYellowBlue.UI.UWP.Model.DataContextPageTypeMap
 {
@@ -21,6 +22,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.DataContextPageTypeMap
             this._map = new Dictionary<Type, object>();
             this._map[typeof( AboutPage )] = this._dependencies.AboutVM;
             this._map[typeof( HomePage )] = this._dependencies.HomeVM;
+            this._map[typeof( FeedbackPage )] = this._dependencies.FeedbackVM;
             this._map[typeof( SettingsPage )] = this._dependencies.SettingsVM;
         }
 

@@ -6,6 +6,7 @@
       mc:Ignorable="d" 
 
       xmlns:modules="using:XElement.RedYellowBlue.UI.UWP.Modules" 
+      xmlns:pages="using:XElement.RedYellowBlue.UI.UWP.Pages" 
       xmlns:uwpToolkit="using:Microsoft.Toolkit.Uwp.UI.Controls" 
       DataContextChanged="OnDataContextChanged">
 
@@ -98,6 +99,7 @@
                 <uwpToolkit:HamburgerMenuGlyphItem x:Name="_feedbackOption" 
                                                    x:Uid="Main_HamburgerMenu_Feedback" 
                                                    Glyph="&#xED15;" 
+                                                   TargetPageType="pages:FeedbackPage" 
                 />
                 <uwpToolkit:HamburgerMenuGlyphItem 
                                                    x:Uid="Main_HamburgerMenu_Settings" 

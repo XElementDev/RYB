@@ -18,6 +18,10 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Main
 
 
         [Import]
+        public Pages.Feedback.ViewModel FeedbackVM { get; set; }
+
+
+        [Import]
         public NavigationModel NavigationModel { get; set; }
     }
 #endregion
