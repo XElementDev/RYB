@@ -1,6 +1,8 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Microsoft.Services.Store.Engagement;
 using Microsoft.Toolkit.Uwp.UI.Controls;
 using PropertyChanged;
+using System;
 using System.Composition;
 using System.Windows.Input;
 using XElement.RedYellowBlue.UI.UWP.Model;
@@ -16,6 +18,8 @@ namespace XElement.RedYellowBlue.UI.UWP
         [ImportingConstructor]
         public MainViewModel( ViewModelDependenciesDTO dependencies )
         {
+            this.FeedbackCommand = new RelayCommand( this.FeedbackCommand_Execute, 
+                                                     this.FeedbackCommand_CanExecute );
             this.NavigateToCommand = new RelayCommand<HamburgerMenuItem>( this.NavigateToCommand_Execute );
 
             this._dependencies = dependencies;
@@ -24,6 +28,23 @@ namespace XElement.RedYellowBlue.UI.UWP
 
         [DependsOn( nameof( Header ) )]
         public string BigHeader { get { return this.Header; }}
+
+
+        [DoNotNotify]
+        public ICommand FeedbackCommand { get; private set; }
+
+        //  --> 2017-03-09, see https://docs.microsoft.com/en-us/windows/uwp/monetize/launch-feedback-hub-from-your-app
+        //  --> TODO: use NuGet package (Microsoft.Services.Store.SDK), if it works...
+        private bool FeedbackCommand_CanExecute()
+        {
+            return StoreServicesFeedbackLauncher.IsSupported();
+        }
+
+        private async void FeedbackCommand_Execute()
+        {
+            var launcher = StoreServicesFeedbackLauncher.GetDefault();
+            await launcher.LaunchAsync();
+        }
 
 
         public object FrameDataContext { get; private set; }

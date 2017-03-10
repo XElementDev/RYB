@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Uwp.UI.Controls;
+using System.Collections;
 using System.Linq;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -20,7 +21,14 @@ namespace XElement.RedYellowBlue.UI.UWP
         private void HamburgerMenu_ItemClick( object sender, ItemClickEventArgs e )
         {
             var clickedHamburgerMenuItem = e.ClickedItem as HamburgerMenuItem;
-            this.NavigateTo( clickedHamburgerMenuItem );
+            if ( clickedHamburgerMenuItem == this._feedbackOption )
+            {
+                this.MainVM.FeedbackCommand.Execute( "irrelevant" );
+            }
+            else
+            {
+                this.NavigateTo( clickedHamburgerMenuItem );
+            }
         }
 
 
@@ -38,6 +46,7 @@ namespace XElement.RedYellowBlue.UI.UWP
         private void OnDataContextChanged( FrameworkElement sender, DataContextChangedEventArgs args )
         {
             this.NavigateTo( this._home );
+            this.TryRemoveFeedbackButton();
         }
 
 
@@ -62,6 +71,17 @@ namespace XElement.RedYellowBlue.UI.UWP
                     var navManager = SystemNavigationManager.GetForCurrentView();
                     mainVM.NavigationModel.Initialize( this._navigationFrame, navManager );
                 }
+            }
+        }
+
+
+        private void TryRemoveFeedbackButton()
+        {
+            if ( !this.MainVM.FeedbackCommand.CanExecute( "irrelevant" ) )
+            {
+                var optionItemsSource = this._hamburgerMenu.OptionsItemsSource;
+                var optionItems = optionItemsSource as IList;
+                optionItems.Remove( this._feedbackOption );
             }
         }
     }

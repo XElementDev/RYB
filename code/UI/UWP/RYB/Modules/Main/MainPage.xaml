@@ -95,6 +95,10 @@
 
         <uwpToolkit:HamburgerMenu.OptionsItemsSource>
             <uwpToolkit:HamburgerMenuItemCollection>
+                <uwpToolkit:HamburgerMenuGlyphItem x:Name="_feedbackOption" 
+                                                   x:Uid="Main_HamburgerMenu_Feedback" 
+                                                   Glyph="&#xED15;" 
+                />
                 <uwpToolkit:HamburgerMenuGlyphItem 
                                                    x:Uid="Main_HamburgerMenu_Settings" 
                                                    Glyph="&#xE713;" 

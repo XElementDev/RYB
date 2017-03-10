@@ -165,6 +165,10 @@
     <value>About</value>
     <comment>// 2016-09-13</comment>
   </data>
+  <data name="Main_HamburgerMenu_Feedback.Label" xml:space="preserve">
+    <value>Feedback…</value>
+    <comment>// 2017-03-09</comment>
+  </data>
   <data name="Main_HamburgerMenu_Home.Label" xml:space="preserve">
     <value>Home</value>
     <comment>// 2016-09-13</comment>
