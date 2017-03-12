@@ -2,6 +2,9 @@
 {
     public interface IDevice
     {
+        bool CanSenseTemperature { get; }
+
+
         bool IsASwitch { get; }
 
 
@@ -24,5 +27,8 @@
 
 
         ISwitchFeature SwitchFeature { get; }
+
+
+        ITemperatureFeature TemperatureFeature { get; }
     }
 }

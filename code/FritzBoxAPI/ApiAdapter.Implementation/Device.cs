@@ -9,13 +9,28 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
         {
             this._ain = initialValues.Identifier;
             this._httpService = httpService;
+            this.InitializeProperties( initialValues );
+        }
 
-            this.IsConnected = initialValues.Present == 1;
+
+        public bool /*IDevice.*/CanSenseTemperature { get; private set; }
+
+
+        private void InitializeMetaInformation( DeviceDTO initialValues )
+        {
             this.Manufacturer = initialValues.Manufacturer;
             this.Name = initialValues.Name;
             this.ProductName = initialValues.ProductName;
+        }
+
+
+        private void InitializeProperties( DeviceDTO initialValues )
+        {
+            this.IsConnected = initialValues.Present == 1;
+            this.InitializeMetaInformation( initialValues );
             this.InitializeSwitchStuff( initialValues );
             this.IsAThermostat = (initialValues.FunctionBitmask & Device.BIT_NO6) != 0;
+            this.InitializeTemperatureStuff( initialValues );
         }
 
 
@@ -28,6 +43,17 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
                 this.SwitchFeature = new SwitchFeature( initialValues.Switch, 
                                                         this._httpService, 
                                                         this._ain );
+            }
+        }
+
+
+        private void InitializeTemperatureStuff( DeviceDTO initialValues )
+        {
+            this.CanSenseTemperature = (initialValues.FunctionBitmask & Device.BIT_NO8) != 0;
+
+            if ( this.CanSenseTemperature )
+            {
+                this.TemperatureFeature = new TemperatureFeature( initialValues.Temperature );
             }
         }
 
@@ -59,7 +85,12 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter
         public ISwitchFeature /*IDevice.*/SwitchFeature { get; private set; }
 
 
+        public ITemperatureFeature /*IDevice.*/TemperatureFeature { get; private set; }
+
+
         private const int BIT_NO6 = 64;
+
+        private const int BIT_NO8 = 256;
 
         private const int BIT_NO9 = 512;
 

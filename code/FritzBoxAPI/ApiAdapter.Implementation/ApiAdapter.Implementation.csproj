@@ -111,6 +111,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HttpService.cs" />
     <Compile Include="SwitchFeature.cs" />
+    <Compile Include="TemperatureFeature.cs" />
     <EmbeddedResource Include="Properties\ApiAdapter.Implementation.rd.xml" />
   </ItemGroup>
   <ItemGroup>
