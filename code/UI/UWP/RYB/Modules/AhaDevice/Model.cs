@@ -51,16 +51,12 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
         public bool IsConnected { get { return this._device.IsConnected; } }
 
 
-        public string Manufacturer { get { return this._device.Manufacturer; } }
-
-
         public string Name { get { return this._device.Name; } }
 
 
-        public string ProductName { get { return this._device.ProductName; } }
-
-
         public SwitchWidget.Model SwitchWidgetModel { get; private set; }
+
+
         public TemperatureWidget.Model TemperatureWidgetModel { get; private set; }
 
 
