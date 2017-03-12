@@ -312,6 +312,10 @@
       <Project>{37438cd6-46c6-4495-91f5-0c76fe9c0d1e}</Project>
       <Name>TabHeaderUC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Modules\TemperatureWidgetUC\TemperatureWidgetUC.csproj">
+      <Project>{7ada5bbb-9965-4f27-8be1-534250839cdf}</Project>
+      <Name>TemperatureWidgetUC</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">

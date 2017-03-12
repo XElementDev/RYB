@@ -75,12 +75,21 @@
             />  <!-- alternatives: xE7E8 -->
         </StackPanel>
 
-        <Border 
+        <Border x:Name="_switchWidget" 
                 Visibility="{Binding Path=Model.IsASwitch, 
                                      Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
                 Style="{StaticResource SwitchWidgetStyle}">
             <modules:SwitchWidgetUC 
                                     DataContext="{Binding Path=SwitchWidgetVM}" 
+            />
+        </Border>
+
+        <Border 
+                Visibility="{Binding Path=Model.CanSenseTemperature, 
+                                     Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+                Style="{StaticResource TemperatureWidgetStyle}">
+            <modules:TemperatureWidgetUC 
+                                         DataContext="{Binding Path=TemperatureWidgetVM}" 
             />
         </Border>
 

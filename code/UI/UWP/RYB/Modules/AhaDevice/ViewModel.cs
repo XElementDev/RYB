@@ -10,6 +10,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
             this.Model = model;
             this.InitializeSvgImage( dependencies );
             this.SwitchWidgetVM = new SwitchWidget.ViewModel( this.Model.SwitchWidgetModel );
+            this.TemperatureWidgetVM = new TemperatureWidget.ViewModel( this.Model.TemperatureWidgetModel );
             // TODO: run auto refresh in background
         }
 
@@ -37,6 +38,9 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
 
 
         public SwitchWidget.ViewModel SwitchWidgetVM { get; private set; }
+
+
+        public TemperatureWidget.ViewModel TemperatureWidgetVM { get; private set; }
     }
 #endregion
 }

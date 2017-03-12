@@ -9,7 +9,11 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
         {
             this._device = device;
             this.InitializeSwitchWidgeModel();
+            this.InitializeTemperatureWidgetModel();
         }
+
+
+        public bool CanSenseTemperature { get { return this._device.CanSenseTemperature; } }
 
 
         private void InitializeSwitchWidgeModel()
@@ -21,6 +25,19 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
                     SwitchFeature = this._device.SwitchFeature
                 };
                 this.SwitchWidgetModel = new SwitchWidget.Model( parameters );
+            }
+        }
+
+
+        private void InitializeTemperatureWidgetModel()
+        {
+            if (this.CanSenseTemperature )
+            {
+                var parameters = new TemperatureWidget.ModelParametersDTO
+                {
+                    TemperatureFeature = this._device.TemperatureFeature
+                };
+                this.TemperatureWidgetModel = new TemperatureWidget.Model( parameters );
             }
         }
 
@@ -44,6 +61,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.AhaDevice
 
 
         public SwitchWidget.Model SwitchWidgetModel { get; private set; }
+        public TemperatureWidget.Model TemperatureWidgetModel { get; private set; }
 
 
         private IDevice _device;

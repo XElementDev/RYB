@@ -63,4 +63,9 @@
         <Setter Property="RelativePanel.RightOf" Value="_imageContainer" />
     </Style>
 
+    <Style x:Key="TemperatureWidgetStyle" TargetType="FrameworkElement">
+        <Setter Property="RelativePanel.AlignBottomWithPanel" Value="True" />
+        <Setter Property="RelativePanel.RightOf" Value="_switchWidget" />
+    </Style>
+
 </ResourceDictionary>
