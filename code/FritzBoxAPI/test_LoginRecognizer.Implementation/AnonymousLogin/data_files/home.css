@@ -1,0 +1,474 @@
+h4.net,
+h4.guest{
+background-image: url("/css/rd/images/icon_clients_lan.png");
+background-repeat: no-repeat;
+background-position: 0 0.1rem;
+height: 1.3rem;
+padding-left: 2rem;
+}
+h4.guest {
+background-image: url("/css/rd/images/icon_clients_lan_guest.png");
+}
+.ShowBtnRight {
+position: relative;
+top: -0.25rem;
+float: right;
+}
+main .icon_tam,
+main .icon_person, main .icon_device,
+main .globe_green, main .globe_gray , main .globe_online,
+main .globe_green_guest, main .globe_gray_guest , main .globe_online_guest,
+main .plc_green, main .plc_gray,
+main .connected_via, main .app_cam, main .app_blocked,
+main .downstream, main .upstream,
+main .led_green, main .led_red, main .led_gray , main .led_green_guest ,
+main .dev_blocked , main .no_symbol {
+background-position: 0 0.15rem;
+}
+main a {
+vertical-align: bottom;
+}
+/* -------------------------------------------------*/
+/*
+Ab dem Div content_mobile gibt es
+.explain =>
+- für erklärenden Text
+.row =>
+- für eine Card, die die Seitenbreite voll ausnutzt.
+- Innerhalb der row gibt es weitere Elemente.
+- die row ist der Flexbox container, innerhalb dessen die Elemente floaten
+*/
+/* -------------------------------------------------*/
+.row {
+width: 100%;
+padding: 0;
+margin: 0.5rem 0;
+}
+.row.first {
+border: none;
+padding: 0;
+margin: 0;
+}
+.row .header {
+border-bottom: 2px solid #2b97ec;
+height: 1.65rem;
+overflow: hidden;
+}
+.row .header .title {
+background-color: #2b97ec;
+color: #fff;
+font-weight: bold;
+width: 14rem;
+padding: 0 0.3rem 0 0.5rem;
+line-height: 1.7rem;
+vertical-align: middle;
+}
+.row .header div {
+display: inline-block;
+}
+.row .header .msg {
+font-size: 95%;
+color: #fff;
+margin-left: 0.5rem;
+font-weight: normal;
+vertical-align: baseline;
+}
+.row .header .more {
+font-size: 95%;
+float: right;
+font-weight: normal;
+line-height: 1.7rem;
+padding: 0 0 0 1rem;
+position: relative;
+z-index: 1;
+background-color: #ffffff;
+}
+.row .header .today {
+font-size: 95%;
+color: #fff;
+display: inline-block;
+font-weight: normal;
+}
+.linkheader {
+cursor: pointer;
+vertical-align: baseline;
+}
+/* -------------------------------------------------*/
+/* L I S T */
+/* spezielle Anpassungen der Klassena aus list.css */
+/* -------------------------------------------------*/
+.flexlist .flexitem:nth-child(1),
+.flexlist .flexitem:nth-child(2) {
+margin-right: 2rem;
+overflow:hidden;
+}
+.item.single div{
+display:flex;
+vertical-align: top;
+}
+.item .desc {
+display: inline-block;
+padding-left: 1.2rem;
+vertical-align: top;
+height: auto;
+width: 100%;
+}
+.item.single .title {
+width: 5.5rem;
+min-width: 5.5rem;
+}
+.connection.list .item.single .title {
+min-width: 6.3rem;
+width: 9rem;
+overflow: hidden;
+}
+.item.single .details{
+display: inline-block;
+width: 100%;
+}
+.item .desc p {
+margin: 0;
+padding: 0;
+}
+.item .title {
+padding: 0 0.1rem 0 0.1rem;
+}
+.item .title a {
+font-size: 100%;
+}
+.item .title .os_version {
+margin-left: 2rem;
+}
+.item .title .new_software {
+margin-left: 1.875rem;
+background-image: url("/css/rd/images/icon_warn.png");
+background-repeat: no-repeat;
+background-position: 0.8rem 0.1rem;
+padding: 0.2rem 2.5rem;
+background-color: #efefef;
+}
+.item span,
+.item .label {
+overflow: hidden;
+padding-right: 0.3rem;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+.item span a,
+.item .label a {
+font-size: inherit;
+}
+.item .details {
+padding: 0 0.1rem 0 0.1rem;
+white-space: normal;
+}
+.item .details.nowrap {
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.row .item.fixed {
+margin: 0 0.3rem;
+padding: 0;
+}
+.row.item {
+flex: 1 1 0;
+padding: 0 1rem;
+}
+.item.warn {
+background-image: url("/css/rd/images/icon_warn.png");
+background-repeat: no-repeat;
+background-position: 0.5rem -0.11rem;
+padding-left: 1.7rem;
+}
+.item.warn.no_pwd {
+background-image: url("/css/rd/images/icon_warn.png"),url("/css/rd/images/icon_no_pwd.png");
+background-repeat: no-repeat;
+background-position: 4.0rem 3.5rem, 5.7rem 3.8rem;
+}
+.nobreak {
+display:inline-block;
+}
+/* -------------------------------------------------*/
+/* T A B L E S */
+/* -------------------------------------------------*/
+div.icon_tam,
+div.call_direction_out,
+div.call_direction_in,
+div.call_rejected,
+div.call_current,
+div.call_in,
+div.call_out,
+div.call_in_fail {
+background-repeat: no-repeat;
+background-position: 0.5rem 0.2rem;
+border: 0;
+padding: 0 0 0 1.75rem;
+margin: 0;
+}
+div.icon_tam {
+background-position: 0.5rem 0.35rem;
+background-size: 1.1rem;
+}
+div.call_current {
+/*background-position: 0 0.1rem;*/
+}
+div.call_direction_out,
+div.call_direction_in {
+font-size: 100%;
+padding-right: 0.3125rem;
+}
+div.call_direction_out {
+background-position: left;
+padding-left: 1rem;
+}
+div.call_direction_in {
+background-position: left;
+padding-left: 1rem;
+}
+/* -------------------------------------------------*/
+/* Anpassungen für die Anrufliste und Anrufbeantworter
+/* -------------------------------------------------*/
+div.foncalls.list {
+flex-flow: row nowrap;
+-moz-flex-flow: row nowrap;
+-webkit-flex-flow: row nowrap;
+max-width: 30rem;
+}
+div.foncalls div.row {
+padding: 0 0 0 2rem;
+margin: 0;
+font-size: 95%;
+height: 1.6rem;
+white-space: nowrap;
+width: calc(100% - 1rem);
+}
+div.foncalls div.row div {
+display: inline-block;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+/* Spaltenbreiten festlegen...*/
+div.foncalls div.row div:nth-child(1) {
+/* 3.5+3.5+1=~9.5 */
+width: calc(100% - 9.5rem);
+}
+div.foncalls div.row div:nth-child(2) {
+width: 3.5rem;
+}
+div.foncalls div.row div:nth-child(3) {
+width: 3.5rem;
+}
+div.foncalls div.row div:nth-child(4) {
+width: 2.5rem;
+text-align: right;
+vertical-align: top;
+}
+div.foncalls div.row.call_current div {
+margin-right: 0.5rem;
+width: auto;
+}
+.answer a.play,
+.answer a.add_num,
+.foncalls a.add_num,
+.foncalls a.play {
+display: inline-block;
+background-repeat: no-repeat;
+background-position: 0.3rem 0.1rem;
+border-left: 1px solid #c6c7be;
+width: 1.5rem;
+cursor:pointer;
+}
+.foncalls a.add_num {
+background-image: url("/css/rd/images/icon_fonbook_add_new.svg");
+background-repeat: no-repeat;
+background-position: right;
+text-decoration: none;
+border: none;
+height: 1.25rem;
+width: 2rem;
+padding: 0;
+}
+.answer a.play,
+.foncalls a.play {
+display: inline-block;
+background-image: url("/css/rd/images/ic_play.svg");
+background-position: center;
+text-decoration: none;
+border: none;
+height: 1rem;
+width: 1.25rem;
+}
+/* -------------------------------------------------*/
+/* N E T Z W E R K */
+/* -------------------------------------------------*/
+div.net.list {
+flex-flow: row nowrap;
+-moz-flex-flow: row nowrap;
+-webkit-flex-flow: row nowrap;
+max-width:30rem;
+}
+.row div.net div.row {
+font-size: 95%;
+border: none;
+margin: 0;
+padding: 0.2rem 0.1rem 0 2rem;
+}
+.row div.net div.row.led_green_guest,
+.row div.net div.row.globe_online_guest {
+background-position: 0.65rem 0.35rem;
+}
+.row div.net div.row.globe_online,
+.row div.net div.row.led_green {
+background-position: 0.5rem 0.35rem;
+}
+div .net .row div {
+display: inline-block;
+height: 100%;
+vertical-align: top;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+div.net div.row div:nth-child(1) {
+width: calc(100% - 10.5rem);
+min-width:11rem;
+}
+div.net div.row div:nth-child(2) {
+width: 8rem;
+text-align: left;
+}
+div.net .details {
+font-size: 70%;
+background-image: url("/css/rd/images/icon_guest_big.png");
+background-repeat: no-repeat;
+background-position: 0 0.1rem;
+height: 1.3rem;
+padding-left: 2rem;
+}
+/* -------------------------------------------------*/
+/* K O M F O R T */
+/* -------------------------------------------------*/
+.row div.comfort div.row {
+font-size: 95%;
+width: auto;
+border: none;
+margin: 0;
+padding: 0.2rem 0.1rem 0 0.5rem;
+}
+div .comfort .row div {
+display: inline-block;
+height: 100%;
+vertical-align: top;
+}
+div.comfort div.row div:nth-child(1) {
+width: 10rem;
+}
+div.comfort div.row div:nth-child(2) {
+width: calc(100% - 10rem);
+white-space: normal;
+}
+main div.comfort div.row div a {
+white-space: normal;
+}
+/* -------------------------------------------------*/
+/* N O T I F Y */
+/* -------------------------------------------------*/
+.notify.list {
+columns:1 auto;
+-moz-columns:1 auto;
+flex-wrap: nowarp;
+}
+.notify .item {
+cursor: pointer;
+}
+.notify .item .desc {
+padding-left: 1.8rem;
+background-position: 0.25rem 0.1rem;
+}
+.notify .item span {
+color: red;
+}
+.notify .item span a {
+margin-left: 0;
+display: block;
+}
+.textarea input + label {
+margin-left: 0.25rem;
+}
+div.notify div div{
+-webkit-flex: 1 1 auto;
+-ms-flex: 1 1 auto;
+flex: 1 1 auto;
+}
+div.notify div div div {
+width: 100%;
+padding-right: 2rem;
+}
+div.notify div div div.item div {
+border-bottom: 2px solid #2b97ec;
+padding-bottom: 1.25rem;
+margin-bottom: 0.5rem;
+}
+div.notify div div div.item div span {
+white-space: normal;
+word-break: normal;
+cursor: pointer;
+}
+/* -------------------------------------------------*/
+/* I C O N S */
+/* -------------------------------------------------*/
+.item .globe_online {
+background-position: 0.5rem 0.4rem;
+}
+.no_column .item .globe_online {
+background-position: 0 0.15rem;
+}
+main .connected_via, main .app_cam, main .dev_blocked {
+padding-left: 1.8rem;
+background-position: 0.5rem 0.4rem;
+}
+.item.single .speed {
+display: inline-block;
+/*margin-left: 0.25rem;*/
+}
+.item .downstream, .item .upstream {
+padding-left: 1.0rem;
+background-position: 0 -0.25rem;
+width: auto;
+}
+/* -------------------------------------------------*/
+/* Nachkorrektur für Einspaltigkeit
+/* -------------------------------------------------*/
+@media (max-width: 450px) {
+.flexlist .flexitem:nth-child(1),
+.flexlist .flexitem:nth-child(2) {
+margin-right: 0.3rem;
+}
+.item.single div{
+display: block;
+}
+div.net div.row div:nth-child(1) {
+width: calc(100% - 5.8rem);
+}
+div.comfort div.row div:nth-child(2) {
+display: block;
+padding-left:0.5rem;
+width:auto;
+}
+div.notify div div div.item {
+padding-right: 0.5rem;
+}
+.notify .item span a {
+margin-left: 0;
+display: block;
+}
+.notify .item .desc {
+background-position: 0.25rem 0.1rem;
+}
+}
+.item span.WarnMsg {
+padding-right: 0.1rem;
+}
+#dlg_main.cur_state {
+display:block;
+}

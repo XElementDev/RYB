@@ -1,0 +1,757 @@
+var jsl, main, help, html2;
+main.registerPageJs(function () {
+"use strict";
+var lib = {};
+function redirect(obj_link, params) {
+//jsl.log("redirect", obj_link);
+if (typeof obj_link === "function") {
+return obj_link;
+}
+return function (evt) {
+var link = obj_link || "";
+main.changePage(null, link, null, params);
+return jsl.cancelEvent(evt);
+};
+}
+function add_more_link(obj) {
+var item, classes;
+classes = "more";
+if (obj.classes && obj.classes !== "") {
+classes = classes + " " + obj.classes;
+}
+obj.linktxt = obj.linktxt || "mehr...";
+item = html2.elem("a", {class : classes, href : ""}, obj.linktxt);
+item.onclick = redirect(obj.link);
+return item;
+}
+function onUpdate(evt) {
+main.changePage(null, "update", false, {"check" : "2", "start" : "1"});
+return jsl.cancelEvent(evt);
+}
+function onManu(evt) {
+help.popup('/help/help.lua?helppage=hilfe_nichtsigniert.html&sid=' + main.sid);
+return jsl.cancelEvent(evt);
+}
+function onDefaults(evt) {
+help.popup('/help/help.lua?helppage=hilfe_ProviderDefaults.html&sid=' + main.sid);
+return jsl.cancelEvent(evt);
+}
+function onFboxPopup(evt) {
+var url, opts, ppWindow;
+url = encodeURI(evt.target);
+opts = "width=600,height=600,resizable=yes,scrollbars=yes,location=no";
+ppWindow = window.open(url, "Zweitfenster", opts);
+if (ppWindow) {
+ppWindow.focus();
+}
+return jsl.cancelEvent(evt);
+}
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+function create_MultilineItem(obj) {
+var item, subitem, obj_title, obj_link, obj_link2, obj_details, tmp; /*, idx;*/
+item = html2.elem("div", {class : "item single"});
+subitem = html2.elem("div", {class : "desc " + obj.led || ""});
+html2.add(item, subitem);
+obj_title = html2.elem("div", {class : "title"});
+html2.add(subitem, obj_title);
+if (obj.link && obj.link!="") {
+obj_link = html2.elem("a", {href : ""}, obj.title || "");
+obj_link.onclick = redirect(obj.link);
+} else {
+obj_link = html2.elem("span", {}, obj.title || "");
+}
+html2.add(obj_title, obj_link);
+obj_details = html2.elem("div", {class : "details info"});
+html2.add(subitem, obj_details);
+if (typeof obj.txt === "array") {
+jsl.setText(obj_details, obj.txt.join("<br>"));
+} else {
+if (typeof obj.txt === "object") {
+jsl.log("Hier geht die Post ab...");
+Object.keys(obj.txt).forEach(function (idx) {
+html2.add(obj_details, html2.elem("p", {}, obj.txt[idx]));
+});
+if (obj.up && obj.down) {
+subitem=html2.elem("p", {});
+html2.add(subitem,html2.elem("span",{},"reale Bandbreite"));
+/*
+*/
+html2.add(subitem, html2.elem("span", {}, obj.down + " " + obj.up));
+html2.add(obj_details, subitem);
+}
+if (obj.link2) {
+obj_link2 = html2.elem("a", {href : ""}, obj.link2txt || "");
+obj_link2.onclick = redirect(obj.link2);
+html2.add(obj_details,obj_link2);
+}
+} else {
+jsl.setText(obj_details, obj.txt || "");
+}
+}
+return item;
+}
+/*
+obj.led => Klasse für die LED
+obj.link => Link Destination
+obj.title => Link Sichtbarer text
+obj.txt => Text rechts daneben
+*/
+function create_SinglelineItem(obj) {
+var item, subitem, obj_title, obj_link;
+item = html2.elem("div", {class : "item single"});
+subitem = html2.elem("div", {class : "desc " + obj.led || ""});
+html2.add(item, subitem);
+obj_title = html2.elem("div", {class : "desc title"});
+html2.add(subitem, obj_title);
+if (obj.link && obj.link!="") {
+obj_link = html2.elem("a", {href : ""}, obj.title || "");
+obj_link.onclick = redirect(obj.link);
+} else {
+obj_link = html2.elem("span", {}, obj.title || "");
+}
+html2.add(obj_title, obj_link);
+html2.add(subitem, html2.elem("div", {class : "details info"}, obj.txt || ""));
+return item;
+}
+function create_DslItem(obj) {
+var item, subitem, obj_title, obj_link, obj_details, tmptxt, speed, obj_txt;
+item = html2.elem("div", {class : "item single"});
+subitem = html2.elem("div", {class : "desc " + obj.led || ""});
+html2.add(item, subitem);
+obj_title = html2.elem("div", {class : "desc title"});
+html2.add(subitem, obj_title);
+obj_link = html2.elem("a", {href : ""}, obj.title || "");
+html2.add(obj_title, obj_link);
+obj_link.onclick = redirect(obj.link);
+obj_details = html2.elem("div", {class : "details info"});
+obj_txt=obj_details;
+if (obj.bwarn) {
+/* Der obj.txt soll ebenfalls verlinkt werden */
+obj_link = html2.elem("a", {href : ""}, obj.title || "");
+html2.add(obj_details, obj_link);
+obj_link.onclick = redirect(obj.link);
+obj_txt=obj_link;
+} else if (obj.addDiag && obj.addDiag !=="") {
+obj_txt=html2.elem("span", {class:"WarnMsg"});
+html2.add(obj_details, obj_txt);
+}
+html2.add(subitem, obj_details);
+tmptxt = "";
+if (obj.dsl_diag_active === "1") {
+html2.add(obj_details,
+html2.span({}, obj.txt, ","),
+html2.link({pid: "dsldiagstop", content: " beenden"})
+);
+} else {
+if ((obj.txt && obj.down && obj.up)) {
+//--tmptxt = obj.txt + ", " + obj.down + " " + obj.up;
+tmptxt = obj.txt;
+} else {
+if (obj.txt) {
+tmptxt = obj.txt;
+}
+}
+}
+if (obj.addDiag && obj.addDiag !=="") {
+jsl.setText(obj_txt, tmptxt);
+//jsl.log("obj.addDiag",obj.addDiag);
+html2.add(obj_details,html2.elem("span",{},", "));
+obj_link = html2.elem("a", {href : ""}, "Diagnose aufrufen");
+html2.add(obj_details, obj_link);
+obj_link.onclick = redirect(obj.addDiag);
+} else {
+speed = html2.elem("div", {class : "speed"});
+html2.add(obj_details, speed);
+if (tmptxt) {
+html2.add(speed, html2.elem("span", {class : ""}, tmptxt));
+}
+html2.add(speed, html2.elem("span", {class : "down"}, obj.down));
+html2.add(speed, html2.elem("span", {class : "up"}, obj.up));
+}
+return item;
+}
+function createOsItem(myclass, labeltxt, spantxt) {
+return html2.div({class : myclass}, labeltxt + spantxt);
+}
+function createOsItemLnk(myclass, txtbefore, link, linktxt, txtafter, linkParam) {
+var item, obj_link;
+item = html2.div({class : myclass});
+if (linktxt) {
+if ("string" === typeof link && 0 === link.search("http://www.")) {
+obj_link = html2.a({href: link, target: "_blank"});
+} else {
+obj_link = html2.a({
+href: (linkParam) ? linkParam : "",
+onclick: redirect(link)
+});
+}
+}
+html2.add(
+item,
+html2.div(
+{class : "nobreak"},
+html2.printf(
+"%1%txtBefore%%2%linkStart%%3%linkTxt%%/2%LinkEnde%%4%txtAfter%",
+txtbefore || "",
+obj_link || "",
+linktxt || "",
+txtafter || ""
+)
+)
+);
+return item;
+}
+function showNotifyPopup(headline, popupHtml, category, event_id) {
+var html;
+html = "<div class='textarea'><h4>" + headline + "</h4><br>";
+if (popupHtml) {
+html = html + popupHtml;
+}
+html = html + "<br><div class='formular'><input id = 'uiDelete' type='checkbox' name='delete'></input><label for = 'uiDelete'>Meldung löschen</label></div>";
+html = html + "</div>";
+dialog.messagebox(true, {
+Html: html,
+Buttons: [
+{
+txt: "OK",
+cb: function () {
+if (jsl.getChecked("uiDelete")) {
+newval.submit("deletenotify", {event_id: event_id, category: category});
+}
+}
+}
+]
+});
+}
+function createNotifyLink(link, onclick){
+var obj_link, linktxt;
+if (link || true) {
+linktxt = "Details anzeigen";
+obj_link = html2.elem("a", {href : ""}, linktxt);
+obj_link.onclick = redirect(onclick);
+}
+return obj_link;
+}
+function createNotifyItem(myclass, headline, link, onclick) {
+var item, row, obj_title;
+item = html2.div({class : myclass});
+row = html2.div({class : "desc led_red"});
+html2.add(item, row);
+if (headline) {
+obj_title = html2.elem("span", {}, headline);
+item.onclick = onclick;
+html2.add(row, obj_title);
+html2.add(obj_title, " ", createNotifyLink(link, onclick));
+}
+else
+{
+html2.add(row, createNotifyLink(link, onclick));
+}
+return item;
+}
+function linkInHeader(evt, link){
+main.changePage(null, link);
+return jsl.cancelEvent(evt);
+}
+/*###############################################################*/
+/*------------------------ USB ----------------------------------*/
+/*###############################################################*/
+function uiDoEjectUsb(evt, webdav) {
+var txt;
+txt = "Alle USB-Speicher an der FRITZ!Box werden nach dem Bestätigen mit \"OK\" entfernt.\nHinweis: ziehen und stecken Sie die USB-Speicher, um diese wieder an der FRITZ!Box nutzen zu können.\n\nMöchten Sie fortfahren?";
+if (webdav === "1") {
+txt = "Alle USB-Speicher an der FRITZ!Box werden nach dem Bestätigen mit \"OK\" entfernt. Zusätzlich wird die Funktion Online-Speicher deaktiviert.\nHinweis: ziehen und stecken Sie die USB-Speicher, um diese bzw. um den Online-Speicher wieder an der FRITZ!Box nutzen zu können.\n\nMöchten Sie fortfahren?";
+}
+if (window.confirm(txt)) {
+main.changePage(null, "usb_diskcut", true, {"usbdev": "all", "back_to_page": "home/home.lua"});
+}
+return jsl.cancelEvent(evt);
+}
+function add_UsbItem(obj, usbconnect, webdav, naslink) {
+var infoitem, txt, text_array, item, subitem, obj_title, obj_link, other_dev;
+if (usbconnect === "nousbstore") {
+return create_SinglelineItem(obj);
+}
+item = html2.elem("div", {class : "item single"});
+subitem = html2.elem("div", {class : "desc " + obj.led || ""});
+html2.add(item, subitem);
+obj_title = html2.elem("div", {class : "desc title"});
+html2.add(subitem, obj_title);
+obj_link = html2.elem("a", {href : ""}, obj.title || "");
+html2.add(obj_title, obj_link);
+obj_link.onclick = redirect(obj.link);
+txt = obj.txt;
+text_array = txt.split(",");
+if (usbconnect === "connect") {
+other_dev = "";
+if (text_array[2] && text_array[2] !=="") {
+other_dev = ", " + text_array[2];
+}
+obj_link = html2.elem("a", {href : ""}, text_array[1]);
+obj_link.onclick = redirect(naslink);
+infoitem = html2.elem("div", {class : "details info"},
+text_array[0],
+", ",
+obj_link,
+" ",
+html2.a({href: "", onclick: function (evt) {uiDoEjectUsb(evt, webdav); }}, "(entfernen)"),other_dev);
+} else if (usbconnect === "disconnect") {
+infoitem = html2.elem("div", {class : "details info"},
+txt);
+}
+html2.add(subitem, infoitem);
+return item;
+}
+/*###############################################################*/
+/*------------------------ Onlinespiecher -----------------------*/
+/*###############################################################*/
+function add_webStorage(obj) {
+var item, subitem, obj_title, obj_link, state_link;
+item = html2.elem("div", {class : "item single"});
+subitem = html2.elem("div", {class : "desc " + obj.led || ""});
+html2.add(item, subitem);
+obj_title = html2.elem("div", {class : "desc title"});
+html2.add(subitem, obj_title);
+obj_link = html2.elem("a", {href : ""}, obj.title || "");
+html2.add(obj_title, obj_link);
+obj_link.onclick = redirect(obj.link);
+state_link = html2.elem("a", {href : ""}, obj.txt || "");
+state_link.onclick = redirect(obj.stateLink);
+html2.add(subitem, html2.elem("div", {class : "details info"}, state_link));
+return item;
+}
+/*###############################################################*/
+/*------------------------ F R I T Z ! O S ----------------------*/
+/*###############################################################*/
+function create_FritzOs(data) {
+var first_row, list;
+if (!data.fritzos) {
+return null;
+}
+first_row = html2.elem("div", {class : "row first"});
+list = html2.elem("div", {class : "list item fixed"});
+html2.add(first_row, list);
+if (data.fritzos.fb_name && "" !== data.fritzos.fb_name) {
+html2.add(list, createOsItem("item", "Ihr FRITZ!Box-Name: ", data.fritzos.fb_name));
+} else {
+html2.add(list, createOsItem("item", "Modell: ", data.fritzos.Productname));
+}
+html2.add(list, createOsItemLnk("item", null, "energy", "Aktueller Energieverbrauch:", " " + data.fritzos.energy + "%"));
+html2.add(list, createOsItemLnk("item", "FRITZ!OS: ", onFboxPopup, data.fritzos.nspver, null, data.fritzos.nspver_lnk));
+if (data.fritzos.isUpdateAvail) {
+html2.add(list, createOsItemLnk("item info", null, onUpdate, "Update verfügbar"));
+}
+if (!data.fritzos.FirmwareSigned) {
+html2.add(list, createOsItemLnk("item warn", "Vom Hersteller nicht unterstützte Änderungen ", onManu, "Weitere Informationen"));
+}
+if (data.fritzos.ShowDefaults) {
+html2.add(list, createOsItemLnk("item", "Ihre FRITZ!Box enthält angepasste Grundeinstellungen für Ihren Internet-Anbieter ", onDefaults, "Weitere Informationen"));
+}
+if (data.fritzos.isLabor) {
+html2.add(list, createOsItemLnk("item", "Labor-Version, ", "http://www.avm.de/labor", "Information und Feedback"));
+}
+if (data.fritzos.NoPwd) {
+html2.add(list, createOsItemLnk("item warn", "Kennwortschutz nicht aktiv, ", "userSet", "Kennwort setzen"));
+}
+return first_row;
+}
+function create_inet_Connections(data) {
+var item, header, list, anyEntry;;
+item = html2.elem("div", {class : "flexitem"});
+header = html2.elem("div", {class : "header"});
+html2.add(item, header);
+html2.add(header, html2.elem("div", {class : "title"}, "Verbindungen"));
+list = html2.elem("div", {class : "connection list no_column"});
+html2.add(item, list);
+anyEntry = false;
+if (data.ipv4) {
+/*Internet Ipv4*/
+html2.add(list, create_MultilineItem(data.ipv4));
+anyEntry=true;
+}
+if (data.ipv6) {
+/*Internet Ipv6*/
+html2.add(list, create_MultilineItem(data.ipv6));
+anyEntry=true;
+}
+if (data.fonnum) {
+/*Internet Telefonie*/
+html2.add(list, create_MultilineItem(data.fonnum));
+anyEntry=true;
+}
+if (data.webstorage) {
+/*Onlinespeicher*/
+html2.add(list, add_webStorage(data.webstorage));
+anyEntry=true;
+}
+if (anyEntry) {
+return item;
+}
+return null;
+}
+function create_hw_Connections(data) {
+var item, header, list;
+item = html2.elem("div", {class : "flexitem"});
+header = html2.elem("div", {class : "header"});
+html2.add(item, header);
+html2.add(header, html2.elem("div", {class : "title"}, "Anschlüsse"));
+list = html2.elem("div", {class : "list no_column"});
+html2.add(item, list);
+if (data.dsl) {
+html2.add(list, create_DslItem(data.dsl));
+}
+if (data.fiber) {
+html2.add(list, create_DslItem(data.fiber));
+}
+if (data.docsis) {
+html2.add(list, create_DslItem(data.docsis));
+}
+if (data.lte) {
+html2.add(list, create_DslItem(data.lte));
+}
+if (data.wan) {
+html2.add(list, create_SinglelineItem(data.wan));
+}
+if (data.lan) {
+html2.add(list, create_SinglelineItem(data.lan));
+}
+if (data.wlan24) {
+html2.add(list, create_SinglelineItem(data.wlan24));
+}
+if (data.wlan5) {
+html2.add(list, create_SinglelineItem(data.wlan5));
+}
+if (data.plc) {
+html2.add(list, create_SinglelineItem(data.plc));
+}
+if (data.smarthome) {
+html2.add(list, create_SinglelineItem(data.smarthome));
+}
+if (data.dect) {
+html2.add(list, create_SinglelineItem(data.dect));
+}
+if (data.usb) {
+html2.add(list, add_UsbItem(data.usb, data.usbconnect, data.webdav, data.naslink));
+}
+return item;
+}
+function create_Connections(data) {
+var flexlist, row;
+row = html2.elem("div", {class : "row"});
+flexlist = html2.elem("div", {class : "flexlist block"});
+html2.add(row, flexlist);
+if (data.rep_data) {
+html2.add(flexlist, create_hw_Connections(data));
+if (data.net) {
+html2.add(flexlist, create_Network(data));
+}
+} else {
+html2.add(flexlist, create_inet_Connections(data));
+html2.add(flexlist, create_hw_Connections(data));
+}
+return row;
+}
+/*###############################################################*/
+/*------------------------ FON ----------------------------------*/
+/*###############################################################*/
+function create_Foncall_currentcall(obj) {
+var item;
+item = html2.elem("div", {class : "row " + obj.classes});
+html2.add(item, html2.elem("div", {}, obj.display));
+if (obj.fonname && !obj.duration) {
+html2.add(item, html2.elem("div", {}, obj.fonname));
+} else if (obj.duration && !obj.fonname) {
+html2.add(item, html2.elem("div", {}, obj.duration));
+} else if (obj.duration && obj.fonname) {
+html2.add(item, html2.elem("div", {}, obj.fonname + " " + obj.duration));
+}
+return item;
+}
+function create_Foncall(obj) {
+var item, obj_fonbook, obj_add;
+item = html2.elem("div", {class : "row " + obj.classes});
+html2.add(item, html2.elem("div", {}, obj.display));
+html2.add(item, html2.elem("div", {}, obj.date));
+html2.add(item, html2.elem("div", {}, obj.time));
+obj_fonbook = html2.elem("div", {});
+html2.add(item, obj_fonbook);
+if (obj.addible) {
+obj_add = html2.elem("a", {class : "add_num"});
+obj_add.onclick = redirect(obj.link, {"uid" : "new", "back_to_pid" : "overview", "number" : obj.number, "numbername" : obj.name || ""});
+html2.add(obj_fonbook, obj_add);
+}
+return item;
+}
+function create_Tamcall(obj) {
+var item, obj_fonbook, obj_add;
+item = html2.elem("div", {class : "row " + obj.classes});
+html2.add(item, html2.elem("div", {}, obj.display));
+html2.add(item, html2.elem("div", {}, obj.date));
+html2.add(item, html2.elem("div", {}, obj.time));
+obj_fonbook = html2.elem("div", {});
+html2.add(item, obj_fonbook);
+if (obj.link) {
+obj_add = html2.elem("a", {class : "play"});
+obj_add.setAttribute("href","/cgi-bin/luacgi_notimeout?script=/lua/photo.lua&myabfile=" + obj.link + "&sid=" + main.sid);
+html2.add(obj_fonbook, obj_add);
+}
+return item;
+}
+function create_Foncalls(data) {
+var item, header, list, i, subitem;
+item = html2.elem("div", {class : "flexitem"});
+header = html2.elem("div", {class : "header"});
+html2.add(item, header);
+html2.add(header, add_more_link({link : "calls"}));
+subitem = html2.elem("div", {class : "title"},
+html2.span({class : "linkheader", onclick: function (evt) {linkInHeader(evt, "calls"); }},"Anrufe"),
+html2.elem("div", {class : "msg"}, "heute: " + data.foncalls.callsToday)
+);
+html2.add(header, subitem);
+list = html2.elem("div", {class : "foncalls list no_column"});
+html2.add(item, list);
+if (data.foncalls.activecalls.length + data.foncalls.calls.length === 0) {
+html2.add(list, html2.elem("div", {class : "item single"}, "Keine Anrufe vorhanden"));
+} else {
+for (i = 0; i < data.foncalls.activecalls.length; i += 1) {
+html2.add(list, create_Foncall_currentcall(data.foncalls.activecalls[i]));
+}
+for (i = 0; i < data.foncalls.calls.length; i += 1) {
+html2.add(list, create_Foncall(data.foncalls.calls[i]));
+}
+}
+return item;
+}
+function create_Tam(data) {
+var item, header, list, obj_link, subitem, i, callsLength;
+item = html2.elem("div", {class : "flexitem"});
+header = html2.elem("div", {class : "header"});
+html2.add(item, header);
+html2.add(header, add_more_link({link : "tam"}));
+subitem = html2.elem("div", {class : "title"},
+html2.span({class : "linkheader", onclick: function (evt) {linkInHeader(evt, "tam"); }},"Anrufbeantworter"),
+html2.elem("div", {class : "msg"}, "heute: " + data.tamcalls.callsToday)
+);
+html2.add(header, subitem);
+list = html2.elem(("div"), {class : "foncalls list no_column"});
+html2.add(item, list);
+if (!data.tamcalls.tam_configured) {
+obj_link = html2.elem("a", {href : ""}, "Anrufbeantworter einrichten");
+html2.add(list, obj_link);
+obj_link.onclick = redirect("assi_tam_intern",{"HTMLConfigAssiTyp" : "FonOnly", "FonAssiFromPage":"home"});
+}
+if (!data.tamcalls.any_tam_active) {
+html2.add(list, html2.elem("div", {class : "item single"}, "Anrufbeantworter deaktiviert"));
+} else {
+if (data.tamcalls.count === 0) {
+html2.add(list, html2.elem("div", {class : "item single"}, "Keine Nachrichten vorhanden"));
+} else {
+for (i = 0, callsLength = data.tamcalls.calls.length; i < callsLength; i += 1) {
+html2.add(list, create_Tamcall(data.tamcalls.calls[i]));
+}
+}
+}
+return item;
+}
+function create_FoncallsAndTam(data) {
+var flexlist, row;
+row = html2.elem("div", {class : "row"});
+flexlist = html2.elem("div", {class : "flexlist block"});
+html2.add(row, flexlist);
+html2.add(flexlist, create_Foncalls(data));
+html2.add(flexlist, create_Tam(data));
+return row;
+}
+/*###############################################################*/
+/*------------------------ NET ----------------------------------*/
+/*###############################################################*/
+function create_NetItem(obj) {
+var item;
+item = html2.elem("div", {class : "row state " + obj.classes});
+if (obj.url && obj.url !== "") {
+html2.add(item, html2.elem("div", {}, html2.elem("a", {href: obj.url, target: "_blank"}, obj.name)));
+} else {
+html2.add(item, html2.elem("div", {}, obj.name));
+}
+html2.add(item, html2.elem("div", {}, obj.type));
+return item;
+}
+function create_NetList(data) {
+var item, header, list, subitem, i, active_count, more_dest;
+active_count = data.net.active_count;
+item = html2.elem("div", {class : "flexitem"});
+header = html2.elem("div", {class : "header"});
+if (data.rep_data) {
+more_dest = "netDev";
+} else {
+more_dest = "homeNet";
+}
+html2.add(header, add_more_link({link : more_dest}));
+subitem = html2.elem("div", {class : "title"},
+html2.span({class : "linkheader", onclick: function (evt) {linkInHeader(evt, more_dest); }},"Heimnetz"),
+html2.elem("div", {class : "msg"}, "aktiv: " + active_count)
+);
+list = html2.elem("div", {class : "net list no_column"});
+html2.add(item, list);
+if (data.net.count === 0) {
+html2.add(list, html2.elem("div", {}, "Keine Netzwerkgeräte vorhanden"));
+} else {
+for (i = 0; i < data.net.devices.length; i += 1) {
+/*
+*/
+if ("" !== data.net.devices[i].type || (data.net.devices[i].url.length - 2) !== data.net.devices[i].url.lastIndexOf(".1")) {
+html2.add(list, create_NetItem(data.net.devices[i]));
+}
+}
+}
+html2.add(item, header);
+//html2.add(header, add_more_link({link: "net"}));
+html2.add(header, subitem);
+html2.add(item, list);
+return item;
+}
+function create_Network(data) {
+return create_NetList(data);
+}
+/*###############################################################*/
+/*-------------------- C O M F O R T ----------------------------*/
+/*###############################################################*/
+function add_ComfortItem(obj) {
+var item, obj_link, obj_func;
+item = html2.elem("div", {class : "row"});
+if (obj.link && obj.link !== "") {
+obj_func = html2.elem("div", {});
+obj_link = html2.elem("a", {href : ""}, obj.linktxt);
+html2.add(obj_func, obj_link);
+obj_link.onclick = redirect(obj.link);
+} else {
+obj_func = html2.elem("div", {}, obj.linktxt);
+}
+html2.add(item, obj_func);
+html2.add(item, html2.elem("div", {}, obj.details));
+return item;
+}
+function create_ComfortList(data) {
+var item, header, list, subitem, i;
+item = html2.elem("div", {class : "flexitem"});
+header = html2.elem("div", {class : "header"});
+html2.add(item, header);
+subitem = html2.elem("div", {class : "title"}, "Komfortfunktionen");
+html2.add(header, subitem);
+list = html2.elem("div", {class : "comfort list no_column"});
+html2.add(item, list);
+if (!data.comfort.anyComfort) {
+html2.add(list, html2.elem("div", {}, "Keine Komfortfunktionen aktiviert"));
+} else {
+for (i = 0; i < data.comfort.func.length; i += 1) {
+html2.add(list, add_ComfortItem(data.comfort.func[i]));
+}
+}
+return item;
+}
+function create_Comfort(data) {
+//var row;
+//row = document.createElement("div");
+//row.setAttribute("class", "row");
+//row.appendChild(create_ComfortList(data));
+//return row;
+return create_ComfortList(data);
+}
+/*###############################################################*/
+function create_NetworkAndComfort(data) {
+var flexlist, row;
+if (data.rep_data) {
+return null;
+}
+row = html2.elem("div", {class : "row"});
+flexlist = html2.elem("div", {class : "flexlist block"});
+html2.add(row, flexlist);
+if (data.net) {
+html2.add(flexlist, create_Network(data));
+}
+if (data.comfort) {
+html2.add(flexlist, create_Comfort(data));
+}
+return row;
+}
+/*###############################################################*/
+/* N O T I F Y */
+/*###############################################################*/
+function create_BoxNotify(data) {
+var row, flexlist, list;
+row = html2.elem("div", {class : "row first notify"});
+flexlist = html2.div({class : "flexlist block"});
+html2.add(row, flexlist);
+list = html2.div({class : "list no_column"});
+html2.add(flexlist, list);
+Object.keys(data.notify).forEach(function (idx) {
+var ntfy = data.notify[idx];
+html2.add(list, createNotifyItem("item", ntfy.msg, ntfy.url,
+function (evt) {
+if (evt.target.tagName === "SPAN" || evt.target.tagName === "A") {
+showNotifyPopup(ntfy.msg, ntfy.popupHtml, ntfy.category, ntfy.event_id);
+return false;
+}
+}
+));
+});
+return row;
+}
+/*###############################################################*/
+/*------------------------ G E N E R A L ------------------------*/
+/*###############################################################*/
+lib.init = function (pid) {
+/*
+*/
+jsl.loadCss("home/home.css", pid);
+main.setRefreshTimers({
+first: {
+refTime: 0,
+initTime: 0,
+pid: pid,
+paintFunc: lib.paint,
+params: {noMenuRef: "1"}
+},
+all: {
+refTime: 20000,
+initTime: 10000,
+pid: pid,
+paintFunc: lib.paint
+}});
+newval.init({pid: pid, updatePage: lib.paint});
+};
+lib.paint = function (data) {
+var basediv = main.contentBox;
+if (!basediv) {
+return;
+}
+/* Lösche den aktuellen Inhalt*/
+basediv.innerHTML = "";
+if (data.notify) {
+basediv.appendChild(create_BoxNotify(data));
+}
+basediv.appendChild(create_FritzOs(data));
+//basediv.appendChild(create_plc_bridge_view(data.rep_data));
+//basediv.appendChild(create_lan_bridge_view(data.rep_data));
+//basediv.appendChild(create_wlan_bridge_view(data.rep_data));
+if (data.rep_data && data.rep_data.rep_mode) {
+switch (data.rep_data.rep_mode) {
+case "plc_bridge" : basediv.appendChild(create_plc_bridge_view_home(data.rep_data)); break;
+case "lan_bridge" : basediv.appendChild(create_lan_bridge_view_home(data.rep_data)); break;
+case "wlan_bridge": basediv.appendChild(create_wlan_bridge_view_home(data.rep_data)); break;
+}
+}
+html2.add(basediv,create_Connections(data));
+if (data.foncalls) {
+html2.add(basediv,create_FoncallsAndTam(data));
+}
+html2.add(basediv,create_NetworkAndComfort(data));
+//basediv.appendChild(create_Network(data));
+//basediv.appendChild(create_Comfort(data));
+};
+lib.deinit = function () {
+newval.deinit();
+};
+return lib;
+});

@@ -3,6 +3,28 @@ using System.Runtime.CompilerServices;
 using Etg.SimpleStubs;
 using System.ComponentModel;
 
+namespace XElement.RedYellowBlue.TestUtils
+{
+    [CompilerGenerated]
+    public class StubIWebRequestCreate : IWebRequestCreate
+    {
+        private readonly StubContainer<StubIWebRequestCreate> _stubs = new StubContainer<StubIWebRequestCreate>();
+
+        global::System.Net.WebRequest global::System.Net.IWebRequestCreate.Create(global::System.Uri uri)
+        {
+            return _stubs.GetMethodStub<Create_Uri_Delegate>("Create").Invoke(uri);
+        }
+
+        public delegate global::System.Net.WebRequest Create_Uri_Delegate(global::System.Uri uri);
+
+        public StubIWebRequestCreate Create(Create_Uri_Delegate del, int count = Times.Forever, bool overwrite = false)
+        {
+            _stubs.SetMethodStub(del, count, overwrite);
+            return this;
+        }
+    }
+}
+
 namespace XElement.RedYellowBlue.UI.UWP.Model
 {
     [CompilerGenerated]
