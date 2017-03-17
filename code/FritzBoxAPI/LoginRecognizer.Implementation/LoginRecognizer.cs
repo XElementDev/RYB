@@ -4,16 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
-using XElement.RedYellowBlue.FritzBoxAPI.HttpApi.SessionId.v20121217;
 
 namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
 {
 #region not unit-tested
     public class LoginRecognizer
     {
-        public async Task<LoginBase> GetLoginInstanceAsync( Uri fritzBoxUrl )
+        public async Task<LoginType> GetLoginTypeAsync( Uri fritzBoxUrl )
         {
-            LoginBase instance = new AnonymousLogin( fritzBoxUrl );
+            LoginType loginType = LoginType.ANONYMOUS;
 
             var request = this._webRequestFactory.Create( fritzBoxUrl );
             var response = await request.GetResponseAsync();
@@ -25,15 +24,15 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
                 var userFieldNode = doc.DocumentNode.SelectSingleNode( this.XPathQueryForUsernameField );
                 if ( userFieldNode != null && passwordFieldNode != null )
                 {
-                    instance = new UserBasedLogin( fritzBoxUrl, "TODO", "TODO" );
+                    loginType = LoginType.USER_BASED;
                 }
                 else if ( userFieldNode == null && passwordFieldNode != null )
                 {
-                    instance = new PasswordBasedLogin( fritzBoxUrl, "TODO" );
+                    loginType = LoginType.PASSWORD_BASED;
                 }
             }
 
-            return instance;
+            return loginType;
         }
 
 
@@ -56,15 +55,15 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         }
 
 
-        public LoginBase GetLoginInstance( Uri fritzBoxUrl )
+        public LoginType GetLoginType( Uri fritzBoxUrl )
         {
             //  --> https://stackoverflow.com/questions/13211334/how-do-i-wait-until-task-is-finished-in-c
             //  --> TODO: Is this overkill here still needed, now that the tests are fixed?
-            var getInstanceTask = this.GetLoginInstanceAsync( fritzBoxUrl );
-            LoginBase loginInstance = null;
-            var continuation = getInstanceTask.ContinueWith( t => loginInstance = t.Result );
+            var getInstanceTask = this.GetLoginTypeAsync( fritzBoxUrl );
+            LoginType loginType = LoginType.UNKNOWN;
+            var continuation = getInstanceTask.ContinueWith( t => loginType = t.Result );
             continuation.Wait();
-            return loginInstance;
+            return loginType;
         }
 
 

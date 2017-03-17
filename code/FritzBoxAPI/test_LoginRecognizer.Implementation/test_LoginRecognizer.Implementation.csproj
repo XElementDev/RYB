@@ -152,10 +152,6 @@
       <Project>{07bfe244-14d6-48e4-96ac-680b2e49c9bf}</Project>
       <Name>RYB</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FritzBoxHttpAPI\FritzBoxHttpAPI.csproj">
-      <Project>{6658ADD9-A6D5-4A9F-AFD6-95C87BA544BD}</Project>
-      <Name>FritzBoxHttpAPI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LoginRecognizer.Implementation\LoginRecognizer.Implementation.csproj">
       <Project>{f081054c-23d7-482a-ac29-1ce595a03351}</Project>
       <Name>LoginRecognizer.Implementation</Name>

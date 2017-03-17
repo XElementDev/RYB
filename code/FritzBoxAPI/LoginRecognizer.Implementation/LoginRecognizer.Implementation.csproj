@@ -108,14 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoginRecognizer.cs" />
+    <Compile Include="LoginTypeEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\LoginRecognizer.Implementation.rd.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FritzBoxHttpAPI\FritzBoxHttpAPI.csproj">
-      <Project>{6658ADD9-A6D5-4A9F-AFD6-95C87BA544BD}</Project>
-      <Name>FritzBoxHttpAPI</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

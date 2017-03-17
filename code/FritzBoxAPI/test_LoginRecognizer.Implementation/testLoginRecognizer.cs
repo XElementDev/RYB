@@ -3,7 +3,6 @@ using System;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
-using XElement.RedYellowBlue.FritzBoxAPI.HttpApi.SessionId.v20121217;
 using XElement.RedYellowBlue.TestUtils;
 
 namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
@@ -24,49 +23,47 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
             var target = new LoginRecognizer( mock );
 
             var irrelevantButNotNull = new Uri( "http://www.google.de" );
-            target.GetLoginInstance( irrelevantButNotNull );
+            target.GetLoginType( irrelevantButNotNull );
 
             Assert.IsTrue( wasCalled );
         }
 
 
         [TestMethod]
-        public void testLoginRecognizer_GetLoginInstance_AnonymousLogin()
+        public void testLoginRecognizer_GetLoginType_AnonymousLogin()
         {
             var uriString = Path.Combine( "AnonymousLogin", "data.html" );
             var uri = GetAbsoluteUriFromRelativeUriString( uriString );
             var target = testLoginRecognizer.CreateLoginRecognizerWithFileAccess( uri.LocalPath );
 
-            var actual = target.GetLoginInstance( uri );
+            var actual = target.GetLoginType( uri );
 
-            Assert.IsNotNull( actual );
-            Assert.IsInstanceOfType( actual, typeof( AnonymousLogin ) );
+            Assert.AreEqual( LoginType.ANONYMOUS, actual );
         }
 
         [TestMethod]
-        public void testLoginRecognizer_GetLoginInstance_PasswordBasedLogin()
+        public void testLoginRecognizer_GetLoginType_PasswordBasedLogin()
         {
             var uriString = Path.Combine( "PasswordBasedLogin", "FRITZ!Box.html" );
             var uri = GetAbsoluteUriFromRelativeUriString( uriString );
             var target = testLoginRecognizer.CreateLoginRecognizerWithFileAccess( uri.LocalPath );
 
-            var actual = target.GetLoginInstance( uri );
+            var actual = target.GetLoginType( uri );
 
-            Assert.IsNotNull( actual );
-            Assert.IsInstanceOfType( actual, typeof( PasswordBasedLogin ) );
+            Assert.AreEqual( LoginType.PASSWORD_BASED, actual );
         }
 
         [TestMethod]
-        public void testLoginRecognizer_GetLoginInstanceAsync_UserBasedLogin()
+        public void testLoginRecognizer_GetLoginType_UserBasedLogin()
         {
             var uriString = Path.Combine( "UserBasedLogin", "FRITZ!Box.html" );
             var uri = GetAbsoluteUriFromRelativeUriString( uriString );
             var target = testLoginRecognizer.CreateLoginRecognizerWithFileAccess( uri.LocalPath );
 
-            var actual = target.GetLoginInstance( uri );
+            var actual = target.GetLoginType( uri );
 
-            Assert.IsNotNull( actual );
-            Assert.IsInstanceOfType( actual, typeof( UserBasedLogin ) );
+            Assert.AreEqual( LoginType.USER_BASED, actual );
+
         }
 
 
@@ -80,7 +77,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
             var requestMock = new MockableWebRequest();
             requestMock.GetResponseAsyncInt = () => Task.Run<WebResponse>( () => responseMock );
 
-            var mockFactory = new StubIWebRequestCreate().Create( uri => requestMock );
+            var mockFactory = new StubIWebRequestCreate().Create( _ => requestMock );
             var recognizer = new LoginRecognizer( mockFactory );
             return recognizer;
         }
