@@ -10,6 +10,27 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
 #region not unit-tested
     public class LoginRecognizer
     {
+
+
+        public IEnumerable<string> SupportedFritzOsVersions
+        {
+            get { return new List<string>() { "6.80" }; }
+        }
+#endregion
+
+
+        public LoginRecognizer( IWebRequestCreate webRequestFactory )
+        {
+            this._webRequestFactory = webRequestFactory;
+        }
+
+
+        private string CreateXPathQuery( string tag, string attribute, string attributeValue )
+        {
+            return $"//{tag}[@{attribute}=\"{attributeValue}\"]";
+        }
+
+
         private async Task<HtmlNode> GetHtmlRootNodeAsync( Uri fritzBoxUrl )
         {
             HtmlNode htmlRootNode = null;
@@ -27,7 +48,18 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         }
 
 
-        public async Task<LoginType> GetLoginTypeAsync( Uri fritzBoxUrl )
+        public LoginType GetLoginType( Uri fritzBoxUrl )
+        {
+            //  --> https://stackoverflow.com/questions/13211334/how-do-i-wait-until-task-is-finished-in-c
+            //  --> TODO: Is this overkill here still needed, now that the tests are fixed?
+            var getInstanceTask = this.GetLoginTypeAsync( fritzBoxUrl );
+            LoginType loginType = LoginType.UNKNOWN;
+            var continuation = getInstanceTask.ContinueWith( t => loginType = t.Result );
+            continuation.Wait();
+            return loginType;
+        }
+
+        private async Task<LoginType> GetLoginTypeAsync( Uri fritzBoxUrl )
         {
             LoginType loginType = default( LoginType );
 
@@ -52,37 +84,6 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
             }
             catch { }
 
-            return loginType;
-        }
-
-
-        public IEnumerable<string> SupportedFritzOsVersions
-        {
-            get { return new List<string>() { "6.80" }; }
-        }
-#endregion
-
-
-        public LoginRecognizer( IWebRequestCreate webRequestFactory )
-        {
-            this._webRequestFactory = webRequestFactory;
-        }
-
-
-        private string CreateXPathQuery( string tag, string attribute, string attributeValue )
-        {
-            return $"//{tag}[@{attribute}=\"{attributeValue}\"]";
-        }
-
-
-        public LoginType GetLoginType( Uri fritzBoxUrl )
-        {
-            //  --> https://stackoverflow.com/questions/13211334/how-do-i-wait-until-task-is-finished-in-c
-            //  --> TODO: Is this overkill here still needed, now that the tests are fixed?
-            var getInstanceTask = this.GetLoginTypeAsync( fritzBoxUrl );
-            LoginType loginType = LoginType.UNKNOWN;
-            var continuation = getInstanceTask.ContinueWith( t => loginType = t.Result );
-            continuation.Wait();
             return loginType;
         }
 
