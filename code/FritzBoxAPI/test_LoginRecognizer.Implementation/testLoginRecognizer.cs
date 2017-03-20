@@ -30,6 +30,32 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
 
 
         [TestMethod]
+        public void testLoginRecognizer_GetLoginType_Unknown__SomeValue()
+        {
+            var uri = new Uri( "https://www.outlook.com" );
+            var request = WebRequest.Create( uri );
+            var mockFactory = new StubIWebRequestCreate().Create( _ => request );
+            var target = new LoginRecognizer( mockFactory );
+
+            var actual = target.GetLoginType( uri );
+
+            Assert.AreEqual( LoginType.UNKNOWN, actual );
+        }
+
+        [TestMethod]
+        public void testLoginRecognizer_GetLoginType_Unknown__OtherValue()
+        {
+            var uri = new Uri( "https://www.gmail.com" );
+            var request = WebRequest.Create( uri );
+            var mockFactory = new StubIWebRequestCreate().Create( _ => request );
+            var target = new LoginRecognizer( mockFactory );
+
+            var actual = target.GetLoginType( uri );
+
+            Assert.AreEqual( LoginType.UNKNOWN, actual );
+        }
+
+        [TestMethod]
         public void testLoginRecognizer_GetLoginType_AnonymousLogin()
         {
             var uriString = Path.Combine( "testLoginRecognizer", "AnonymousLogin.html" );
@@ -63,7 +89,19 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
             var actual = target.GetLoginType( uri );
 
             Assert.AreEqual( LoginType.USER_BASED, actual );
+        }
 
+        [TestMethod]
+        public void testLoginRecognizer_GetLoginType_UnreachableUri__SomeValue()
+        {
+            var uri = new Uri( "http://0.0.0.0" );
+            var request = WebRequest.Create( uri );
+            var mockFactory = new StubIWebRequestCreate().Create( _ => request );
+            var target = new LoginRecognizer( mockFactory );
+
+            var actual = target.GetLoginType( uri );
+
+            Assert.AreEqual( LoginType.UNKNOWN, actual );
         }
 
 

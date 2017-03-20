@@ -2,7 +2,7 @@
 {
     public enum LoginType
     {
-        UNKNOWN, 
+        UNKNOWN         = 0, 
         ANONYMOUS, 
         PASSWORD_BASED, 
         USER_BASED
