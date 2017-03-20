@@ -10,8 +10,6 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
 #region not unit-tested
     public class LoginRecognizer
     {
-
-
         public IEnumerable<string> SupportedFritzOsVersions
         {
             get { return new List<string>() { "6.80" }; }
@@ -50,12 +48,9 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
 
         public LoginType GetLoginType( Uri fritzBoxUrl )
         {
-            //  --> https://stackoverflow.com/questions/13211334/how-do-i-wait-until-task-is-finished-in-c
-            //  --> TODO: Is this overkill here still needed, now that the tests are fixed?
-            var getInstanceTask = this.GetLoginTypeAsync( fritzBoxUrl );
-            LoginType loginType = LoginType.UNKNOWN;
-            var continuation = getInstanceTask.ContinueWith( t => loginType = t.Result );
-            continuation.Wait();
+            var getLoginTypeTask = this.GetLoginTypeAsync( fritzBoxUrl );
+            getLoginTypeTask.Wait();
+            var loginType = getLoginTypeTask.Result;
             return loginType;
         }
 
