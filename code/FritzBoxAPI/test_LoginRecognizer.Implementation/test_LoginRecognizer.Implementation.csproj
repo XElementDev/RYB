@@ -91,8 +91,6 @@
   <ItemGroup>
     <!--A reference to the entire .Net Framework and Windows SDK are automatically included-->
     <None Include="project.json" />
-    <None Include="UserBasedLogin\FRITZ!Box_files\avmcore.js.Download" />
-    <None Include="UserBasedLogin\FRITZ!Box_files\login.js.Download" />
     <SDKReference Include="MSTestFramework.Universal, Version=$(UnitTestPlatformVersion)" />
     <SDKReference Include="TestPlatform.Universal, Version=$(UnitTestPlatformVersion)" />
   </ItemGroup>
@@ -129,7 +127,6 @@
     <Content Include="TestAssets\StoreLogo.png" />
     <Content Include="TestAssets\Wide310x150Logo.scale-200.png" />
     <Content Include="UserBasedLogin\FRITZ!Box.html" />
-    <Content Include="UserBasedLogin\FRITZ!Box_files\login.css" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
