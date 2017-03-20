@@ -90,10 +90,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!--A reference to the entire .Net Framework and Windows SDK are automatically included-->
-    <None Include="AnonymousLogin\data_files\avmcontent.js.Download" />
-    <None Include="AnonymousLogin\data_files\avmcore.js.Download" />
-    <None Include="AnonymousLogin\data_files\avmold.js.Download" />
-    <None Include="AnonymousLogin\data_files\home.js.Download" />
     <None Include="PasswordBasedLogin\FRITZ!Box_files\avmcore.js.Download" />
     <None Include="PasswordBasedLogin\FRITZ!Box_files\login.js.Download" />
     <None Include="project.json" />
@@ -125,8 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AnonymousLogin\data.html" />
-    <Content Include="AnonymousLogin\data_files\home.css" />
-    <Content Include="AnonymousLogin\data_files\main.css" />
     <Content Include="PasswordBasedLogin\FRITZ!Box.html" />
     <Content Include="PasswordBasedLogin\FRITZ!Box_files\login.css" />
     <Content Include="Properties\UnitTestApp.rd.xml" />
