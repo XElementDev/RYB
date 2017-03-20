@@ -116,8 +116,8 @@
     <None Include="test_LoginRecognizer.Implementation_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AnonymousLogin\data.html" />
-    <Content Include="PasswordBasedLogin\FRITZ!Box.html" />
+    <Content Include="testLoginRecognizer\AnonymousLogin.html" />
+    <Content Include="testLoginRecognizer\PasswordBasedLogin.html" />
     <Content Include="Properties\UnitTestApp.rd.xml" />
     <Content Include="TestAssets\LockScreenLogo.scale-200.png" />
     <Content Include="TestAssets\SplashScreen.scale-200.png" />
@@ -126,7 +126,7 @@
     <Content Include="TestAssets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="TestAssets\StoreLogo.png" />
     <Content Include="TestAssets\Wide310x150Logo.scale-200.png" />
-    <Content Include="UserBasedLogin\FRITZ!Box.html" />
+    <Content Include="testLoginRecognizer\UserBasedLogin.html" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

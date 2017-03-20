@@ -32,7 +32,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         [TestMethod]
         public void testLoginRecognizer_GetLoginType_AnonymousLogin()
         {
-            var uriString = Path.Combine( "AnonymousLogin", "data.html" );
+            var uriString = Path.Combine( "testLoginRecognizer", "AnonymousLogin.html" );
             var uri = GetAbsoluteUriFromRelativeUriString( uriString );
             var target = testLoginRecognizer.CreateLoginRecognizerWithFileAccess( uri.LocalPath );
 
@@ -44,7 +44,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         [TestMethod]
         public void testLoginRecognizer_GetLoginType_PasswordBasedLogin()
         {
-            var uriString = Path.Combine( "PasswordBasedLogin", "FRITZ!Box.html" );
+            var uriString = Path.Combine( "testLoginRecognizer", "PasswordBasedLogin.html" );
             var uri = GetAbsoluteUriFromRelativeUriString( uriString );
             var target = testLoginRecognizer.CreateLoginRecognizerWithFileAccess( uri.LocalPath );
 
@@ -56,7 +56,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         [TestMethod]
         public void testLoginRecognizer_GetLoginType_UserBasedLogin()
         {
-            var uriString = Path.Combine( "UserBasedLogin", "FRITZ!Box.html" );
+            var uriString = Path.Combine( "testLoginRecognizer", "UserBasedLogin.html" );
             var uri = GetAbsoluteUriFromRelativeUriString( uriString );
             var target = testLoginRecognizer.CreateLoginRecognizerWithFileAccess( uri.LocalPath );
 
