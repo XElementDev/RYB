@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
 {
 #region not unit-tested
-    public class LoginRecognizer
+    public class LoginRecognizer : ILoginRecognizer
     {
-        public IEnumerable<string> SupportedFritzOsVersions
+        public IEnumerable<string> /*ILoginRecognizer.*/SupportedFritzOsVersions
         {
             get { return new List<string>() { "6.80" }; }
         }
@@ -46,7 +46,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         }
 
 
-        public LoginType GetLoginType( Uri fritzBoxUrl )
+        public LoginType /*ILoginRecognizer.*/GetLoginType( Uri fritzBoxUrl )
         {
             var getLoginTypeTask = this.GetLoginTypeAsync( fritzBoxUrl );
             getLoginTypeTask.Wait();

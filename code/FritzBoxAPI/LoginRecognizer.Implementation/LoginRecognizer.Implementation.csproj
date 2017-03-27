@@ -108,9 +108,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoginRecognizer.cs" />
-    <Compile Include="LoginTypeEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\LoginRecognizer.Implementation.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LoginRecognizer.Interface\LoginRecognizer.Interface.csproj">
+      <Project>{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}</Project>
+      <Name>LoginRecognizer.Interface</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

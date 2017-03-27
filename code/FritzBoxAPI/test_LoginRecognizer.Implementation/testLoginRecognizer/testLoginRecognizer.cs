@@ -11,6 +11,16 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
     public class testLoginRecognizer
     {
         [TestMethod]
+        public void testLoginRecognizer_ImplementsILoginRecognizer()
+        {
+            var irrelevantButNotNull = new StubIWebRequestCreate();
+            var target = new LoginRecognizer( irrelevantButNotNull );
+
+            Assert.IsInstanceOfType( target, typeof( ILoginRecognizer ) );
+        }
+
+
+        [TestMethod]
         public void testLoginRecognizer_Constructor_UsesPassedInWebRequestFactory()
         {
             var wasCalled = false;

@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginRecognizer.Implementat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test_LoginRecognizer.Implementation", "..\FritzBoxAPI\test_LoginRecognizer.Implementation\test_LoginRecognizer.Implementation.csproj", "{B8971C15-0675-4C31-B049-F2DB2D801DEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginRecognizer.Interface", "..\FritzBoxAPI\LoginRecognizer.Interface\LoginRecognizer.Interface.csproj", "{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -335,6 +337,22 @@ Global
 		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Release|x86.ActiveCfg = Release|x86
 		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Release|x86.Build.0 = Release|x86
 		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Release|x86.Deploy.0 = Release|x86
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|ARM.ActiveCfg = Debug|ARM
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|ARM.Build.0 = Debug|ARM
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|x64.ActiveCfg = Debug|x64
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|x64.Build.0 = Debug|x64
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|x86.ActiveCfg = Debug|x86
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|x86.Build.0 = Debug|x86
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|ARM.ActiveCfg = Release|ARM
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|ARM.Build.0 = Release|ARM
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|x64.ActiveCfg = Release|x64
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|x64.Build.0 = Release|x64
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|x86.ActiveCfg = Release|x86
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -358,5 +376,6 @@ Global
 		{7ADA5BBB-9965-4F27-8BE1-534250839CDF} = {19446C9D-A72F-456A-B1D7-5B11D23FC4A4}
 		{F081054C-23D7-482A-AC29-1CE595A03351} = {BD0CE949-F6C5-4FB3-895B-A799640772CE}
 		{B8971C15-0675-4C31-B049-F2DB2D801DEE} = {BD0CE949-F6C5-4FB3-895B-A799640772CE}
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B} = {BD0CE949-F6C5-4FB3-895B-A799640772CE}
 	EndGlobalSection
 EndGlobal
