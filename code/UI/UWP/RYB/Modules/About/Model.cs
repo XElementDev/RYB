@@ -37,7 +37,8 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.About
             var package = Package.Current;
             this.ApplicationName = package.DisplayName;
             var version = package.Id.Version;
-            this.Version = $"v{version.Major}.{version.Minor}-.{version.Build}.{version.Revision}";
+            var minor = $"{version.Minor}-";
+            this.Version = $"v{version.Major}.{minor}.{version.Build}.{version.Revision}";
         }
 
 
