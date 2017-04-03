@@ -1,0 +1,100 @@
+﻿<Page x:Class="XElement.RedYellowBlue.UI.UWP.Pages.WelcomePage" 
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+      xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Pages.Welcome" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      mc:Ignorable="d" 
+
+      d:DataContext="{d:DesignInstance Type=local:ViewModel}" 
+      xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="./Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!-- original but not public available: https://edge.alluremedia.com.au/m/g/2015/01/shutterstock_143276602_1080.jpg -->
+        <!-- other free alternatives:
+             https://pixabay.com/en/smart-home-home-technology-2005993/
+             https://pixabay.com/en/network-iot-internet-of-things-782707/
+             https://pixabay.com/en/communication-internet-1927697/
+             https://pixabay.com/en/communication-internet-1927706/
+             https://pixabay.com/en/things-together-communication-2155563/
+             https://pixabay.com/en/things-together-communication-2154705/
+        -->
+        <Image 
+               Source="{StaticResource WelcomePageBackground}" 
+        />
+
+        <StackPanel 
+                    Style="{StaticResource RootStyle}">
+            <TextBlock 
+                       Text="&lt;WELCOME&gt;" 
+                       Style="{StaticResource TitleStyle}" 
+            />
+
+            <VariableSizedWrapGrid>
+                <TextBlock 
+                           Text="&lt;BOX_URL&gt;" 
+                />
+                <TextBox 
+                         Text="{Binding Path=BoxUrlAsString, 
+                                        Mode=TwoWay, 
+                                        UpdateSourceTrigger=PropertyChanged}" 
+                />
+            </VariableSizedWrapGrid>
+
+            <Grid>
+                <StackPanel 
+                            Style="{StaticResource CredentialsContainerStyle}">
+                    <VariableSizedWrapGrid 
+                                           Visibility="{Binding Path=ShowUsernameField, 
+                                                                Converter={StaticResource FalseToCollapsedVisibilityConverter}}">
+                        <TextBlock 
+                                    Text="&lt;USERNAME&gt;" 
+                        />
+                        <TextBox 
+                                 Text="{Binding Path=Username, 
+                                                Mode=TwoWay, 
+                                                UpdateSourceTrigger=PropertyChanged}" 
+                        />
+                    </VariableSizedWrapGrid>
+
+                    <VariableSizedWrapGrid 
+                                           Visibility="{Binding Path=ShowPasswordField, 
+                                                                Converter={StaticResource FalseToCollapsedVisibilityConverter}}">
+                        <TextBlock 
+                                    Text="&lt;PASSWORD&gt;" 
+                        />
+                        <PasswordBox 
+                                     Password="{Binding Path=Password, 
+                                                        Mode=TwoWay, 
+                                                        UpdateSourceTrigger=PropertyChanged}" 
+                        />
+                    </VariableSizedWrapGrid>
+
+                    <Button 
+                            Command="{Binding Path=FinishSetupCommand}">
+                        <TextBlock Text="&lt;NEXT&gt;" />
+                    </Button>
+                </StackPanel>
+
+                <toolkit:Loading 
+                                 IsLoading="{Binding Path=IsLoginRecognizerRunning, 
+                                                     Mode=OneWay}">
+                    <ProgressRing 
+                                  IsActive="True" 
+                    />
+                </toolkit:Loading>
+            </Grid>
+        </StackPanel>
+    </Grid>
+
+</Page>

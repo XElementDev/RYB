@@ -9,6 +9,8 @@
     </ResourceDictionary.MergedDictionaries>
 
 
-    <!-- continue here -->
+    <BitmapImage x:Key="WelcomePageBackground" 
+                 UriSource="../Assets/communication-1927706.jpg" 
+    />
 
 </ResourceDictionary>

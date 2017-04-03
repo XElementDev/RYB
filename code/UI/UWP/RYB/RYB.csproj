@@ -150,6 +150,12 @@
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Feedback\ViewModel.cs" />
+    <Compile Include="Pages\Welcome\Model.cs" />
+    <Compile Include="Pages\Welcome\ModelDependencies.cs" />
+    <Compile Include="Pages\Welcome\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Welcome\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +167,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Assets\plug-for-electric-connection.svg" />
     <EmbeddedResource Include="Assets\heating.svg" />
+    <Content Include="Assets\communication-1927706.jpg" />
     <Content Include="Assets\Square44x44Logo.scale-100.png" />
     <Content Include="Assets\Square71x71Logo.scale-200.png" />
     <Content Include="FodyWeavers.xml" />
@@ -278,6 +285,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Welcome\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Pages\Welcome\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\FritzBoxAPI\ApiAdapter.Implementation\ApiAdapter.Implementation.csproj">
@@ -287,6 +303,14 @@
     <ProjectReference Include="..\..\..\FritzBoxAPI\ApiAdapter.Interface\ApiAdapter.Interface.csproj">
       <Project>{9E5E1955-7C20-4B25-B40A-93449EBAB79F}</Project>
       <Name>ApiAdapter.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FritzBoxAPI\LoginRecognizer.Implementation\LoginRecognizer.Implementation.csproj">
+      <Project>{F081054C-23D7-482A-AC29-1CE595A03351}</Project>
+      <Name>LoginRecognizer.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FritzBoxAPI\LoginRecognizer.Interface\LoginRecognizer.Interface.csproj">
+      <Project>{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}</Project>
+      <Name>LoginRecognizer.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
       <Project>{a607542c-2920-40b5-8074-f1c3d4125ebf}</Project>
