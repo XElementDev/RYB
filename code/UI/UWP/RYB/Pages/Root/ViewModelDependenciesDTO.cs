@@ -15,7 +15,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Root
 
 
         [Import]
-        public Pages.Welcome.ViewModel WelcomeVM { get; set; }
+        public Welcome.ViewModel WelcomeVM { get; set; }
     }
 #endregion
 }
