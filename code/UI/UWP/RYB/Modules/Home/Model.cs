@@ -43,7 +43,6 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
             this.TryInitializeDeviceModels();
         }
 
-
         public Task RefreshAsync()
         {
             return Task.Run( () => this.Refresh() );
