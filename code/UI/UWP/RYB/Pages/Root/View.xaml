@@ -6,7 +6,6 @@
       mc:Ignorable="d" 
 
       xmlns:pages="using:XElement.RedYellowBlue.UI.UWP.Pages" 
-      xmlns:ryb="using:XElement.RedYellowBlue.UI.UWP" 
       x:Name="_page">
 
     <Page.Resources>
@@ -19,11 +18,11 @@
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ryb:MainPage 
-                      DataContext="{Binding Path=MainVM}" 
-                      Visibility="{Binding ElementName=_page, 
-                                           Path=DataContext.ShowMainContent, 
-                                           Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
+        <pages:MainContentPage 
+                               DataContext="{Binding Path=MainContentVM}" 
+                               Visibility="{Binding ElementName=_page, 
+                                                    Path=DataContext.ShowMainContent, 
+                                                    Converter={StaticResource FalseToCollapsedVisibilityConverter}}" 
         />
         <pages:WelcomePage 
                            DataContext="{Binding Path=WelcomeVM}" 

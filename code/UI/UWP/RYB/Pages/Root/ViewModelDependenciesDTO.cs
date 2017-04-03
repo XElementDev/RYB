@@ -11,7 +11,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Root
 
 
         [Import]
-        public MainViewModel MainVM { get; set; }
+        public MainContent.ViewModel MainContentVM { get; set; }
 
 
         [Import]

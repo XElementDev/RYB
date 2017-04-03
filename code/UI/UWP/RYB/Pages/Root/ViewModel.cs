@@ -19,13 +19,13 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Root
         }
 
 
-        public MainViewModel MainVM { get; private set; }
+        public MainContent.ViewModel MainContentVM { get; private set; }
 
 
         [OnImportsSatisfied]
         internal void OnImportsSatisfied()
         {
-            this.MainVM = this._dependencies.MainVM;
+            this.MainContentVM = this._dependencies.MainContentVM;
             this.WelcomeVM = this._dependencies.WelcomeVM;
         }
 

@@ -1,7 +1,7 @@
 ﻿using System.Composition;
 using XElement.RedYellowBlue.UI.UWP.Model;
 
-namespace XElement.RedYellowBlue.UI.UWP.Modules.Main
+namespace XElement.RedYellowBlue.UI.UWP.Pages.MainContent
 {
 #region not unit-tested
     [Shared] [Export]

@@ -131,11 +131,11 @@
     <Compile Include="Modules\Home\ModelDependenciesDTO.cs" />
     <Compile Include="Modules\Home\ViewModel.cs" />
     <Compile Include="Modules\Home\ViewModelDependenciesDTO.cs" />
-    <Compile Include="Modules\Main\ViewModelDependenciesDTO.cs" />
-    <Compile Include="Modules\Main\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Pages\MainContent\ViewModelDependenciesDTO.cs" />
+    <Compile Include="Pages\MainContent\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Main\MainViewModel.cs" />
+    <Compile Include="Pages\MainContent\ViewModel.cs" />
     <Compile Include="Modules\Home\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
@@ -232,12 +232,12 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
-    <Page Include="Modules\Main\Styles.HamburgerMenu.xaml">
+    <Page Include="Pages\MainContent\Styles.HamburgerMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
-    <Page Include="Modules\Main\Styles.ListViewItem.xaml">
+    <Page Include="Pages\MainContent\Styles.ListViewItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -261,11 +261,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Modules\Main\MainPage.xaml">
+    <Page Include="Pages\MainContent\View.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Modules\Main\Styles.xaml">
+    <Page Include="Pages\MainContent\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

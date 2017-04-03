@@ -7,12 +7,12 @@ using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace XElement.RedYellowBlue.UI.UWP
+namespace XElement.RedYellowBlue.UI.UWP.Pages
 {
 #region not unit-tested
-    public sealed partial class MainPage : Page
+    public sealed partial class MainContentPage : Page
     {
-        public MainPage()
+        public MainContentPage()
         {
             this.InitializeComponent();
         }
@@ -25,20 +25,23 @@ namespace XElement.RedYellowBlue.UI.UWP
         }
 
 
-        private MainViewModel MainVM { get { return (MainViewModel)this.DataContext; } }
+        private MainContent.ViewModel MainContentVM
+        {
+            get { return (MainContent.ViewModel)this.DataContext; }
+        }
 
 
         private void NavigateTo( HamburgerMenuItem clickedHamburgerMenuItem )
         {
             this.TryInitializeNavigationModel();
-            this.MainVM.NavigateToCommand.Execute( clickedHamburgerMenuItem );
+            this.MainContentVM.NavigateToCommand.Execute( clickedHamburgerMenuItem );
             this.TryClosePane();
         }
 
 
         private void OnDataContextChanged( FrameworkElement sender, DataContextChangedEventArgs args )
         {
-            if( this.MainVM != null )
+            if( this.MainContentVM != null )
             {
                 this.NavigateTo( this._home );
                 this.TryRemoveFeedbackButton();
@@ -59,13 +62,13 @@ namespace XElement.RedYellowBlue.UI.UWP
 
         private void TryInitializeNavigationModel()
         {
-            var mainVM = this.MainVM;
-            if ( mainVM != null )
+            var mainContentVM = this.MainContentVM;
+            if ( mainContentVM != null )
             {
-                if ( !mainVM.NavigationModel.IsInitialized )
+                if ( !mainContentVM.NavigationModel.IsInitialized )
                 {
                     var navManager = SystemNavigationManager.GetForCurrentView();
-                    mainVM.NavigationModel.Initialize( this._navigationFrame, navManager );
+                    mainContentVM.NavigationModel.Initialize( this._navigationFrame, navManager );
                 }
             }
         }
@@ -73,7 +76,7 @@ namespace XElement.RedYellowBlue.UI.UWP
 
         private void TryRemoveFeedbackButton()
         {
-            if ( !this.MainVM.FeedbackVM.Model.IsFeedbackHubAvailable() )
+            if ( !this.MainContentVM.FeedbackVM.Model.IsFeedbackHubAvailable() )
             {
                 var optionItemsSource = this._hamburgerMenu.OptionsItemsSource;
                 var optionItems = optionItemsSource as IList;

@@ -4,17 +4,16 @@ using PropertyChanged;
 using System.Composition;
 using System.Windows.Input;
 using XElement.RedYellowBlue.UI.UWP.Model;
-using XElement.RedYellowBlue.UI.UWP.Modules.Main;
 
-namespace XElement.RedYellowBlue.UI.UWP
+namespace XElement.RedYellowBlue.UI.UWP.Pages.MainContent
 {
 #region not unit-tested
     [Shared] [Export]
     [ImplementPropertyChanged]
-    internal class MainViewModel
+    internal class ViewModel
     {
         [ImportingConstructor]
-        public MainViewModel( ViewModelDependenciesDTO dependencies )
+        public ViewModel( ViewModelDependenciesDTO dependencies )
         {
             this.NavigateToCommand = new RelayCommand<HamburgerMenuItem>( this.NavigateToCommand_Execute );
 
