@@ -38,8 +38,11 @@ namespace XElement.RedYellowBlue.UI.UWP
 
         private void OnDataContextChanged( FrameworkElement sender, DataContextChangedEventArgs args )
         {
-            this.NavigateTo( this._home );
-            this.TryRemoveFeedbackButton();
+            if( this.MainVM != null )
+            {
+                this.NavigateTo( this._home );
+                this.TryRemoveFeedbackButton();
+            }
         }
 
 

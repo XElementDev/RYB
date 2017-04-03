@@ -150,6 +150,13 @@
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Feedback\ViewModel.cs" />
+    <Compile Include="Pages\Root\Model.cs" />
+    <Compile Include="Pages\Root\ModelDependencies.cs" />
+    <Compile Include="Pages\Root\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Root\ViewModel.cs" />
+    <Compile Include="Pages\Root\ViewModelDependenciesDTO.cs" />
     <Compile Include="Pages\Welcome\Model.cs" />
     <Compile Include="Pages\Welcome\ModelDependencies.cs" />
     <Compile Include="Pages\Welcome\View.xaml.cs">
@@ -282,6 +289,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="Pages\Feedback\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Root\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
