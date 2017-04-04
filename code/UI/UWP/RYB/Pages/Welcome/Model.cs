@@ -17,7 +17,6 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
         }
 
 
-
         public void FinishSetup( string boxUrlAsString, string username, string password )
         {
             this._dependencies.Config.BoxUrlAsString = boxUrlAsString;
