@@ -1,4 +1,5 @@
 ﻿using System.Composition;
+using XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer;
 using XElement.RedYellowBlue.UI.UWP.Model;
 
 namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
@@ -9,6 +10,10 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
     {
         [Import]
         public IConfig Config { get; set; }
+
+
+        [Import]
+        public ILoginRecognizer LoginRecognizer { get; set; }
     }
 #endregion
 }

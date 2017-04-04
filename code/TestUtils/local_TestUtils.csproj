@@ -115,6 +115,10 @@
     <EmbeddedResource Include="Properties\local_TestUtils.rd.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FritzBoxAPI\LoginRecognizer.Interface\LoginRecognizer.Interface.csproj">
+      <Project>{a167b2c1-91a2-44d1-8b47-2bfd3a31e75b}</Project>
+      <Name>LoginRecognizer.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UI\UWP\RYB\RYB.csproj">
       <Project>{07BFE244-14D6-48E4-96AC-680B2E49C9BF}</Project>
       <Name>RYB</Name>

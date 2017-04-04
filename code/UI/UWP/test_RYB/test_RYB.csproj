@@ -96,6 +96,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="testPages\testWelcome\testMefLoginRecognizer.cs" />
+    <Compile Include="testPages\testWelcome\testModel.cs" />
     <Compile Include="UnitTestApp.xaml.cs">
       <DependentUpon>UnitTestApp.xaml</DependentUpon>
     </Compile>
@@ -131,6 +133,10 @@
     <ProjectReference Include="..\..\..\FritzBoxAPI\ApiAdapter.Interface\ApiAdapter.Interface.csproj">
       <Project>{9E5E1955-7C20-4B25-B40A-93449EBAB79F}</Project>
       <Name>ApiAdapter.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FritzBoxAPI\LoginRecognizer.Interface\LoginRecognizer.Interface.csproj">
+      <Project>{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}</Project>
+      <Name>LoginRecognizer.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\TestUtils\local_TestUtils.csproj">
       <Project>{bf8254c4-d011-4afe-b2b6-1298b9e62073}</Project>

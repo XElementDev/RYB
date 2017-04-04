@@ -1,44 +1,53 @@
 ﻿using System;
 using System.Composition;
-using System.Net;
 using System.Threading.Tasks;
 using XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer;
 
 namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
 {
-#region not unit-tested
     [Shared] [Export]
     internal class Model
     {
+#region not unit-tested
         [ImportingConstructor]
+#endregion
         public Model( ModelDependencies dependencies )
         {
-            var webRequestFactory = new Model.WebRequestCreate();
             this._dependencies = dependencies;
-            this._loginRecognizer = new LoginRecognizer( webRequestFactory );
         }
 
 
-        public void FinishSetup( string fritzBoxUrl, string username, string password )
+
+        public void FinishSetup( string boxUrlAsString, string username, string password )
         {
-            this._dependencies.Config.BoxUrlAsString = fritzBoxUrl;
+            this._dependencies.Config.BoxUrlAsString = boxUrlAsString;
             this._dependencies.Config.Password = password;
             this._dependencies.Config.Username = username;
 
-            this.SetupFinished.Invoke( null, EventArgs.Empty );
+            if ( this.SetupFinished != null )
+            {
+                this.SetupFinished.Invoke( null, EventArgs.Empty );
+            }
         }
 
 
-        private LoginType GetLoginType( string fritzBoxUrl )
+        private LoginType GetLoginType( string boxUrlAsString )
         {
-            Task.Delay( 5000 ).Wait();
-            return LoginType.USER_BASED;
-            //return this._loginRecognizer.GetLoginType( fritzBoxUrl );
+            var loginType = default( LoginType );
+
+            try
+            {
+                var fritzBoxUrl = new UriBuilder( boxUrlAsString ).Uri; ;
+                loginType = this._dependencies.LoginRecognizer.GetLoginType( fritzBoxUrl );
+            }
+            catch { }
+
+            return loginType;
         }
 
-        public Task<LoginType> GetLoginTypeAsync( string fritzBoxUrl )
+        public Task<LoginType> GetLoginTypeAsync( string boxUrlAsString )
         {
-            return Task.Run<LoginType>( () => { return this.GetLoginType( fritzBoxUrl ); } );
+            return Task.Run<LoginType>( () => { return this.GetLoginType( boxUrlAsString ); } );
         }
 
 
@@ -46,18 +55,5 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
 
 
         private ModelDependencies _dependencies;
-
-        private ILoginRecognizer _loginRecognizer;
-
-
-
-        private class WebRequestCreate : IWebRequestCreate
-        {
-            public WebRequest Create( Uri uri )
-            {
-                return WebRequest.Create( uri );
-            }
-        }
     }
-#endregion
 }
