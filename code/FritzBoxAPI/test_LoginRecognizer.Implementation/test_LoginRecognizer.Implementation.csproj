@@ -117,9 +117,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="testLoginRecognizer\AnonymousLogin.html" />
-    <Content Include="testLoginRecognizer\ContentNotYetLoaded\js\avmcore.js" />
+    <Content Include="testLoginRecognizer\ContentNotYetLoaded\avmcore.js" />
     <Content Include="testLoginRecognizer\ContentNotYetLoaded\ContentNotYetLoaded.html" />
-    <Content Include="testLoginRecognizer\ContentNotYetLoaded\js\login.js" />
+    <Content Include="testLoginRecognizer\ContentNotYetLoaded\login.js" />
     <Content Include="testLoginRecognizer\PasswordBasedLogin.html" />
     <Content Include="Properties\UnitTestApp.rd.xml" />
     <Content Include="TestAssets\LockScreenLogo.scale-200.png" />
