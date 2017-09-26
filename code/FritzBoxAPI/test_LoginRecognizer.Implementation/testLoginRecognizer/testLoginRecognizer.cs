@@ -136,8 +136,10 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
             var stream = new FileStream( path, FileMode.Open, FileAccess.Read );
             responseMock.GetResponseStreamInt = () => stream;
 
-            var requestMock = new MockableWebRequest();
-            requestMock.GetResponseAsyncInt = () => Task.Run<WebResponse>( () => responseMock );
+            var requestMock = new MockableWebRequest
+            {
+                GetResponseAsyncInt = () => Task.Run<WebResponse>(() => responseMock)
+            };
 
             var mockFactory = new StubIWebRequestCreate().Create( _ => requestMock );
             var recognizer = new LoginRecognizer( mockFactory );
@@ -147,10 +149,14 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
 
         private static WebRequest CreateRequestWithEmptyResponse()
         {
-            var responseMock = new MockableWebResponse();
-            responseMock.GetResponseStreamInt = () => new MemoryStream();
-            var requestMock = new MockableWebRequest();
-            requestMock.GetResponseAsyncInt = () => Task.Run<WebResponse>( () => responseMock );
+            var responseMock = new MockableWebResponse
+            {
+                GetResponseStreamInt = () => new MemoryStream()
+            };
+            var requestMock = new MockableWebRequest
+            {
+                GetResponseAsyncInt = () => Task.Run<WebResponse>( () => responseMock )
+            };
             return requestMock;
         }
 
