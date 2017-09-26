@@ -6,10 +6,10 @@
     "Microsoft.Toolkit.Uwp.UI.Controls": "1.4.0-dev00138",
     "Mntone.SvgForXaml": "0.9.1",
     "MvvmLight": "5.3.0",
-    "PropertyChanged.Fody": "1.51.3"
+    "PropertyChanged.Fody": "1.53.0"
   },
   "frameworks": {
-    "uap10.0": {}
+    "uap10.0.10586": {}
   },
   "runtimes": {
     "win10-arm": {},
