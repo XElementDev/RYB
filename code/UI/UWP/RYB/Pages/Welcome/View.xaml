@@ -98,6 +98,7 @@
                                                      Mode=OneWay}">
                     <ProgressRing 
                                   IsActive="True" 
+                                  Style="{StaticResource LoginRecognizerRunningStyle}" 
                     />
                 </toolkit:Loading>
             </Grid>

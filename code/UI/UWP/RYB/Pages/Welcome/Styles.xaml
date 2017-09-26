@@ -39,6 +39,11 @@
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
+    <Style x:Key="LoginRecognizerRunningStyle" TargetType="ProgressRing">
+        <Setter Property="Height" Value="48" />
+        <Setter Property="Width" Value="48" />
+    </Style>
+
     <Style x:Key="RootStyle" TargetType="StackPanel" BasedOn="{StaticResource _stackPanelBase}">
         <Setter Property="Background" Value="#CCFFFFFF" />
         <Setter Property="HorizontalAlignment" Value="Center" />
