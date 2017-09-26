@@ -7,7 +7,7 @@ using XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer;
 namespace XElement.RedYellowBlue.UI.UWP.testPages.testWelcome
 {
     [TestClass]
-    public class testMefLoginRecognizer
+    public class TestMefLoginRecognizer
     {
         [TestMethod]
         public void MefLoginRecognizer_IsExportedViaMef()

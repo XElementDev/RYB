@@ -8,7 +8,7 @@ using XElement.RedYellowBlue.TestUtils;
 namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
 {
     [TestClass]
-    public class testLoginRecognizer
+    public class TestLoginRecognizer
     {
         [TestMethod]
         public void LoginRecognizer_ImplementsILoginRecognizer()

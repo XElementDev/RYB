@@ -12,7 +12,7 @@ using XeRandom = XElement.TestUtils.Random;
 namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
 {
     [TestClass]
-    public class testModel
+    public class TestModel
     {
         [TestMethod]
         public void Model_IsExportedViaMef()

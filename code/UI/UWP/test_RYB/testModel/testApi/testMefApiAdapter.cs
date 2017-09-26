@@ -10,7 +10,7 @@ using XeRandom = XElement.TestUtils.Random;
 namespace XElement.RedYellowBlue.UI.UWP.Model.Api
 {
     [TestClass]
-    public class testMefApiAdapter
+    public class TestMefApiAdapter
     {
         [TestMethod]
         public void MefHttpService_IsExportedViaMef()
