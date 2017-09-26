@@ -86,6 +86,13 @@
                     </Button>
                 </StackPanel>
 
+                <TextBlock 
+                           Text="&lt;INVALID URI&gt;" 
+                           Opacity="{Binding Path=InvalidEndpointFound, 
+                                             Converter={StaticResource FalseToTransparentConverter}}" 
+                           Style="{StaticResource InvalidEndpointCueStyle}" 
+                />
+
                 <toolkit:Loading 
                                  IsLoading="{Binding Path=IsLoginRecognizerRunning, 
                                                      Mode=OneWay}">

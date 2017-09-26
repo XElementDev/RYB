@@ -60,6 +60,13 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
         }
 
 
+        [DependsOn(nameof(LoginType))]
+        public bool InvalidEndpointFound
+        {
+            get { return this.LoginType == LoginType.UNKNOWN; }
+        }
+
+
         public bool IsLoginRecognizerRunning { get; private set; }
 
 
