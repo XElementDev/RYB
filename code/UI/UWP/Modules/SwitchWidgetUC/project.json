@@ -2,7 +2,7 @@
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
     "Prism.Windows": "6.0.2",
-    "PropertyChanged.Fody": "1.53.0"
+    "PropertyChanged.Fody": "2.1.4"
   },
   "frameworks": {
     "uap10.0.10586": {}

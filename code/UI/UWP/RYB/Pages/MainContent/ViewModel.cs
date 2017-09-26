@@ -9,7 +9,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.MainContent
 {
 #region not unit-tested
     [Shared] [Export]
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     internal class ViewModel
     {
         [ImportingConstructor]
