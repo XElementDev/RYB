@@ -114,6 +114,20 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
             Assert.AreEqual( LoginType.UNKNOWN, actual );
         }
 
+        [TestMethod]
+        public void LoginRecognizer_GetLoginType_ContentNotYetLoaded()
+        {
+            var uriString = Path.Combine( "testLoginRecognizer", 
+                                          "ContentNotYetLoaded", 
+                                          "ContentNotYetLoaded.html" );
+            var uri = GetAbsoluteUriFromRelativeUriString( uriString );
+            var target = CreateLoginRecognizerWithFileAccess( uri.LocalPath );
+
+            var actual = target.GetLoginType( uri );
+
+            Assert.AreNotEqual( LoginType.UNKNOWN, actual );
+        }
+
 
 
         private static LoginRecognizer CreateLoginRecognizerWithFileAccess( string path )
