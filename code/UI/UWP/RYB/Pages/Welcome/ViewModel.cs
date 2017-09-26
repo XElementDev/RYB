@@ -63,6 +63,9 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
         public bool IsLoginRecognizerRunning { get; private set; }
 
 
+        private LoginType LoginType { get; set; }
+
+
         private string _password;
 
         public string Password
@@ -81,18 +84,21 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
             this.IsLoginRecognizerRunning = true;
             var loginType = await this._model.GetLoginTypeAsync( this.BoxUrlAsString );
             this.IsLoginRecognizerRunning = false;
-            if ( loginType == LoginType.USER_BASED )
-            {
-                this.ShowPasswordField = true;
-                this.ShowUsernameField = true;
-            }
+
+            this.LoginType = loginType;
         }
 
 
-        public bool ShowPasswordField { get; private set; }
+        [DependsOn( nameof( LoginType ) )]
+        public bool ShowPasswordField
+        {
+            get { return this.LoginType == LoginType.PASSWORD_BASED || 
+                         this.LoginType == LoginType.USER_BASED; }
+        }
 
 
-        public bool ShowUsernameField { get; private set; }
+        [DependsOn( nameof( LoginType ) )]
+        public bool ShowUsernameField { get { return this.LoginType == LoginType.USER_BASED; } }
 
 
         private string _username;
