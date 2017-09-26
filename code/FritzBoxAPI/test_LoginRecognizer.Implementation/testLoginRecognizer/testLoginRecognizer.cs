@@ -24,7 +24,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         public void LoginRecognizer_Constructor_UsesPassedInWebRequestFactory()
         {
             var wasCalled = false;
-            var requestMock = testLoginRecognizer.CreateRequestWithEmptyResponse();
+            var requestMock = CreateRequestWithEmptyResponse();
             var mock = new StubIWebRequestCreate().Create( uri =>
             {
                 wasCalled = true;
@@ -70,7 +70,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         {
             var uriString = Path.Combine( "testLoginRecognizer", "AnonymousLogin.html" );
             var uri = GetAbsoluteUriFromRelativeUriString( uriString );
-            var target = testLoginRecognizer.CreateLoginRecognizerWithFileAccess( uri.LocalPath );
+            var target = CreateLoginRecognizerWithFileAccess( uri.LocalPath );
 
             var actual = target.GetLoginType( uri );
 
@@ -82,7 +82,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         {
             var uriString = Path.Combine( "testLoginRecognizer", "PasswordBasedLogin.html" );
             var uri = GetAbsoluteUriFromRelativeUriString( uriString );
-            var target = testLoginRecognizer.CreateLoginRecognizerWithFileAccess( uri.LocalPath );
+            var target = CreateLoginRecognizerWithFileAccess( uri.LocalPath );
 
             var actual = target.GetLoginType( uri );
 
@@ -94,7 +94,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         {
             var uriString = Path.Combine( "testLoginRecognizer", "UserBasedLogin.html" );
             var uri = GetAbsoluteUriFromRelativeUriString( uriString );
-            var target = testLoginRecognizer.CreateLoginRecognizerWithFileAccess( uri.LocalPath );
+            var target = CreateLoginRecognizerWithFileAccess( uri.LocalPath );
 
             var actual = target.GetLoginType( uri );
 
