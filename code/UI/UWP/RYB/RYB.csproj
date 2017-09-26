@@ -157,6 +157,7 @@
     </Compile>
     <Compile Include="Pages\Root\ViewModel.cs" />
     <Compile Include="Pages\Root\ViewModelDependenciesDTO.cs" />
+    <Compile Include="Pages\Welcome\BoolToDoubleConverter.cs" />
     <Compile Include="Pages\Welcome\MefLoginRecognizer.cs" />
     <Compile Include="Pages\Welcome\Model.cs" />
     <Compile Include="Pages\Welcome\ModelDependencies.cs" />
@@ -296,6 +297,10 @@
     <Page Include="Pages\Root\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Welcome\Resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\Welcome\Styles.xaml">
       <SubType>Designer</SubType>

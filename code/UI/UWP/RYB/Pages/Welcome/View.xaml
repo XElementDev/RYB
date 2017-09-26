@@ -12,7 +12,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="./Resources.xaml" />
                 <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -55,8 +55,8 @@
                 <StackPanel 
                             Style="{StaticResource CredentialsContainerStyle}">
                     <VariableSizedWrapGrid 
-                                           Visibility="{Binding Path=ShowUsernameField, 
-                                                                Converter={StaticResource FalseToCollapsedVisibilityConverter}}">
+                                           Opacity="{Binding Path=ShowUsernameField, 
+                                                             Converter={StaticResource FalseToTransparentConverter}}">
                         <TextBlock 
                                     Text="&lt;USERNAME&gt;" 
                         />
@@ -68,8 +68,8 @@
                     </VariableSizedWrapGrid>
 
                     <VariableSizedWrapGrid 
-                                           Visibility="{Binding Path=ShowPasswordField, 
-                                                                Converter={StaticResource FalseToCollapsedVisibilityConverter}}">
+                                           Opacity="{Binding Path=ShowPasswordField, 
+                                                             Converter={StaticResource FalseToTransparentConverter}}">
                         <TextBlock 
                                     Text="&lt;PASSWORD&gt;" 
                         />
