@@ -23,7 +23,9 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         }
 
 
-        private string CreateXPathQuery( string tag, string attribute, string attributeValue )
+        private static string CreateXPathQuery( string tag, 
+                                                string attribute, 
+                                                string attributeValue )
         {
             return $"//{tag}[@{attribute}=\"{attributeValue}\"]";
         }
@@ -85,25 +87,25 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
 
         private string XPathQueryForAvmLogo
         {
-            get { return this.CreateXPathQuery( LoginRecognizer.AVM_LOGO_FIELD_TYPE, 
-                                                LoginRecognizer.ID_TAG, 
-                                                LoginRecognizer.AVM_LOGO_FIELD_ID ); }
+            get { return CreateXPathQuery( AVM_LOGO_FIELD_TYPE, 
+                                           ID_TAG, 
+                                           AVM_LOGO_FIELD_ID ); }
         }
 
 
         private string XPathQueryForUsernameField
         {
-            get { return this.CreateXPathQuery( LoginRecognizer.USERNAME_FIELD_TYPE, 
-                                                LoginRecognizer.ID_TAG, 
-                                                LoginRecognizer.USERNAME_FIELD_ID ); }
+            get { return CreateXPathQuery( USERNAME_FIELD_TYPE, 
+                                           ID_TAG, 
+                                           USERNAME_FIELD_ID ); }
         }
 
 
         private string XPathQueryForPasswordField
         {
-            get { return this.CreateXPathQuery( LoginRecognizer.PASSWORD_FIELD_TYPE, 
-                                                LoginRecognizer.ID_TAG, 
-                                                LoginRecognizer.PASSWORD_FIELD_ID ); }
+            get { return CreateXPathQuery( PASSWORD_FIELD_TYPE, 
+                                           ID_TAG, 
+                                           PASSWORD_FIELD_ID ); }
         }
 
 
