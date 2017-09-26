@@ -11,7 +11,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
     public class testLoginRecognizer
     {
         [TestMethod]
-        public void testLoginRecognizer_ImplementsILoginRecognizer()
+        public void LoginRecognizer_ImplementsILoginRecognizer()
         {
             var irrelevantButNotNull = new StubIWebRequestCreate();
             var target = new LoginRecognizer( irrelevantButNotNull );
@@ -21,7 +21,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
 
 
         [TestMethod]
-        public void testLoginRecognizer_Constructor_UsesPassedInWebRequestFactory()
+        public void LoginRecognizer_Constructor_UsesPassedInWebRequestFactory()
         {
             var wasCalled = false;
             var requestMock = testLoginRecognizer.CreateRequestWithEmptyResponse();
@@ -40,7 +40,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
 
 
         [TestMethod]
-        public void testLoginRecognizer_GetLoginType_Unknown__SomeValue()
+        public void LoginRecognizer_GetLoginType_Unknown__SomeValue()
         {
             var uri = new Uri( "https://www.outlook.com" );
             var request = WebRequest.Create( uri );
@@ -53,7 +53,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         }
 
         [TestMethod]
-        public void testLoginRecognizer_GetLoginType_Unknown__OtherValue()
+        public void LoginRecognizer_GetLoginType_Unknown__OtherValue()
         {
             var uri = new Uri( "https://www.gmail.com" );
             var request = WebRequest.Create( uri );
@@ -66,7 +66,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         }
 
         [TestMethod]
-        public void testLoginRecognizer_GetLoginType_AnonymousLogin()
+        public void LoginRecognizer_GetLoginType_AnonymousLogin()
         {
             var uriString = Path.Combine( "testLoginRecognizer", "AnonymousLogin.html" );
             var uri = GetAbsoluteUriFromRelativeUriString( uriString );
@@ -78,7 +78,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         }
 
         [TestMethod]
-        public void testLoginRecognizer_GetLoginType_PasswordBasedLogin()
+        public void LoginRecognizer_GetLoginType_PasswordBasedLogin()
         {
             var uriString = Path.Combine( "testLoginRecognizer", "PasswordBasedLogin.html" );
             var uri = GetAbsoluteUriFromRelativeUriString( uriString );
@@ -90,7 +90,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         }
 
         [TestMethod]
-        public void testLoginRecognizer_GetLoginType_UserBasedLogin()
+        public void LoginRecognizer_GetLoginType_UserBasedLogin()
         {
             var uriString = Path.Combine( "testLoginRecognizer", "UserBasedLogin.html" );
             var uri = GetAbsoluteUriFromRelativeUriString( uriString );
@@ -102,7 +102,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         }
 
         [TestMethod]
-        public void testLoginRecognizer_GetLoginType_UnreachableUri__SomeValue()
+        public void LoginRecognizer_GetLoginType_UnreachableUri__SomeValue()
         {
             var uri = new Uri( "http://0.0.0.0" );
             var request = WebRequest.Create( uri );

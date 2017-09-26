@@ -10,7 +10,7 @@ namespace XElement.RedYellowBlue.UI.UWP.testPages.testWelcome
     public class testMefLoginRecognizer
     {
         [TestMethod]
-        public void testMefLoginRecognizer_IsExportedViaMef()
+        public void MefLoginRecognizer_IsExportedViaMef()
         {
             var mefImport = new MefImportTestHelper();
             var container = this.CreateMefContainer();
@@ -24,7 +24,7 @@ namespace XElement.RedYellowBlue.UI.UWP.testPages.testWelcome
 
 
         [TestMethod]
-        public void testMefLoginRecognizer_IsSharedExport()
+        public void MefLoginRecognizer_IsSharedExport()
         {
             var container = this.CreateMefContainer();
             var mefImport1 = new MefImportTestHelper();

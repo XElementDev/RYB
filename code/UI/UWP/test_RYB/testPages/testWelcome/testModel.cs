@@ -15,7 +15,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
     public class testModel
     {
         [TestMethod]
-        public void testModel_IsExportedViaMef()
+        public void Model_IsExportedViaMef()
         {
             var mefImport = new MefImportTestHelper();
             var container = this.CreateMefContainer();
@@ -28,7 +28,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
         }
 
         [TestMethod]
-        public void testModel_IsSharedExport()
+        public void Model_IsSharedExport()
         {
             var container = this.CreateMefContainer();
             var mefImport1 = new MefImportTestHelper();
@@ -46,7 +46,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
 
 
         [TestMethod]
-        public void testModel_FinishSetup_ParameterPassthrough__RandomValues()
+        public void Model_FinishSetup_ParameterPassthrough__RandomValues()
         {
             var expectedBoxUrl = XeRandom.CreateString();
             var expectedUsername = XeRandom.CreateString();
@@ -63,7 +63,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
         }
 
         [TestMethod]
-        public void testModel_FinishSetup_RaisesEvent()
+        public void Model_FinishSetup_RaisesEvent()
         {
             var wasCalled = false;
             var dependencies = new ModelDependencies { Config = new ConfigMock() };
@@ -76,7 +76,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
         }
 
         [TestMethod]
-        public void testModel_FinishSetup_RaisesEvent_CorrectCallOrder__RandomValues()
+        public void Model_FinishSetup_RaisesEvent_CorrectCallOrder__RandomValues()
         {
             string actualBoxUrl = null;
             string actualPassword = null;
@@ -101,7 +101,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
 
 
         [TestMethod]
-        public void testModel_GetLoginTypeAsync_ReturnsUnknown__RandomValues()
+        public void Model_GetLoginTypeAsync_ReturnsUnknown__RandomValues()
         {
             var expected = LoginType.UNKNOWN;
             var loginRecognizerMock = new StubILoginRecognizer().GetLoginType( str => expected );
@@ -115,7 +115,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
         }
 
         [TestMethod]
-        public void testModel_GetLoginTypeAsync_ReturnsAnonymous()
+        public void Model_GetLoginTypeAsync_ReturnsAnonymous()
         {
             var expected = LoginType.ANONYMOUS;
             var loginRecognizerMock = new StubILoginRecognizer().GetLoginType( str => expected );
@@ -129,7 +129,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
         }
 
         [TestMethod]
-        public void testModel_GetLoginTypeAsync_ReturnsPasswordBased()
+        public void Model_GetLoginTypeAsync_ReturnsPasswordBased()
         {
             var expected = LoginType.PASSWORD_BASED;
             var loginRecognizerMock = new StubILoginRecognizer().GetLoginType( str => expected );
@@ -143,7 +143,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
         }
 
         [TestMethod]
-        public void testModel_GetLoginTypeAsync_ReturnsUserBased()
+        public void Model_GetLoginTypeAsync_ReturnsUserBased()
         {
             var expected = LoginType.USER_BASED;
             var loginRecognizerMock = new StubILoginRecognizer().GetLoginType( str => expected );
@@ -157,7 +157,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
         }
 
         [TestMethod]
-        public void testModel_GetLoginTypeAsync_ReturnsDefaultOnError()
+        public void Model_GetLoginTypeAsync_ReturnsDefaultOnError()
         {
             var expected = LoginType.UNKNOWN;
             GetLoginType_Uri_Delegate boom = _ => { throw new Exception( "Bäm!" ); };
