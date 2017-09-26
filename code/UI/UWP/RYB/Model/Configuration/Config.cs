@@ -19,7 +19,15 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Configuration
 
         public Uri /*IConfig.*/BoxUrl
         {
-            get { return new UriBuilder( this.BoxUrlAsString ).Uri; }
+            get
+            {
+                Uri boxUrl = null;
+
+                if ( this.BoxUrlAsString != null )
+                    boxUrl = new UriBuilder( this.BoxUrlAsString ).Uri;
+
+                return boxUrl;
+            }
         }
 
 
