@@ -1,5 +1,7 @@
 ﻿{
   "dependencies": {
+    "AngleSharp": "0.9.9",
+    "AngleSharp.Scripting.JavaScript": "0.5.1",
     "HtmlAgilityPack.NetCore": "1.5.0.1",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0"
   },
