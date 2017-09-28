@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using System;
 using System.IO;
 using System.Net;
