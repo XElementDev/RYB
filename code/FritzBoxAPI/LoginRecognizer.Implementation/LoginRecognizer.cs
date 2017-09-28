@@ -4,7 +4,6 @@ using AngleSharp.Network;
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
@@ -74,22 +73,16 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         {
             var loginType = default( LoginType );
 
-            var document = await this.GetDocumentAsync( routerUri );
-            var rootNode = GetHtmlRootNodeFrom( document );
-            var nodes = rootNode.Descendants();
-            var passwordFieldNode = nodes.FirstOrDefault( n => n.Id == PASSWORD_FIELD_ID );
-            var userFieldNode = nodes.FirstOrDefault( n => n.Id == USERNAME_FIELD_ID );
-            var logoNode = nodes.FirstOrDefault( n => n.Id == LOGO_FIELD_ID );
-
-            if ( userFieldNode != null && passwordFieldNode != null )
+            var relevantNodes = await this.GetRelevantNodes( routerUri );
+            if ( relevantNodes.UserField != null && relevantNodes.PasswordField != null )
             {
                 loginType = LoginType.USER_BASED;
             }
-            else if ( userFieldNode == null && passwordFieldNode != null )
+            else if ( relevantNodes.UserField == null && relevantNodes.PasswordField != null )
             {
                 loginType = LoginType.PASSWORD_BASED;
             }
-            else if ( logoNode != null )
+            else if ( relevantNodes.Logo != null )
             {
                 loginType = LoginType.ANONYMOUS;
             }
@@ -97,19 +90,23 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
             return loginType;
         }
 
+
+        private async Task<RelevantNodesParser> GetRelevantNodes( Uri routerUri )
+        {
+            var document = await this.GetDocumentAsync( routerUri );
+            var rootNode = GetHtmlRootNodeFrom( document );
+            var allNodes = rootNode.Descendants();
+            var relevantNodes = new RelevantNodesParser( allNodes );
+            return relevantNodes;
+        }
+
+
 #region not unit-tested
         public IEnumerable<string> /*ILoginRecognizer.*/SupportedFritzOsVersions
         {
             get { return new List<string>() { "6.80" }; }
         }
 #endregion
-
-
-        private const string LOGO_FIELD_ID = "avmLogo";
-
-        private const string PASSWORD_FIELD_ID = "uiPass";
-
-        private const string USERNAME_FIELD_ID = "uiViewUser";
 
 
         private IEnumerable<IRequester> _requesters;
