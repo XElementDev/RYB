@@ -78,7 +78,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         public void LoginRecognizer_GetLoginType_ContentNotYetLoaded()
         {
             string uriString = Path.Combine( "testLoginRecognizer", 
-                                             "ContentNotYetLoaded",
+                                             "ContentNotYetLoaded", 
                                              "index.html" );
             var uri = GetAbsoluteUriFromRelativeUriString( uriString );
             var target = CreateLoginRecognizerWithFileScheme();
