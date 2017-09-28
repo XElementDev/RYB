@@ -16,7 +16,7 @@ namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
         {
             string fileContent = null;
 
-            var filePath = uri.LocalPath;
+            string filePath = uri.LocalPath;
             fileContent = File.ReadAllText( filePath );
 
             return fileContent;
