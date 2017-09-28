@@ -6,8 +6,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       mc:Ignorable="d" 
 
-      d:DataContext="{d:DesignInstance Type=local:ViewModel}" 
-      xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
+      d:DataContext="{d:DesignInstance Type=local:ViewModel}">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -51,57 +50,48 @@
                 />
             </VariableSizedWrapGrid>
 
-            <Grid>
-                <StackPanel 
-                            Style="{StaticResource CredentialsContainerStyle}">
-                    <VariableSizedWrapGrid 
-                                           Opacity="{Binding Path=ShowUsernameField, 
-                                                             Converter={StaticResource FalseToTransparentConverter}}">
-                        <TextBlock 
-                                    Text="&lt;USERNAME&gt;" 
-                        />
-                        <TextBox 
-                                 Text="{Binding Path=Username, 
+            <VariableSizedWrapGrid>
+                <TextBlock 
+                           Text="&lt;SELECTED_LOGIN_TYPE&gt;" 
+                />
+                <ComboBox 
+                          ItemsSource="{Binding Path=LoginTypes, 
+                                                Mode=OneWay}" 
+                          SelectedItem="{Binding Path=SelectedLoginType, 
+                                                 Mode=TwoWay}" 
+                />
+            </VariableSizedWrapGrid>
+
+            <VariableSizedWrapGrid 
+                                   Opacity="{Binding Path=ShowUsernameField, 
+                                                     Converter={StaticResource FalseToTransparentConverter}}">
+                <TextBlock 
+                           Text="&lt;USERNAME&gt;" 
+                />
+                <TextBox 
+                         Text="{Binding Path=Username, 
+                                        Mode=TwoWay, 
+                                        UpdateSourceTrigger=PropertyChanged}" 
+                />
+            </VariableSizedWrapGrid>
+
+            <VariableSizedWrapGrid 
+                                   Opacity="{Binding Path=ShowPasswordField, 
+                                                     Converter={StaticResource FalseToTransparentConverter}}">
+                <TextBlock 
+                            Text="&lt;PASSWORD&gt;" 
+                />
+                <PasswordBox 
+                             Password="{Binding Path=Password, 
                                                 Mode=TwoWay, 
                                                 UpdateSourceTrigger=PropertyChanged}" 
-                        />
-                    </VariableSizedWrapGrid>
-
-                    <VariableSizedWrapGrid 
-                                           Opacity="{Binding Path=ShowPasswordField, 
-                                                             Converter={StaticResource FalseToTransparentConverter}}">
-                        <TextBlock 
-                                    Text="&lt;PASSWORD&gt;" 
-                        />
-                        <PasswordBox 
-                                     Password="{Binding Path=Password, 
-                                                        Mode=TwoWay, 
-                                                        UpdateSourceTrigger=PropertyChanged}" 
-                        />
-                    </VariableSizedWrapGrid>
-
-                    <Button 
-                            Command="{Binding Path=FinishSetupCommand}">
-                        <TextBlock Text="&lt;NEXT&gt;" />
-                    </Button>
-                </StackPanel>
-
-                <TextBlock 
-                           Text="&lt;INVALID URI&gt;" 
-                           Opacity="{Binding Path=InvalidEndpointFound, 
-                                             Converter={StaticResource FalseToTransparentConverter}}" 
-                           Style="{StaticResource InvalidEndpointCueStyle}" 
                 />
+            </VariableSizedWrapGrid>
 
-                <toolkit:Loading 
-                                 IsLoading="{Binding Path=IsLoginRecognizerRunning, 
-                                                     Mode=OneWay}">
-                    <ProgressRing 
-                                  IsActive="True" 
-                                  Style="{StaticResource LoginRecognizerRunningStyle}" 
-                    />
-                </toolkit:Loading>
-            </Grid>
+            <Button 
+                    Command="{Binding Path=FinishSetupCommand}">
+                <TextBlock Text="&lt;NEXT&gt;" />
+            </Button>
         </StackPanel>
     </Grid>
 

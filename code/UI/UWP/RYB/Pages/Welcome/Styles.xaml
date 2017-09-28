@@ -1,7 +1,5 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-
-                    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style x:Key="_stackPanelBase" TargetType="StackPanel">
         <Setter Property="Orientation" Value="Vertical" />
@@ -10,8 +8,13 @@
 
 
     <Style TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource SystemControlHighlightAccentBrush}" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="Margin" Value="0 16 0 0" />
+        <Setter Property="Margin" Value="-16 16 -16 -16" />
+    </Style>
+
+    <Style TargetType="ComboBox">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
     </Style>
 
     <Style TargetType="Image">
@@ -27,17 +30,8 @@
     <Style TargetType="VariableSizedWrapGrid">
         <Setter Property="ItemHeight" Value="34" />
         <Setter Property="ItemWidth" Value="300" />
-        <!--<Setter Property="MaximumRowsOrColumns" Value="3" />-->
-        <!--<Setter Property="Orientation" Value="Horizontal" />-->
     </Style>
 
-
-    <Style x:Key="CredentialsContainerStyle" TargetType="StackPanel" BasedOn="{StaticResource _stackPanelBase}" />
-
-    <Style x:Key="InvalidEndpointCueStyle" TargetType="TextBlock">
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-    </Style>
 
     <Style x:Key="LoginRecognizerRunningStyle" TargetType="ProgressRing">
         <Setter Property="Height" Value="48" />
@@ -48,6 +42,13 @@
         <Setter Property="Background" Value="#CCFFFFFF" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Padding" Value="16" />
+    </Style>
+
+    <Style x:Key="StatusContainerStyle" TargetType="Grid">
+        <Setter Property="Height" Value="34" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="Width" Value="34" />
     </Style>
 
     <Style x:Key="TitleStyle" TargetType="TextBlock">

@@ -2,7 +2,9 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using PropertyChanged;
 using System;
+using System.Collections.Generic;
 using System.Composition;
+using System.Linq;
 using System.Windows.Input;
 using XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer;
 
@@ -17,39 +19,38 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
         {
             this._model = model;
 
-            this.FinishSetupCommand = new RelayCommand( this.FinishSetupCommand_Execute, 
-                                                        this.FinishSetupCommand_CanExecute );
+            this.InitializeCommands();
+            this.InitializeProperties();
         }
 
 
-        private string _boxUrlAsString;
-
-        public string BoxUrlAsString
-        {
-            get { return this._boxUrlAsString; }
-            set
-            {
-                this._boxUrlAsString = value;
-                this.RunLoginRecognizerAsync();
-            }
-        }
+        public string BoxUrlAsString { get; set; }
 
 
         [DoNotNotify]
+        [DependsOn( nameof( BoxUrlAsString ), 
+                    nameof( Password ), 
+                    nameof( SelectedLoginType ), 
+                    nameof( Username ) )]
         public ICommand FinishSetupCommand { get; private set; }
 
         private bool FinishSetupCommand_CanExecute()
         {
-            var usernameNotNullOrEmpty = (this.Username ?? String.Empty) != String.Empty;
-            var passwordNotNullOrEmpty = (this.Password ?? String.Empty) != String.Empty;
-            if ( usernameNotNullOrEmpty && passwordNotNullOrEmpty )
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            bool uriNotNullOrEmpty = (this.BoxUrlAsString ?? String.Empty) != String.Empty;
+            bool usernameNotNullOrEmpty = (this.Username ?? String.Empty) != String.Empty;
+            bool passwordNotNullOrEmpty = (this.Password ?? String.Empty) != String.Empty;
+
+            bool validPasswordBasedLogin = this.SelectedLoginType == LoginType.PASSWORD_BASED && 
+                                           passwordNotNullOrEmpty;
+            bool validUserBasedLogin = this.SelectedLoginType == LoginType.USER_BASED && 
+                                       usernameNotNullOrEmpty && 
+                                       passwordNotNullOrEmpty;
+
+            bool isInputValidWrtSyntax = uriNotNullOrEmpty && 
+                (this.SelectedLoginType == LoginType.ANONYMOUS || 
+                 validPasswordBasedLogin || 
+                 validUserBasedLogin);
+            return isInputValidWrtSyntax;
         }
 
         private void FinishSetupCommand_Execute()
@@ -60,65 +61,53 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
         }
 
 
-        [DependsOn(nameof(LoginType))]
-        public bool InvalidEndpointFound
+        private void InitializeCommands()
         {
-            get { return this.LoginType == LoginType.UNKNOWN; }
+            this.FinishSetupCommand = new RelayCommand( this.FinishSetupCommand_Execute, 
+                                                        this.FinishSetupCommand_CanExecute );
+        }
+
+        private void InitializeProperties()
+        {
+            this.LoginTypes = Enum.GetValues( typeof( LoginType ) )
+                .Cast<LoginType>()
+                .Except( new LoginType[] { default( LoginType ) } )
+                .ToList();
+            this.SelectedLoginType = LoginType.ANONYMOUS;
         }
 
 
         public bool IsLoginRecognizerRunning { get; private set; }
 
 
-        private LoginType LoginType { get; set; }
+        public IEnumerable<LoginType> LoginTypes { get; private set; }
 
 
-        private string _password;
-
-        public string Password
-        {
-            get { return this._password; }
-            set
-            {
-                this._password = value;
-                this.RaisePropertyChanged( nameof( FinishSetupCommand ) );
-            }
-        }
+        public string Password { get; set; }
 
 
-        private async void RunLoginRecognizerAsync()
-        {
-            this.IsLoginRecognizerRunning = true;
-            var loginType = await this._model.GetLoginTypeAsync( this.BoxUrlAsString );
-            this.IsLoginRecognizerRunning = false;
-
-            this.LoginType = loginType;
-        }
+        public LoginType SelectedLoginType { get; set; }
 
 
-        [DependsOn( nameof( LoginType ) )]
+        [DependsOn( nameof( SelectedLoginType ) )]
         public bool ShowPasswordField
         {
-            get { return this.LoginType == LoginType.PASSWORD_BASED || 
-                         this.LoginType == LoginType.USER_BASED; }
-        }
-
-
-        [DependsOn( nameof( LoginType ) )]
-        public bool ShowUsernameField { get { return this.LoginType == LoginType.USER_BASED; } }
-
-
-        private string _username;
-
-        public string Username
-        {
-            get { return this._username; }
-            set
+            get
             {
-                this._username = value;
-                this.RaisePropertyChanged( nameof( FinishSetupCommand ) );
+                return this.SelectedLoginType == LoginType.PASSWORD_BASED || 
+                       this.SelectedLoginType == LoginType.USER_BASED;
             }
         }
+
+
+        [DependsOn( nameof( SelectedLoginType ) )]
+        public bool ShowUsernameField
+        {
+            get { return this.SelectedLoginType == LoginType.USER_BASED; }
+        }
+
+
+        public string Username { get; set; }
 
 
         private Model _model;

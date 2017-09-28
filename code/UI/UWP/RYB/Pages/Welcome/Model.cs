@@ -1,7 +1,5 @@
 using System;
 using System.Composition;
-using System.Threading.Tasks;
-using XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer;
 
 namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
 {
@@ -30,24 +28,25 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Welcome
         }
 
 
-        private LoginType GetLoginType( string boxUrlAsString )
-        {
-            var loginType = default( LoginType );
+        //TODO: Reenable unit tests
+        //private LoginType GetLoginType( string boxUrlAsString )
+        //{
+        //    var loginType = default( LoginType );
 
-            try
-            {
-                var fritzBoxUrl = new UriBuilder( boxUrlAsString ).Uri; ;
-                loginType = this._dependencies.LoginRecognizer.GetLoginType( fritzBoxUrl );
-            }
-            catch { }
+        //    try
+        //    {
+        //        var fritzBoxUrl = new UriBuilder( boxUrlAsString ).Uri;
+        //        loginType = this._dependencies.LoginRecognizer.GetLoginType(fritzBoxUrl);
+        //    }
+        //    catch { }
 
-            return loginType;
-        }
+        //    return loginType;
+        //}
 
-        public Task<LoginType> GetLoginTypeAsync( string boxUrlAsString )
-        {
-            return Task.Run<LoginType>( () => { return this.GetLoginType( boxUrlAsString ); } );
-        }
+        //public Task<LoginType> GetLoginTypeAsync( string boxUrlAsString )
+        //{
+        //    return Task.Run<LoginType>( () => { return this.GetLoginType( boxUrlAsString ); } );
+        //}
 
 
         public event EventHandler SetupFinished;
