@@ -137,6 +137,10 @@
     <value>Nicht verbunden</value>
     <comment>// 2016-09-27</comment>
   </data>
+  <data name="App_Description" xml:space="preserve">
+    <value>Eine UWP-App für die Kontrolle über das Fritz!Box Smart Home.</value>
+    <comment>// 2017-09-29</comment>
+  </data>
   <data name="COMMON_AvailableSoon.Text" xml:space="preserve">
     <value>Bald verfügbar.</value>
     <comment>// 2016-09-23</comment>
