@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+  <Identity Name="6091bcd9-9b0d-4bf0-b766-1b4b03210c7e" Publisher="CN=chris" Version="1.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="6091bcd9-9b0d-4bf0-b766-1b4b03210c7e" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>test_LoginRecognizer.Implementation</DisplayName>
+    <PublisherDisplayName>chris</PublisherDisplayName>
+    <Logo>TestAssets\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="vstest.executionengine.universal.App" Executable="$targetnametoken$.exe" EntryPoint="test_LoginRecognizer.Implementation.App">
+      <uap:VisualElements DisplayName="test_LoginRecognizer.Implementation" Square150x150Logo="TestAssets\Square150x150Logo.png" Square44x44Logo="TestAssets\Square44x44Logo.png" Description="test_LoginRecognizer.Implementation" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="TestAssets\Wide310x150Logo.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="TestAssets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

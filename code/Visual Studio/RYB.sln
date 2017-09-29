@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FritzBoxAPI", "FritzBoxAPI", "{BD0CE949-F6C5-4FB3-895B-A799640772CE}"
 EndProject
@@ -44,6 +44,17 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "local_TestUtils", "..\TestUtils\local_TestUtils.csproj", "{BF8254C4-D011-4AFE-B2B6-1298B9E62073}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemperatureWidgetUC", "..\UI\UWP\Modules\TemperatureWidgetUC\TemperatureWidgetUC.csproj", "{7ADA5BBB-9965-4F27-8BE1-534250839CDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginRecognizer.Implementation", "..\FritzBoxAPI\LoginRecognizer.Implementation\LoginRecognizer.Implementation.csproj", "{F081054C-23D7-482A-AC29-1CE595A03351}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test_LoginRecognizer.Implementation", "..\FritzBoxAPI\test_LoginRecognizer.Implementation\test_LoginRecognizer.Implementation.csproj", "{B8971C15-0675-4C31-B049-F2DB2D801DEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginRecognizer.Interface", "..\FritzBoxAPI\LoginRecognizer.Interface\LoginRecognizer.Interface.csproj", "{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{14A0D14B-6220-4FEB-A26F-98972B33A5AC}"
+	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -293,6 +304,60 @@ Global
 		{7ADA5BBB-9965-4F27-8BE1-534250839CDF}.Release|x64.Build.0 = Release|x64
 		{7ADA5BBB-9965-4F27-8BE1-534250839CDF}.Release|x86.ActiveCfg = Release|x86
 		{7ADA5BBB-9965-4F27-8BE1-534250839CDF}.Release|x86.Build.0 = Release|x86
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Debug|ARM.ActiveCfg = Debug|ARM
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Debug|ARM.Build.0 = Debug|ARM
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Debug|x64.ActiveCfg = Debug|x64
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Debug|x64.Build.0 = Debug|x64
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Debug|x86.ActiveCfg = Debug|x86
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Debug|x86.Build.0 = Debug|x86
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Release|ARM.ActiveCfg = Release|ARM
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Release|ARM.Build.0 = Release|ARM
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Release|x64.ActiveCfg = Release|x64
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Release|x64.Build.0 = Release|x64
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Release|x86.ActiveCfg = Release|x86
+		{F081054C-23D7-482A-AC29-1CE595A03351}.Release|x86.Build.0 = Release|x86
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Debug|Any CPU.Build.0 = Debug|x86
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Debug|Any CPU.Deploy.0 = Debug|x86
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Debug|ARM.Build.0 = Debug|ARM
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Debug|ARM.Deploy.0 = Debug|ARM
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Debug|x64.ActiveCfg = Debug|x64
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Debug|x64.Build.0 = Debug|x64
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Debug|x64.Deploy.0 = Debug|x64
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Debug|x86.ActiveCfg = Debug|x86
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Debug|x86.Build.0 = Debug|x86
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Debug|x86.Deploy.0 = Debug|x86
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Release|Any CPU.ActiveCfg = Release|x86
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Release|ARM.ActiveCfg = Release|ARM
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Release|ARM.Build.0 = Release|ARM
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Release|ARM.Deploy.0 = Release|ARM
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Release|x64.ActiveCfg = Release|x64
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Release|x64.Build.0 = Release|x64
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Release|x64.Deploy.0 = Release|x64
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Release|x86.ActiveCfg = Release|x86
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Release|x86.Build.0 = Release|x86
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE}.Release|x86.Deploy.0 = Release|x86
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|ARM.ActiveCfg = Debug|ARM
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|ARM.Build.0 = Debug|ARM
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|x64.ActiveCfg = Debug|x64
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|x64.Build.0 = Debug|x64
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|x86.ActiveCfg = Debug|x86
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Debug|x86.Build.0 = Debug|x86
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|ARM.ActiveCfg = Release|ARM
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|ARM.Build.0 = Release|ARM
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|x64.ActiveCfg = Release|x64
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|x64.Build.0 = Release|x64
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|x86.ActiveCfg = Release|x86
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -314,5 +379,11 @@ Global
 		{00D91333-9A3C-4E5F-9AFD-6A6946C3C5E1} = {19446C9D-A72F-456A-B1D7-5B11D23FC4A4}
 		{749F5FAF-37C3-425F-804A-CFD61FA4A42D} = {3331C87D-3A5B-46E7-A3DC-0D1311966354}
 		{7ADA5BBB-9965-4F27-8BE1-534250839CDF} = {19446C9D-A72F-456A-B1D7-5B11D23FC4A4}
+		{F081054C-23D7-482A-AC29-1CE595A03351} = {BD0CE949-F6C5-4FB3-895B-A799640772CE}
+		{B8971C15-0675-4C31-B049-F2DB2D801DEE} = {BD0CE949-F6C5-4FB3-895B-A799640772CE}
+		{A167B2C1-91A2-44D1-8B47-2BFD3A31E75B} = {BD0CE949-F6C5-4FB3-895B-A799640772CE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3E0995A-7F90-4F87-8658-433B2497CC42}
 	EndGlobalSection
 EndGlobal

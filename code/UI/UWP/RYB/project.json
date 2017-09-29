@@ -1,15 +1,16 @@
 ﻿{
   "dependencies": {
     "Microsoft.Composition": "1.0.30",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
-    "Microsoft.Toolkit.Uwp": "1.4.0-dev00138",
-    "Microsoft.Toolkit.Uwp.UI.Controls": "1.4.0-dev00138",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0",
+    "Microsoft.Services.Store.Engagement": "10.1610.0",
+    "Microsoft.Toolkit.Uwp": "1.5.1",
+    "Microsoft.Toolkit.Uwp.UI.Controls": "1.5.1",
     "Mntone.SvgForXaml": "0.9.1",
     "MvvmLight": "5.3.0",
-    "PropertyChanged.Fody": "1.51.3"
+    "PropertyChanged.Fody": "2.1.4"
   },
   "frameworks": {
-    "uap10.0": {}
+    "uap10.0.10586": {}
   },
   "runtimes": {
     "win10-arm": {},

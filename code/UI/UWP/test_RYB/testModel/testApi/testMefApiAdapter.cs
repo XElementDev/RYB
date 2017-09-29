@@ -10,10 +10,10 @@ using XeRandom = XElement.TestUtils.Random;
 namespace XElement.RedYellowBlue.UI.UWP.Model.Api
 {
     [TestClass]
-    public class testMefApiAdapter
+    public class TestMefApiAdapter
     {
         [TestMethod]
-        public void testMefHttpService_IsExportedViaMef()
+        public void MefHttpService_IsExportedViaMef()
         {
             var mefImport = new MefImportTestHelper();
             var container = this.CreateMefContainer();
@@ -27,7 +27,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
 
 
         [TestMethod]
-        public void testMefHttpService_IsSharedExport()
+        public void MefHttpService_IsSharedExport()
         {
             var container = this.CreateMefContainer();
             var mefImport1 = new MefImportTestHelper();
@@ -45,7 +45,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
 
 
         [TestMethod]
-        public void testMefHttpService_ImplementsIHttpService()
+        public void MefHttpService_ImplementsIHttpService()
         {
             var target = new MefHttpService( null, null );
 
@@ -53,7 +53,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
         }
 
         [TestMethod]
-        public void testMefHttpService_ExtendsHttpService()
+        public void MefHttpService_ExtendsHttpService()
         {
             var target = new MefHttpService( null, null );
 
@@ -63,7 +63,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
 
 
         [TestMethod]
-        public void testMefParametersDTO_IsExportedViaMef()
+        public void MefParametersDTO_IsExportedViaMef()
         {
             var mefImport = new MefImportTestHelper();
             var container = this.CreateMefContainer();
@@ -77,7 +77,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
 
 
         [TestMethod]
-        public void testMefParametersDTO_IsSharedExport()
+        public void MefParametersDTO_IsSharedExport()
         {
             var container = this.CreateMefContainer();
             var mefImport1 = new MefImportTestHelper();
@@ -95,7 +95,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
 
 
         [TestMethod]
-        public void testMefParametersDTO_Constructor_CorrectInitialValues__SomeValue()
+        public void MefParametersDTO_Constructor_CorrectInitialValues__SomeValue()
         {
             var expected = new Uri( "http://example.org" );
             var configMock = new StubIConfig().BoxUrl_Get( () => expected );
@@ -107,7 +107,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
         }
 
         [TestMethod]
-        public void testMefParametersDTO_Constructor_CorrectInitialValues__OtherValue()
+        public void MefParametersDTO_Constructor_CorrectInitialValues__OtherValue()
         {
             var expected = new Uri( "https://www.google.de" );
             var configMock = new StubIConfig().BoxUrl_Get( () => expected );
@@ -120,7 +120,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
 
 
         [TestMethod]
-        public void testMefParametersDTO_EventSubscription__SomeValue()
+        public void MefParametersDTO_EventSubscription__SomeValue()
         {
             var url1 = new Uri( "http://www.heute.de" );
             var configMock = new StubIConfig().BoxUrl_Get( () => url1 );
@@ -134,7 +134,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
         }
 
         [TestMethod]
-        public void testMefParametersDTO_EventSubscription__OtherValue()
+        public void MefParametersDTO_EventSubscription__OtherValue()
         {
             var url1 = new Uri( "https://outlook.com" );
             var configMock = new StubIConfig().BoxUrl_Get( () => url1 );
@@ -150,7 +150,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
 
 
         [TestMethod]
-        public void testMefOptionalParametersDTO_IsExportedViaMef()
+        public void MefOptionalParametersDTO_IsExportedViaMef()
         {
             var mefImport = new MefImportTestHelper();
             var container = this.CreateMefContainer();
@@ -164,7 +164,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
 
 
         [TestMethod]
-        public void testMefOptionalParametersDTO_IsSharedExport()
+        public void MefOptionalParametersDTO_IsSharedExport()
         {
             var container = this.CreateMefContainer();
             var mefImport1 = new MefImportTestHelper();
@@ -182,7 +182,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
 
 
         [TestMethod]
-        public void testMefOptionalParametersDTO_Constructor_CorrectInitialValues__RandomValues()
+        public void MefOptionalParametersDTO_Constructor_CorrectInitialValues__RandomValues()
         {
             var configMock = localRandom.CreateConfigMockWithRandomCredentials();
 
@@ -194,7 +194,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Model.Api
 
 
         [TestMethod]
-        public void testMefOptionalParametersDTO_EventSubscription__RandomValues()
+        public void MefOptionalParametersDTO_EventSubscription__RandomValues()
         {
             var expectedUsername = XeRandom.CreateString();
             var expectedPassword = XeRandom.CreateString();

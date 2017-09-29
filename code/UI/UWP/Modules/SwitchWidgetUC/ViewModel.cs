@@ -5,7 +5,7 @@ using System.Windows.Input;
 namespace XElement.RedYellowBlue.UI.UWP.Modules.SwitchWidget
 {
 #region not unit-tested
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class ViewModel
     {
         public ViewModel( Model model )

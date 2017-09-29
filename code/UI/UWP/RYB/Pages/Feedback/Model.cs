@@ -13,7 +13,6 @@ namespace XElement.RedYellowBlue.UI.UWP.Pages.Feedback
 
 
         //  --> 2017-03-09, see https://docs.microsoft.com/en-us/windows/uwp/monetize/launch-feedback-hub-from-your-app
-        //  --> TODO: use NuGet package (Microsoft.Services.Store.SDK), if it works...
         public bool IsFeedbackHubAvailable()
         {
             return StoreServicesFeedbackLauncher.IsSupported();

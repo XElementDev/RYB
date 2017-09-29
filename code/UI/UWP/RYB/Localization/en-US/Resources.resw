@@ -201,4 +201,28 @@
     <value>Test connection</value>
     <comment>// 2016-09-13</comment>
   </data>
+  <data name="Welcome_FinishButton.Content" xml:space="preserve">
+    <value>Next</value>
+    <comment>// 2017-09-29</comment>
+  </data>
+  <data name="Welcome_Header.Text" xml:space="preserve">
+    <value>Welcome</value>
+    <comment>// 2017-09-29</comment>
+  </data>
+  <data name="Welcome_LoginType.Text" xml:space="preserve">
+    <value>Login type:</value>
+    <comment>// 2017-09-29</comment>
+  </data>
+  <data name="Welcome_Password.Text" xml:space="preserve">
+    <value>Password:</value>
+    <comment>// 2017-09-29</comment>
+  </data>
+  <data name="Welcome_Uri.Text" xml:space="preserve">
+    <value>Fritz!Box address:</value>
+    <comment>// 2017-09-29</comment>
+  </data>
+  <data name="Welcome_Username.Text" xml:space="preserve">
+    <value>Username:</value>
+    <comment>// 2017-09-29</comment>
+  </data>
 </root>

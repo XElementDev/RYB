@@ -1,0 +1,9 @@
+﻿{
+    "IgnoredProjects": [
+    ],
+    "IgnoredInterfaces": [
+        "XElement.RedYellowBlue.UI.UWP.Model.AutoSave.IAutoSaveTarget"
+    ],
+    "StubInternalInterfaces": false,
+    "StubCurrentProject": true
+}

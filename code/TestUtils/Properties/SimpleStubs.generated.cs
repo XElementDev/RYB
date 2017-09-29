@@ -1,7 +1,68 @@
 using System;
 using System.Runtime.CompilerServices;
 using Etg.SimpleStubs;
+using System.Collections.Generic;
 using System.ComponentModel;
+
+namespace XElement.RedYellowBlue.TestUtils
+{
+    [CompilerGenerated]
+    public class StubIWebRequestCreate : IWebRequestCreate
+    {
+        private readonly StubContainer<StubIWebRequestCreate> _stubs = new StubContainer<StubIWebRequestCreate>();
+
+        global::System.Net.WebRequest global::System.Net.IWebRequestCreate.Create(global::System.Uri uri)
+        {
+            return _stubs.GetMethodStub<Create_Uri_Delegate>("Create").Invoke(uri);
+        }
+
+        public delegate global::System.Net.WebRequest Create_Uri_Delegate(global::System.Uri uri);
+
+        public StubIWebRequestCreate Create(Create_Uri_Delegate del, int count = Times.Forever, bool overwrite = false)
+        {
+            _stubs.SetMethodStub(del, count, overwrite);
+            return this;
+        }
+    }
+}
+
+namespace XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer
+{
+    [CompilerGenerated]
+    public class StubILoginRecognizer : ILoginRecognizer
+    {
+        private readonly StubContainer<StubILoginRecognizer> _stubs = new StubContainer<StubILoginRecognizer>();
+
+        global::System.Collections.Generic.IEnumerable<string> global::XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer.ILoginRecognizer.SupportedFritzOsVersions
+        {
+            get
+            {
+                return _stubs.GetMethodStub<SupportedFritzOsVersions_Get_Delegate>("get_SupportedFritzOsVersions").Invoke();
+            }
+        }
+
+        global::XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer.LoginType global::XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer.ILoginRecognizer.GetLoginType(global::System.Uri fritzBoxUrl)
+        {
+            return _stubs.GetMethodStub<GetLoginType_Uri_Delegate>("GetLoginType").Invoke(fritzBoxUrl);
+        }
+
+        public delegate global::XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer.LoginType GetLoginType_Uri_Delegate(global::System.Uri fritzBoxUrl);
+
+        public StubILoginRecognizer GetLoginType(GetLoginType_Uri_Delegate del, int count = Times.Forever, bool overwrite = false)
+        {
+            _stubs.SetMethodStub(del, count, overwrite);
+            return this;
+        }
+
+        public delegate global::System.Collections.Generic.IEnumerable<string> SupportedFritzOsVersions_Get_Delegate();
+
+        public StubILoginRecognizer SupportedFritzOsVersions_Get(SupportedFritzOsVersions_Get_Delegate del, int count = Times.Forever, bool overwrite = false)
+        {
+            _stubs.SetMethodStub(del, count, overwrite);
+            return this;
+        }
+    }
+}
 
 namespace XElement.RedYellowBlue.UI.UWP.Model
 {

@@ -7,6 +7,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using XElement.RedYellowBlue.UI.UWP.Pages;
 
 namespace XElement.RedYellowBlue.UI.UWP
 {
@@ -38,10 +39,6 @@ namespace XElement.RedYellowBlue.UI.UWP
         }
 
 
-        [Import]
-        private MainViewModel MainVM { get; set; }
-
-
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.
@@ -71,7 +68,7 @@ namespace XElement.RedYellowBlue.UI.UWP
                     //TODO: Load state from previously suspended application
                 }
 
-                rootFrame.DataContext = this.MainVM;
+                rootFrame.DataContext = this.RootVM;
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
@@ -84,7 +81,7 @@ namespace XElement.RedYellowBlue.UI.UWP
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(RootPage), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
@@ -100,6 +97,10 @@ namespace XElement.RedYellowBlue.UI.UWP
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
+
+
+        [Import]
+        private Pages.Root.ViewModel RootVM { get; set; }
 
 
         private void SetLocaleIfInDebug()

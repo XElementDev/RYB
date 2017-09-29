@@ -201,4 +201,28 @@
     <value>Verbindung überprüfen</value>
     <comment>// 2016-09-13</comment>
   </data>
+  <data name="Welcome_FinishButton.Content" xml:space="preserve">
+    <value>Weiter</value>
+    <comment>// 2017-09-29</comment>
+  </data>
+  <data name="Welcome_Header.Text" xml:space="preserve">
+    <value>Willkommen</value>
+    <comment>// 2017-09-29</comment>
+  </data>
+  <data name="Welcome_LoginType.Text" xml:space="preserve">
+    <value>Art des Logins:</value>
+    <comment>// 2017-09-29</comment>
+  </data>
+  <data name="Welcome_Password.Text" xml:space="preserve">
+    <value>Passwort:</value>
+    <comment>// 2017-09-29</comment>
+  </data>
+  <data name="Welcome_Uri.Text" xml:space="preserve">
+    <value>Fritz!Box-Adresse:</value>
+    <comment>// 2017-09-29</comment>
+  </data>
+  <data name="Welcome_Username.Text" xml:space="preserve">
+    <value>Benutzername:</value>
+    <comment>// 2017-09-29</comment>
+  </data>
 </root>

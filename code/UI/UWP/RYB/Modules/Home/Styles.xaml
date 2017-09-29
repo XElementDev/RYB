@@ -1,4 +1,4 @@
-﻿<ResourceDictionary 
+<ResourceDictionary 
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
                     xmlns:local="using:XElement.RedYellowBlue.UI.UWP.Modules.Home" 
@@ -26,8 +26,17 @@
     </Style>
 
 
+    <Style TargetType="toolkit:Loading">
+        <Setter Property="Background" Value="#33000000" />
+    </Style>
+
     <Style TargetType="PivotItem">
         <Setter Property="Margin" Value="0" />
+    </Style>
+
+    <Style TargetType="ProgressRing">
+        <Setter Property="Height" Value="48" />
+        <Setter Property="Width" Value="48" />
     </Style>
 
 
