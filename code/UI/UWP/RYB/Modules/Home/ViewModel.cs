@@ -36,6 +36,9 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
         }
 
 
+        public bool IsContentLoading { get; private set; }
+
+
         [OnImportsSatisfied]
         internal void OnImportsSatisfied()
         {
@@ -45,8 +48,10 @@ namespace XElement.RedYellowBlue.UI.UWP.Modules.Home
 
         private async void RefreshAsync()
         {
+            this.IsContentLoading = true;
             await this._model.RefreshAsync();
             this.Initialize();
+            this.IsContentLoading = false;
         }
 
 

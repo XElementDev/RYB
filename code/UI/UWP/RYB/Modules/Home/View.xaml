@@ -67,18 +67,28 @@
                     />
                 </PivotItem.Header>
 
-                <ScrollViewer>
-                    <toolkit:AdaptiveGridView x:Name="_devicesTabMainContent" 
-                                              ItemsSource="{Binding Path=DeviceVMs}">
-                        <toolkit:AdaptiveGridView.ItemTemplate>
-                            <DataTemplate>
-                                <modules:AhaDevicePage 
-                                                       DataContext="{Binding}" 
-                                />
-                            </DataTemplate>
-                        </toolkit:AdaptiveGridView.ItemTemplate>
-                    </toolkit:AdaptiveGridView>
-                </ScrollViewer>
+                <Grid>
+                    <ScrollViewer>
+                        <toolkit:AdaptiveGridView x:Name="_devicesTabMainContent" 
+                                                  ItemsSource="{Binding Path=DeviceVMs}">
+                            <toolkit:AdaptiveGridView.ItemTemplate>
+                                <DataTemplate>
+                                    <modules:AhaDevicePage 
+                                                           DataContext="{Binding}" 
+                                    />
+                                </DataTemplate>
+                            </toolkit:AdaptiveGridView.ItemTemplate>
+                        </toolkit:AdaptiveGridView>
+                    </ScrollViewer>
+
+                    <toolkit:Loading 
+                                     IsLoading="{Binding Path=IsContentLoading, 
+                                                         FallbackValue=false}">
+                        <ProgressRing 
+                                      IsActive="True" 
+                        />
+                    </toolkit:Loading>
+                </Grid>
             </PivotItem>
 
             <!--<PivotItem>
