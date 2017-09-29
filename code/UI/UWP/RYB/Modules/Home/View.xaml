@@ -81,7 +81,7 @@
                 </ScrollViewer>
             </PivotItem>
 
-            <PivotItem>
+            <!--<PivotItem>
                 <PivotItem.Header>
                     <modules:TabHeaderUC 
                                          x:Uid="Home_Tabs_Favorites" 
@@ -93,9 +93,9 @@
                            x:Uid="COMMON_AvailableSoon" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" 
                 />
-            </PivotItem>
+            </PivotItem>-->
 
-            <PivotItem>
+            <!--<PivotItem>
                 <PivotItem.Header>
                     <modules:TabHeaderUC 
                                          x:Uid="Home_Tabs_Groups" 
@@ -107,7 +107,7 @@
                            x:Uid="COMMON_AvailableSoon" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" 
                 />
-            </PivotItem>
+            </PivotItem>-->
         </Pivot>
 
         <CommandBar x:Name="_commandBar">
