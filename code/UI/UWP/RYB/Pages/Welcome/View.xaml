@@ -34,14 +34,12 @@
 
         <StackPanel 
                     Style="{StaticResource RootStyle}">
-            <TextBlock 
-                       Text="&lt;WELCOME&gt;" 
+            <TextBlock x:Uid="Welcome_Header" 
                        Style="{StaticResource TitleStyle}" 
             />
 
             <VariableSizedWrapGrid>
-                <TextBlock 
-                           Text="&lt;BOX_URL&gt;" 
+                <TextBlock x:Uid="Welcome_Uri" 
                 />
                 <TextBox 
                          Text="{Binding Path=BoxUrlAsString, 
@@ -51,8 +49,7 @@
             </VariableSizedWrapGrid>
 
             <VariableSizedWrapGrid>
-                <TextBlock 
-                           Text="&lt;SELECTED_LOGIN_TYPE&gt;" 
+                <TextBlock x:Uid="Welcome_LoginType" 
                 />
                 <ComboBox 
                           ItemsSource="{Binding Path=LoginTypes, 
@@ -65,8 +62,7 @@
             <VariableSizedWrapGrid 
                                    Opacity="{Binding Path=ShowUsernameField, 
                                                      Converter={StaticResource FalseToTransparentConverter}}">
-                <TextBlock 
-                           Text="&lt;USERNAME&gt;" 
+                <TextBlock x:Uid="Welcome_Username" 
                 />
                 <TextBox 
                          Text="{Binding Path=Username, 
@@ -78,8 +74,7 @@
             <VariableSizedWrapGrid 
                                    Opacity="{Binding Path=ShowPasswordField, 
                                                      Converter={StaticResource FalseToTransparentConverter}}">
-                <TextBlock 
-                            Text="&lt;PASSWORD&gt;" 
+                <TextBlock x:Uid="Welcome_Password" 
                 />
                 <PasswordBox 
                              Password="{Binding Path=Password, 
@@ -88,10 +83,9 @@
                 />
             </VariableSizedWrapGrid>
 
-            <Button 
-                    Command="{Binding Path=FinishSetupCommand}">
-                <TextBlock Text="&lt;NEXT&gt;" />
-            </Button>
+            <Button x:Uid="Welcome_FinishButton" 
+                    Command="{Binding Path=FinishSetupCommand}" 
+            />
         </StackPanel>
     </Grid>
 
