@@ -180,10 +180,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Assets\plug-for-electric-connection.svg" />
     <EmbeddedResource Include="Assets\heating.svg" />
+    <Content Include="..\..\..\shared\FodyWeavers.xml">
+      <Link>FodyWeavers.xml</Link>
+    </Content>
     <Content Include="Assets\communication-1927706.jpg" />
     <Content Include="Assets\Square44x44Logo.scale-100.png" />
     <Content Include="Assets\Square71x71Logo.scale-200.png" />
-    <Content Include="FodyWeavers.xml" />
     <EmbeddedResource Include="Model\Configuration\key.txt" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -374,6 +376,9 @@
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>copy  "$(SolutionDir)..\shared\FodyWeavers.xml" "$(ProjectDir)FodyWeavers.xml"</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

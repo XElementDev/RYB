@@ -253,3 +253,7 @@ paket-files/
 
 # 2016-09-19, Ian
 code/UI/UWP/RYB/Model/Configuration/key.txt
+
+# 2017-09-30, Ian
+FodyWeavers.xml
+!/code/shared/FodyWeavers.xml
