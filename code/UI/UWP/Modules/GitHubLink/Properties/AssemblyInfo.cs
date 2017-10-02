@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]
 [assembly: AssemblyProduct( "RYB" )]
-[assembly: AssemblyCopyright( "Copyright © XElement 2016" )]
+[assembly: AssemblyCopyright( "Copyright © XElement 2016-2017" )]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 
