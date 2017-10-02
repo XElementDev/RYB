@@ -3,10 +3,9 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using XElement.RedYellowBlue.UI.UWP.Bootstrapping;
 using XElement.RedYellowBlue.UI.UWP.Pages;
 
-namespace XElement.RedYellowBlue.UI.UWP
+namespace XElement.RYB.UI.UWP.Bootstrapping
 {
 #region not unit-tested
     /// <summary>

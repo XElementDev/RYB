@@ -7,8 +7,9 @@ using System.Linq;
 using System.Reflection;
 using Windows.ApplicationModel;
 using Windows.Storage;
+using RootViewModel = XElement.RedYellowBlue.UI.UWP.Pages.Root.ViewModel;
 
-namespace XElement.RedYellowBlue.UI.UWP.Bootstrapping
+namespace XElement.RYB.UI.UWP.Bootstrapping
 {
 #region not unit-tested
     internal class Bootstrapper
@@ -86,7 +87,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Bootstrapping
 
 
         [Import]
-        private Pages.Root.ViewModel MefRootVM { get; set; }
+        private RootViewModel MefRootVM { get; set; }
 
 
         public void Run()
@@ -96,7 +97,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Bootstrapping
         }
 
 
-        public Pages.Root.ViewModel RootVM { get; private set; }
+        public RootViewModel RootVM { get; private set; }
 
 
         private void SetLocaleIfInDebug()
