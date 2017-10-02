@@ -101,6 +101,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Bootstrapping\Bootstrapper.cs" />
     <Compile Include="Dictionaries\Resources\SvgBase.cs" />
     <Compile Include="Dictionaries\Resources\SvgSwitch.cs" />
     <Compile Include="Dictionaries\Resources\SvgThermostat.cs" />

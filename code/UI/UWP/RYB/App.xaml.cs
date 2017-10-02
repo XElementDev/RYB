@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Composition;
-using System.Composition.Hosting;
-using System.Globalization;
-using System.Reflection;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using XElement.RedYellowBlue.UI.UWP.Bootstrapping;
 using XElement.RedYellowBlue.UI.UWP.Pages;
 
 namespace XElement.RedYellowBlue.UI.UWP
@@ -23,19 +20,10 @@ namespace XElement.RedYellowBlue.UI.UWP
         /// </summary>
         public App()
         {
-            this.InitializeMef();
-            this.SetLocaleIfInDebug();
+            this._bootstrapper = new Bootstrapper();
+            this._bootstrapper.Run();
 
             this.InitializeComponent();
-        }
-
-
-        private void InitializeMef()
-        {
-            var assembly = this.GetType().GetTypeInfo().Assembly;
-            var containerConfig = new ContainerConfiguration().WithAssembly( assembly );
-            var compositionHost = containerConfig.CreateContainer();
-            compositionHost.SatisfyImports( this );
         }
 
 
@@ -68,7 +56,7 @@ namespace XElement.RedYellowBlue.UI.UWP
                     //TODO: Load state from previously suspended application
                 }
 
-                rootFrame.DataContext = this.RootVM;
+                rootFrame.DataContext = this._bootstrapper.RootVM;
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
@@ -99,16 +87,7 @@ namespace XElement.RedYellowBlue.UI.UWP
         }
 
 
-        [Import]
-        private Pages.Root.ViewModel RootVM { get; set; }
-
-
-        private void SetLocaleIfInDebug()
-        {
-#if DEBUG
-            CultureInfo.CurrentUICulture = new CultureInfo( "en-US" );
-#endif
-        }
+        private Bootstrapper _bootstrapper;
     }
 #endregion
 }
