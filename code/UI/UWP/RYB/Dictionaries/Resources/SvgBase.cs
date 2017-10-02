@@ -34,7 +34,7 @@ namespace XElement.RedYellowBlue.UI.UWP.Resources
         public SvgDocument Svg { get; private set; }
 
 
-        private const string NAMESPACE = "XElement.RedYellowBlue.UI.UWP.Assets";
+        private const string NAMESPACE = "XElement.RYB.UI.UWP.Assets";
     }
 #endregion
 }

@@ -7,8 +7,8 @@
     <ProjectGuid>{9E5E1955-7C20-4B25-B40A-93449EBAB79F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter</RootNamespace>
-    <AssemblyName>XElement.RedYellowBlue.FritzBoxAPI.ApiAdapter.Interface</AssemblyName>
+    <RootNamespace>XElement.RYB.FritzBoxAPI.ApiAdapter</RootNamespace>
+    <AssemblyName>XElement.RYB.FritzBoxAPI.ApiAdapter.Interface</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>

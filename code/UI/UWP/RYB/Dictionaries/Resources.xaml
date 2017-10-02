@@ -5,7 +5,7 @@
                     xmlns:converters="using:XElement.RedYellowBlue.UI.UWP.Converters">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="ms-appx:///XElement.RedYellowBlue.UI.UWP.Common/Dictionaries/Resources.xaml" />
+        <ResourceDictionary Source="ms-appx:///XElement.RYB.UI.UWP.Common/Dictionaries/Resources.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 

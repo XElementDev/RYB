@@ -7,8 +7,8 @@
     <ProjectGuid>{480D7C55-3CF8-42DA-A7F7-CD63790D8814}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.RedYellowBlue.UI.UWP.Common</RootNamespace>
-    <AssemblyName>XElement.RedYellowBlue.UI.UWP.Common</AssemblyName>
+    <RootNamespace>XElement.RYB.UI.UWP.Common</RootNamespace>
+    <AssemblyName>XElement.RYB.UI.UWP.Common</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>

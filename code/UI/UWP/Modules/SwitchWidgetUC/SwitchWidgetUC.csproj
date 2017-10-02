@@ -7,8 +7,8 @@
     <ProjectGuid>{BF1B2833-D1C8-4E2C-9EF2-AC3005E984DB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.RedYellowBlue.UI.UWP.Modules.SwitchWidget</RootNamespace>
-    <AssemblyName>XElement.RedYellowBlue.UI.UWP.Modules.SwitchWidgetUC</AssemblyName>
+    <RootNamespace>XElement.RYB.UI.UWP.Modules.SwitchWidget</RootNamespace>
+    <AssemblyName>XElement.RYB.UI.UWP.Modules.SwitchWidgetUC</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>

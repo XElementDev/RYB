@@ -7,8 +7,8 @@
     <ProjectGuid>{37438CD6-46C6-4495-91F5-0C76FE9C0D1E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.RedYellowBlue.UI.UWP.Modules.TabHeader</RootNamespace>
-    <AssemblyName>XElement.RedYellowBlue.UI.UWP.Modules.TabHeaderUC</AssemblyName>
+    <RootNamespace>XElement.RYB.UI.UWP.Modules.TabHeader</RootNamespace>
+    <AssemblyName>XElement.RYB.UI.UWP.Modules.TabHeaderUC</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle( "XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer.Implementation" )]
+[assembly: AssemblyTitle( "XElement.RYB.FritzBoxAPI.LoginRecognizer.Implementation" )]
 [assembly: AssemblyDescription( "" )]
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible( false )]
 
 #if DEBUG
-[assembly: InternalsVisibleTo( "test_XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer.Implementation" )]
+[assembly: InternalsVisibleTo( "test_XElement.RYB.FritzBoxAPI.LoginRecognizer.Implementation" )]
 #endif

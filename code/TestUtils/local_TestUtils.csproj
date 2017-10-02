@@ -7,8 +7,8 @@
     <ProjectGuid>{BF8254C4-D011-4AFE-B2B6-1298B9E62073}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.RedYellowBlue.TestUtils</RootNamespace>
-    <AssemblyName>XElement.RedYellowBlue.TestUtils</AssemblyName>
+    <RootNamespace>XElement.RYB.TestUtils</RootNamespace>
+    <AssemblyName>XElement.RYB.TestUtils</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>

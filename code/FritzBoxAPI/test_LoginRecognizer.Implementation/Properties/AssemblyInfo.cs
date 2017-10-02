@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle( "test_XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer.Implementation" )]
+[assembly: AssemblyTitle( "test_XElement.RYB.FritzBoxAPI.LoginRecognizer.Implementation" )]
 [assembly: AssemblyDescription( "" )]
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]

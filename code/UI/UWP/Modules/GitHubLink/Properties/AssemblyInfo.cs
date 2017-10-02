@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle( "XElement.RedYellowBlue.UI.UWP.Modules.GitHubLink" )]
+[assembly: AssemblyTitle( "XElement.RYB.UI.UWP.Modules.GitHubLink" )]
 [assembly: AssemblyDescription( "" )]
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]

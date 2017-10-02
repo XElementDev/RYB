@@ -7,8 +7,8 @@
     <ProjectGuid>{7ADA5BBB-9965-4F27-8BE1-534250839CDF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.RedYellowBlue.UI.UWP.Modules.TemperatureWidget</RootNamespace>
-    <AssemblyName>XElement.RedYellowBlue.UI.UWP.Modules.TemperatureWidgetUC</AssemblyName>
+    <RootNamespace>XElement.RYB.UI.UWP.Modules.TemperatureWidget</RootNamespace>
+    <AssemblyName>XElement.RYB.UI.UWP.Modules.TemperatureWidgetUC</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>

@@ -7,8 +7,8 @@
     <ProjectGuid>{B8971C15-0675-4C31-B049-F2DB2D801DEE}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer</RootNamespace>
-    <AssemblyName>test_XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer.Implementation</AssemblyName>
+    <RootNamespace>XElement.RYB.FritzBoxAPI.LoginRecognizer</RootNamespace>
+    <AssemblyName>test_XElement.RYB.FritzBoxAPI.LoginRecognizer.Implementation</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>

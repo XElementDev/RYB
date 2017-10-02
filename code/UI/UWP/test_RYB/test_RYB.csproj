@@ -7,7 +7,7 @@
     <ProjectGuid>{749F5FAF-37C3-425F-804A-CFD61FA4A42D}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.RedYellowBlue.UI.UWP</RootNamespace>
+    <RootNamespace>XElement.RYB.UI.UWP</RootNamespace>
     <AssemblyName>test_RYB</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>

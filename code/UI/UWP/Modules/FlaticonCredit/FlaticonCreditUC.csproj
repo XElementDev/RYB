@@ -7,8 +7,8 @@
     <ProjectGuid>{637852E9-7E85-4CF0-A630-D87252F63DA5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.RedYellowBlue.UI.UWP.Modules.FlaticonCredit</RootNamespace>
-    <AssemblyName>XElement.RedYellowBlue.UI.UWP.Modules.FlaticonCreditUC</AssemblyName>
+    <RootNamespace>XElement.RYB.UI.UWP.Modules.FlaticonCredit</RootNamespace>
+    <AssemblyName>XElement.RYB.UI.UWP.Modules.FlaticonCreditUC</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
