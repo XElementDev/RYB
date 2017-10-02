@@ -1,4 +1,4 @@
-﻿using Mntone.SvgForXaml;
+using Mntone.SvgForXaml;
 using System.IO;
 using System.Reflection;
 
