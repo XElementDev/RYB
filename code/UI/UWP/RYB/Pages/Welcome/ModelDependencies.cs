@@ -1,4 +1,4 @@
-﻿using System.Composition;
+using System.Composition;
 using XElement.RedYellowBlue.FritzBoxAPI.LoginRecognizer;
 using XElement.RedYellowBlue.UI.UWP.Model;
 
